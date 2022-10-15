@@ -1,4 +1,4 @@
-package by.iba.kazakov.device_verification.services;
+package by.iba.kazakov.device_verification.services.serviceInterfaces;
 
 import java.util.Set;
 

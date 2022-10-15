@@ -1,10 +1,9 @@
-package by.iba.kazakov.device_verification.services.impl;
+package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.Administrator;
 import by.iba.kazakov.device_verification.repositories.AdministratorRepository;
-import by.iba.kazakov.device_verification.services.AdministratorService;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.AdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
