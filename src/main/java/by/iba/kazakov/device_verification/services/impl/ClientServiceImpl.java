@@ -13,6 +13,7 @@ import java.util.Set;
 public class ClientServiceImpl implements ClientService {
     @Autowired
     ClientRepository clientRepository;
+
     @Override
     public Set<Client> findAll() {
         Set<Client> clients = new HashSet<>();
