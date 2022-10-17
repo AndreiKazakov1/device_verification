@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Set;
 
 @Controller
-public class firstController {
+public class allClientsController {
     @Autowired
     ClientService clientService;
-    @RequestMapping({"/", "/index"})
+    @RequestMapping({"/allClients"})
 
     public String personList(Model model) {
         Set<Client> clients = clientService.findAll();
         model.addAttribute("clients", clients);
-        return "index";
+        return "allClients";
 
 
     }}

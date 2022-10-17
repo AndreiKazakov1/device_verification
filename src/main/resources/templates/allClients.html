@@ -1,0 +1,44 @@
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Person List</title>
+
+
+
+</head>
+<body>
+<h2 th:text="'List of Clients'">Owners List</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">PhoneNumber</th>
+        <th scope="col">FileCode</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+
+        <td th:utext="${client.id}">...</td>
+        <td th:utext="${client.clienName}">...</td>
+        <td th:utext="${client.clientAddress}">...</td>
+        <td th:utext="${client.clientPhoneNumber}">...</td>
+        <td th:utext="${client.clientFileCode}">...</td>
+
+
+    </tr>
+
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
