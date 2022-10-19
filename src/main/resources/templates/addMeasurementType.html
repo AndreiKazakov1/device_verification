@@ -39,10 +39,10 @@
 <body class="bg-light">
 
 <div class="container">
-    <form th:action="@{/addMeasType}" th:object="${addMeasType} " method="post"><!--class="was-validated"-->
+    <main ><!--class="was-validated"-->
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Добавить вид измерений</h4>
-                <form class="needs-validation" novalidate>
+                <form th:action="@{/addMeasType}" th:object="${addMeasType} " method="post"class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="measType" class="form-label"></label>
@@ -53,11 +53,11 @@
                         </div>
                     </div>
                     <hr class="my-4">
-                    <button class="w-25 btn btn-primary btn-lg" type="submit" >Подтвердить</button>
+                    <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff" type="submit" >Подтвердить</button>
                 </form>
             </div>
 
-    </form>
+    </main>
 
 </div>
 
