@@ -19,7 +19,7 @@ public class allClientsController {
     public String personList(Model model) {
         Set<Client> clients = clientService.findAll();
         model.addAttribute("clients", clients);
-        return "allClients";
+        return "showAllClients";
 
 
     }}

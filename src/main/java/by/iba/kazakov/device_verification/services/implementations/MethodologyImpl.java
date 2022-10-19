@@ -10,6 +10,7 @@ import java.util.Set;
 public class MethodologyImpl implements MethodologyService {
     @Autowired
     MethodologyRepository methodologyRepository;
+
     @Override
     public Set<Methodology> findAll() {
         return null;
@@ -22,7 +23,7 @@ public class MethodologyImpl implements MethodologyService {
 
     @Override
     public Methodology save(Methodology object) {
-        return null;
+        return methodologyRepository.save(object);
     }
 
     @Override
@@ -35,3 +36,10 @@ public class MethodologyImpl implements MethodologyService {
 
     }
 }
+
+
+    /*@Override
+    public Visit save(Visit object) {
+        return visitRepository.save(object);
+    }
+*/

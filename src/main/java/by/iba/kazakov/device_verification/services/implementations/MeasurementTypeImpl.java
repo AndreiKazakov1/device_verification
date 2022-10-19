@@ -4,12 +4,16 @@ import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.repositories.MeasurementTypeRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class MeasurementTypeImpl implements MeasurementTypeService {
+
     @Autowired
     MeasurementTypeRepository measurementTypeRepository;
+
     @Override
     public Set<MeasurementType> findAll() {
         return null;
@@ -22,7 +26,7 @@ public class MeasurementTypeImpl implements MeasurementTypeService {
 
     @Override
     public MeasurementType save(MeasurementType object) {
-        return null;
+        return measurementTypeRepository.save(object);
     }
 
     @Override
