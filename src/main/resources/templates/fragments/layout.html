@@ -10,6 +10,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 
+  <!--fff-->
+  <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet"  crossorigin="anonymous">
+
+
+
 
 
   <title>Main page</title>
@@ -128,6 +133,11 @@
 </head>
 
 <body>
+
+<!--fff-->
+<script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"> </script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" crossorigin="anonymous"> </script>
+
 <div id="wrap">
   <!--Navigation-->
   <header id="header" class="header header--fixed hide-from-print" role="banner">
@@ -167,7 +177,7 @@
         <!-- nav -->
 
         <!-- article -->
-        <div id="article" class="col-md-6 col-sm-12">
+        <div id="article" class="col-md-8 col-sm-12 ">
           article
           <th:block th:include="${template}" />
         </div>
@@ -194,7 +204,6 @@
 
   </section>
 </div>
-
 
 
 

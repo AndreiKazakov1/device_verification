@@ -1,4 +1,5 @@
 
+<!--
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
@@ -6,7 +7,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Person List</title>
-    <!-- CSS only -->
+    &lt;!&ndash; CSS only &ndash;&gt;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 
@@ -39,6 +40,77 @@
     </tbody>
 </table>
 
+
+</body>
+</html>-->
+
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}">
+
+
+<head>
+    <meta charset="UTF-8"/>
+   <!-- <title>Список клиентов</title>-->
+
+</head>
+<body>
+
+<h3>Список клиентов</h3>
+<div id="demo_info" class="box"></div>
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Название огранизации</th>
+        <th>Адрес</th>
+        <th>Телефон</th>
+        <th>Код клиента</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+
+
+    <tr th:each="client : ${clients}">
+
+        <td th:utext="${client.id}">...</td>
+        <td th:utext="${client.clienName}">...</td>
+        <td th:utext="${client.clientAddress}">...</td>
+        <td th:utext="${client.clientPhoneNumber}">...</td>
+        <td th:utext="${client.clientFileCode}">...</td>
+
+    </tr>
+
+
+    </tbody>
+    <!--<tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>-->
+</table>
+
+
+<!--  js для прокаченной таблицы-->
+<script>
+
+    $('#example').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
+        }
+    });
+
+</script>
 
 </body>
 </html>

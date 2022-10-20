@@ -1,12 +1,22 @@
 package by.iba.kazakov.device_verification.controller;
 
+import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.MeasurementType;
+import by.iba.kazakov.device_verification.repositories.ClientRepository;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.ClientService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Controller
@@ -24,6 +34,45 @@ public class MeasurementTypeController {
     @PostMapping ("/addMeasType")
     public String saveMeasType (Model model, MeasurementType measurementType){
         measurementTypeService.save(measurementType);
-        return "index";
+        return "addMeasurementTypeSubmit";
     }
+
+
+    @RequestMapping({"/allMeasTypes"})
+    public String measTypeList (Model model){
+        Set<MeasurementType> measurementTypes = measurementTypeService.findAll();
+        model.addAttribute("meastypes", measurementTypes );
+        return "showAllMeasurementTypes";
+    }
+
+
+
 }
+
+/*
+@Controller
+public class allClientsController {
+    @Autowired
+    ClientService clientService;
+    @RequestMapping({"/allClients"})
+
+    public String personList(Model model) {
+        Set<Client> clients = clientService.findAll();
+        model.addAttribute("clients", clients);
+        return "showAllClients";
+
+
+    }}
+*/
+/*
+@Service
+public class ClientServiceImpl implements ClientService {
+    @Autowired
+    ClientRepository clientRepository;
+
+    @Override
+    public Set<Client> findAll() {
+        Set<Client> clients = new HashSet<>();
+        clientRepository.findAll().forEach(clients::add);
+        return clients;
+    }*/

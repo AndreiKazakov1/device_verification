@@ -1,0 +1,67 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Person List</title>
+
+</head>
+<body>
+
+
+<div id="demo_info" class="box"></div>
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr>
+        <td>Zorita Serrano</td>
+        <td>Software Engineer</td>
+        <td>San Francisco</td>
+        <td>56</td>
+        <td>2012-06-01</td>
+        <td>$115,000</td>
+    </tr>
+
+
+    </tbody>
+    <!--<tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>-->
+</table>
+
+
+<!--  js для прокаченной таблицы-->
+<script>
+
+        $('#example').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
+            }
+        });
+
+</script>
+
+</body>
+</html>
