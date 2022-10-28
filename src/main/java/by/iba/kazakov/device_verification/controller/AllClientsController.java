@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Set;
 
 @Controller
-public class allClientsController {
+public class AllClientsController {
     @Autowired
     ClientService clientService;
     @RequestMapping({"/allClients"})
