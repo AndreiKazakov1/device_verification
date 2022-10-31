@@ -18,7 +18,7 @@ public class AdminKey {
     private Integer id;
 
     @Column(name = "adm_key", nullable = false, length = 45)
-    private String admKey;
+    public String admKey;
 
 
 

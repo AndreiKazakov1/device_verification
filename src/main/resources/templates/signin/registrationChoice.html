@@ -59,11 +59,11 @@
             <h4 class="mb-3">Сделайте выбор</h4>
             <div class="col-md-7 col-lg-8">
 
-                <form th:action="@{/getAdmKey}" th:value="${admKeyAtrb}" class="needs-validation" novalidate>
+                <form th:action="@{/getAdmKey}"  method="post" class="needs-validation" novalidate>
                         <div class="col-12">
                             <div class="input-group has-validation">
                                 <span class="input-group-text">Регистрация поверителя</span>
-                                <input type="text" class="form-control" id="reg-key-verifier" placeholder="Ключ регистрации" required>
+                                <input type="text" th:value="${admKeyatrb}"  class="form-control" id="reg-key-verifier" placeholder="Ключ регистрации" required>
                                 <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff" type="submit" >Подтвердить</button>
                                 <div class="invalid-feedback">
                                     Необходимо ввести ключ регистрации.
