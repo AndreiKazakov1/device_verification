@@ -4,21 +4,27 @@ import by.iba.kazakov.device_verification.models.AdminKey;
 import by.iba.kazakov.device_verification.repositories.AdminKeyRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
+
+@Service
 public class AdminKeyServiceImpl implements AdminKeyService {
     @Autowired
     AdminKeyRepository adminKeyRepository;
 
     @Override
     public Set<AdminKey> findAll() {
-        return null;
+        Set<AdminKey> adminKeys = new HashSet<>();
+        adminKeyRepository.findAll().forEach(adminKeys::add);
+        return adminKeys;
+
     }
 
     @Override
-    public AdminKey findById(Integer integer) {
-        return null;
+    public AdminKey findById(Integer integer) {return null;
     }
 
     @Override

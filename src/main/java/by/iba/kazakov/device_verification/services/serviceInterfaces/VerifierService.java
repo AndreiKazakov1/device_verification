@@ -5,4 +5,8 @@ import by.iba.kazakov.device_verification.services.serviceInterfaces.CrudService
 
 public interface VerifierService
         extends CrudService<Verifier, Integer> {
+
+
+
+
 }
