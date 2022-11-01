@@ -1,5 +1,8 @@
 package by.iba.kazakov.device_verification.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -7,6 +10,10 @@ import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "verifier")
 public class Verifier {

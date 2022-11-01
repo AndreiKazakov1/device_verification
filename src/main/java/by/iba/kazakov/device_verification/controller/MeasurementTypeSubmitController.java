@@ -13,9 +13,9 @@ public class MeasurementTypeSubmitController {
 
     @RequestMapping(value = {"/addMeasTypeSub"}, method = RequestMethod.GET)
     public String submitMeasType(Model model) {
-        ModelAndView modelAndView = new ModelAndView();
+        /*ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("addMeasTypeSub");
-
+*/
         return "addMeasurementTypeSubmit";
     }
 }
