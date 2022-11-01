@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
 <html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutRegistration :: layout (~{::body}, 'clients')}">
@@ -63,7 +64,7 @@
                         <div class="col-12">
                             <div class="input-group has-validation">
                                 <span class="input-group-text">Регистрация поверителя</span>
-                                <input type="text" th:value="${admKeyatrb}"  class="form-control" id="reg-key-verifier" placeholder="Ключ регистрации" required>
+                                <input type="text"   class="form-control" id="key" name="key"  placeholder="Ключ регистрации" required>
                                 <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff" type="submit" >Подтвердить</button>
                                 <div class="invalid-feedback">
                                     Необходимо ввести ключ регистрации.
@@ -73,22 +74,6 @@
                 </form>
 
                     <hr class="my-4">
-
-
-               <!-- <form th:action="@{/addMeasType}" th:object="${addMeasType} " method="post"class="needs-validation" novalidate>
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <label for="measType" class="form-label"></label>
-                            <input type="text" th:field="*{measurementTypeCol}" class="form-control" id="measType" placeholder="пример: температурные измерения" required >
-                            <div class="invalid-feedback">
-                                Необходимо заполнить поле.
-                            </div>
-                        </div>
-                    </div>
-                -->
-
-
-
 
 
                 <form class="needs-validation" novalidate>

@@ -49,30 +49,3 @@ public class MeasurementTypeController {
 
 }
 
-/*
-@Controller
-public class allClientsController {
-    @Autowired
-    ClientService clientService;
-    @RequestMapping({"/allClients"})
-
-    public String personList(Model model) {
-        Set<Client> clients = clientService.findAll();
-        model.addAttribute("clients", clients);
-        return "showAllClients";
-
-
-    }}
-*/
-/*
-@Service
-public class ClientServiceImpl implements ClientService {
-    @Autowired
-    ClientRepository clientRepository;
-
-    @Override
-    public Set<Client> findAll() {
-        Set<Client> clients = new HashSet<>();
-        clientRepository.findAll().forEach(clients::add);
-        return clients;
-    }*/
