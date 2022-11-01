@@ -14,6 +14,7 @@ import java.util.Set;
 public class AllClientsController {
     @Autowired
     ClientService clientService;
+
     @RequestMapping({"/allClients"})
 
     public String personList(Model model) {

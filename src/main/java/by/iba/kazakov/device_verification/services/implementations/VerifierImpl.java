@@ -6,10 +6,12 @@ import by.iba.kazakov.device_verification.repositories.AdminKeyRepository;
 import by.iba.kazakov.device_verification.repositories.VerifierRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.VerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class VerifierImpl implements VerifierService {
     @Autowired
     VerifierRepository verifierRepository;

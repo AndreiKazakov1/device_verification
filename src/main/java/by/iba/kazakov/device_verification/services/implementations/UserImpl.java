@@ -4,9 +4,11 @@ import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.repositories.UserRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class UserImpl implements UserService {
     @Autowired
     UserRepository userRepository;

@@ -35,12 +35,10 @@ public class SignInController {
 
     @PostMapping({"/getAdmKey"})
     public String getAdmKey(@Validated String key) {
-        System.out.println(key);
-
         Set<AdminKey> adminKeys = adminKeyService.findAll();
         for (AdminKey a : adminKeys) {
           String s = a.getAdmKey();
-           if (s.equals(key)) return "index";
+           if (s.equals(key)) return "signin/verifierRegistrationForm";
 else return "showAllClients";
 
         }
