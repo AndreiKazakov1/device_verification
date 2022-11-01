@@ -69,17 +69,6 @@
             @media (min-width: 768px) {
             }
 
-            .nav-scroller .nav {
-                display: flex;
-                flex-wrap: nowrap;
-                padding-bottom: 1rem;
-                margin-top: -1px;
-                overflow-x: auto;
-                text-align: center;
-                white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
-            }
-
 
 
 
@@ -118,10 +107,11 @@
 <div class="container">
     <main>
         <div class="mb-3">
+            <div class="row g-3">
 
-            <h2>Регистрация нового пользователя</h2>
+            <h2>Регистрация нового поверителя</h2>
 
-<form class="row g-3">
+<form  class="needs-validation" novalidate>
     <div class="col-md-4">
         <label for="validationDefault01" class="form-label">First name</label>
         <input type="text" class="form-control" id="validationDefault01" value="" required>
@@ -165,24 +155,20 @@
     </div>
 </form>
         </div>
+        </div>
+
     </main>
 </div>
-
 <script>
     (() => {
         'use strict'
-
-// Fetch all the forms we want to apply custom Bootstrap validation styles to
         const forms = document.querySelectorAll('.needs-validation')
-
-// Loop over them and prevent submission
         Array.from(forms).forEach(form => {
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
                 }
-
                 form.classList.add('was-validated')
             }, false)
         })
