@@ -1,15 +1,17 @@
 
 
+
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}">
+<html lang="" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}">
 
 
 <head>
     <meta charset="UTF-8"/>
-   <!-- <title>Список клиентов</title>-->
+    <title></title>
+    <!-- <title>Список клиентов</title>-->
 
 </head>
 <body>
@@ -24,19 +26,41 @@
         <th>Адрес</th>
         <th>Телефон</th>
         <th>Код клиента</th>
+
     </tr>
     </thead>
     <tbody>
+
+
+
     <tr th:each="client : ${clients}">
+
         <td th:utext="${client.id}">...</td>
         <td th:utext="${client.clienName}">...</td>
         <td th:utext="${client.clientAddress}">...</td>
         <td th:utext="${client.clientPhoneNumber}">...</td>
         <td th:utext="${client.clientFileCode}">...</td>
+
     </tr>
+
+
     </tbody>
+    <!--<tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>-->
 </table>
+
+
+<!--  js для прокаченной таблицы-->
 <script>
+
     $('#example').DataTable({
         language: {
             url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
@@ -44,5 +68,6 @@
     });
 
 </script>
+
 </body>
 </html>
