@@ -36,9 +36,9 @@ public class Verifier {
     @JoinColumn(name = "id_user", nullable = false)
     private User idUser;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    /*@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_admin_key", nullable = false)
-    private AdminKey idAdminKey;
+    private AdminKey idAdminKey;*/
 
     @OneToMany(mappedBy = "idVerifier")
     private Set<DeviceInVerification> deviceInVerifications = new LinkedHashSet<>();

@@ -19,7 +19,7 @@ public class User {
     @Column(name = "id_user", nullable = false)
     private Integer id;
 
-    @Column(name = "login", nullable = false, length = 45)
+    @Column(name = "login", nullable = false, length = 45, unique = true)
     private String login;
 
     @Column(name = "password", nullable = false, length = 45)

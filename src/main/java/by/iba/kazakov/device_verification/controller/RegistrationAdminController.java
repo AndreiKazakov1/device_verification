@@ -7,7 +7,9 @@ import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService
 import by.iba.kazakov.device_verification.services.serviceInterfaces.VerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class RegistrationAdminController {
-    @Autowired
-    VerifierService verifierService;
+
     @Autowired
     UserService userService;
+
+    @Autowired
+    VerifierService verifierService;
+
 
     @RequestMapping({"/addNewVerifierAdm"})
     public String addNewVerifierForm(Model model) {
@@ -29,18 +34,24 @@ public class RegistrationAdminController {
 
     @GetMapping({"/addNewVerifierAdm"})
     public String addNewVerifier (Model model) {
-       model.addAttribute("addNewVerifierAdm", new User());
         model.addAttribute("addNewVerifierAdm", new Verifier());
         return "admin/addNewVerifierAdm";
     }
-
-
+    @Transactional
     @PostMapping("/addNewVerifierAdm")
-    public String saveNewVerifierAdm (Model model, Verifier verifier, User user){
+    public String addNewUser(@Validated String userLogin, @Validated String userPassword, Verifier verifier){
+        String role = "verifier";
+        User user = new User();
+        user.setLogin(userLogin);
+        user.setPassword(userPassword);
+        user.setRole(role);
         userService.save(user);
+        verifier.setIdUser(user);
         verifierService.save(verifier);
         return "admin/addNewVerifierAdmSubmit";
+
     }
+
 
     @RequestMapping(value = {"/addNewVerifierAdmSubmit"}, method = RequestMethod.GET)
     public String submitMeasType(Model model) {

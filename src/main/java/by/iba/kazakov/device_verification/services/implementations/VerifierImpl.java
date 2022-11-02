@@ -1,6 +1,7 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.AdminKey;
+import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.models.Verifier;
 import by.iba.kazakov.device_verification.repositories.AdminKeyRepository;
 import by.iba.kazakov.device_verification.repositories.VerifierRepository;
@@ -27,8 +28,7 @@ public class VerifierImpl implements VerifierService {
     }
 
     @Override
-    public Verifier save(Verifier object) {
-        return null;
+    public Verifier save(Verifier object) {return  verifierRepository.save(object);
     }
 
     @Override
