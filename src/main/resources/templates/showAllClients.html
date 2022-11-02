@@ -3,9 +3,8 @@
 
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
-
-<html lang="" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}" xmlns:th="http://www.thymeleaf.org">
 
 
 <head>
@@ -45,16 +44,7 @@ lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: 
 
 
     </tbody>
-    <!--<tfoot>
-    <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-    </tr>
-    </tfoot>-->
+
 </table>
 
 
@@ -70,4 +60,4 @@ lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: 
 </script>
 
 </body>
-</html>
+
