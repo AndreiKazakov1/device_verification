@@ -1,0 +1,72 @@
+<!--<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'clients')}">-->
+
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, '', '')}">
+
+<head>
+    <meta charset="UTF-8"/>
+
+
+</head>
+<body>
+
+<h3>Список поверителей</h3>
+<div id="demo_info" class="box"></div>
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Табельный номер</th>
+        <th>Логин</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="verifier: ${verifiers}">
+
+        <!--/*@thymesVar id="verifier" type="by.iba.kazakov.device_verification.models.Verifier"*/-->
+        <!--/*@thymesVar id="client" type="by.iba.kazakov.device_verification.models.Client"*/-->
+        <td th:utext="${verifier.id}">...</td>
+        <td th:utext="${client.id}">...</td>
+        <td th:utext="${client.clientAddress}">...</td>
+        <td th:utext="${client.clientPhoneNumber}">...</td>
+        <td th:utext="${client.clientFileCode}">...</td>
+
+    </tr>
+
+
+    </tbody>
+    <!--<tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>-->
+</table>
+
+
+<!--  js для прокаченной таблицы-->
+<script>
+
+    $('#example').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
+        }
+    });
+
+</script>
+
+</body>
+</html>

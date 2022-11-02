@@ -1,5 +1,6 @@
 package by.iba.kazakov.device_verification.controller;
 
+import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.models.Verifier;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Set;
 
 @Controller
 public class RegistrationAdminController {
@@ -57,5 +60,15 @@ public class RegistrationAdminController {
     public String submitMeasType(Model model) {
         return "admin/addNewVerifierAdmSubmit";
     }
+
+    @RequestMapping({"/showAllVerifiers"})
+    public String showAllVerifiers(Model model) {
+        Set<Verifier> verifiers = verifierService.findAll();
+        model.addAttribute("verifiers", verifiers);
+        return "admin/showAllVerifiers";
+
+
+    }
+
 
 }

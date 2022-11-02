@@ -1,6 +1,7 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.AdminKey;
+import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.models.Verifier;
 import by.iba.kazakov.device_verification.repositories.AdminKeyRepository;
@@ -19,7 +20,9 @@ public class VerifierImpl implements VerifierService {
 
     @Override
     public Set<Verifier> findAll() {
-        return null;
+        Set<Verifier> verifiers = new HashSet<>();
+        verifierRepository.findAll().forEach(verifiers::add);
+        return verifiers;
     }
 
     @Override
