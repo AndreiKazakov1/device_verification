@@ -32,8 +32,8 @@ public class User {
     @OneToMany(mappedBy = "idUser")
     private Set<Administrator> administrators = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "idUser")
-    private Set<Verifier> verifiers = new LinkedHashSet<>();
+   /* @OneToMany(mappedBy = "idUser")
+    private Set<Verifier> verifiers = new LinkedHashSet<>();*/
 
 
 

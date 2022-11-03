@@ -13,10 +13,10 @@
         </a>
         <ul class="list-unstyled ps-0">
             <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                <button class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false" aria-controls="home-collapse">
                     Работа с клиентами
                 </button>
-                <div class="collapse show" id="home-collapse">
+                <div class="collapse " id="home-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить нового клиента</a></li>
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать всех клиентов</a></li>
@@ -25,10 +25,11 @@
                 </div>
             </li>
             <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                <button   th:class="${menu == 'Ver'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                          class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                     Работа с поверителями
                 </button>
-                <div class="collapse" id="dashboard-collapse">
+                <div th:class="${menu == 'Ver'}? 'show':'collapse'"  class="collapse " id="dashboard-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="/addNewVerifierAdm">Добавить нового поверителя</a></li>
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Показать всех поверителей</a></li>
@@ -69,5 +70,7 @@
     <div class="d-flex" style="height: auto">
         <div class="vr"></div>
     </div>
+
+
    <!-- <div class="b-example-divider b-example-vr"></div>-->
 </main>
