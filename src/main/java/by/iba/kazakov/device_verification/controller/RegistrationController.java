@@ -19,8 +19,8 @@ public class RegistrationController {
 
     @RequestMapping({"/verifierRegistrationForm"})
     public String addNewVerifier (Model model) {
-        /*ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("verifierRegistrationForm");*/
         return "signin/verifierRegistrationForm";
     }
+
+
 }

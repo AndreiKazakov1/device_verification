@@ -2,7 +2,7 @@
 
 <html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en" th:replace="~{fragments/layout :: layout (~{::body}, 'Ver')}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:replace="~{fragments/layout :: layout (~{::body}, 'verifier')}" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -90,17 +90,6 @@
 
                 <h2>Регистрация нового поверителя</h2>
 
-               <!-- <form th:action="@{/addMeasType}" th:object="${addMeasType} " method="post" class="needs-validation" novalidate>
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <label for="measType" class="form-label"></label>
-                            <input type="text" th:field="*{measurementTypeCol}" class="form-control" id="measType" placeholder="пример: температурные измерения" required >
-                            <div class="invalid-feedback">
-                                Необходимо заполнить поле.
-                            </div>
-                        </div>
-                    </div>-->
-
 
                 <form  class="needs-validation" method="post" novalidate th:action="@{/addNewVerifierAdm}" th:object="${addNewVerifierAdm}">
 
@@ -115,7 +104,7 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label" for="verifierServiceNumberAdm">Табельный номер</label>
-                        <input class="form-control" id="verifierServiceNumberAdm" required th:field="*{verifierServiceNumber}" type="text">
+                        <input class="form-control" id="verifierServiceNumberAdm" required th:field="*{verifierServiceNumber}" type="number">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label" for="verifierLoginAdm">Логин</label>
@@ -123,7 +112,7 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label" for="verifierPassAdm">Пароль</label>
-                        <input class="form-control" id="verifierPassAdm" required name="userPassword" type="text">
+                        <input class="form-control" id="verifierPassAdm" required name="userPassword" type="password">
                     </div>
 <br>
                     <div class="col-12">
