@@ -43,14 +43,14 @@ public class RegistrationAdminController {
     @Transactional
     @PostMapping("/addNewVerifierAdm")
     public String addNewUser(@Validated String userLogin, @Validated String userPassword, Verifier verifier){
-        String role = "verifier";
-        User user = new User();
-        user.setLogin(userLogin);
-        user.setPassword(userPassword);
-        user.setRole(role);
-        userService.save(user);
-        verifier.setIdUser(user);
-        verifierService.save(verifier);
+            String role = "verifier";
+            User user = new User();
+            user.setLogin(userLogin);
+            user.setPassword(userPassword);
+            user.setRole(role);
+            userService.save(user);
+            verifier.setIdUser(user);
+            verifierService.save(verifier);
         return "admin/addNewVerifierAdmSubmit";
 
     }

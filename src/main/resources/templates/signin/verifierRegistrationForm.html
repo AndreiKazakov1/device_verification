@@ -2,7 +2,7 @@
 
 <html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutRegistration :: layout (~{::body}, '')}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutRegistration :: layout (~{::body}, 'client')}">
 
 <head>
     <meta charset="UTF-8">
@@ -111,26 +111,26 @@
 
             <h2>Регистрация нового поверителя</h2>
 
-<form  class="needs-validation" novalidate>
+<form method="post"  th:action="@{/newVerifierRegistration}" th:object="${newVerifierRegistration}" class="needs-validation" novalidate>
     <div class="col-md-4">
-        <label class="form-label" for="validationDefault01">Имя</label>
-        <input type="text" class="form-control" id="validationDefault01" value="" required>
+        <label class="form-label" for="verifierFirstNameReg">Имя</label>
+        <input  class="form-control" id="verifierFirstNameReg" th:field="*{verifierFirstName}" required  type="text" >
     </div>
     <div class="col-md-4">
-        <label class="form-label" for="validationDefault02">Фамилия</label>
-        <input type="text" class="form-control" id="validationDefault02" value="" required>
+        <label class="form-label" for="verifierLastNameReg">Фамилия</label>
+        <input  class="form-control" id="verifierLastNameReg"  th:field="*{verifierLastName}" required  type="text" >
     </div>
     <div class="col-md-4">
-        <label class="form-label" for="validationDefault01">Табельный номер</label>
-        <input class="form-control" id="validationDefault03" required type="text" value="">
+        <label class="form-label" for="verifierServiceNumberReg">Табельный номер</label>
+        <input class="form-control" id="verifierServiceNumberReg" th:field="*{verifierServiceNumber}" required type="number" >
     </div>
     <div class="col-md-4">
-        <label class="form-label" for="validationDefault02">Логин</label>
-        <input class="form-control" id="validationDefault04" required type="text" value="">
+        <label class="form-label" for="verifierLoginReg">Логин</label>
+        <input class="form-control" id="verifierLoginReg" required name="userLogin" type="text" >
     </div>
     <div class="col-md-4">
-        <label class="form-label" for="validationDefault02">Пароль</label>
-        <input class="form-control" id="validationDefault05" required type="text" value="">
+        <label class="form-label" for="verifierPassReg">Пароль</label>
+        <input class="form-control" id="verifierPassReg" required name="userPassword" type="password" >
     </div>
 
     <div class="col-12">
