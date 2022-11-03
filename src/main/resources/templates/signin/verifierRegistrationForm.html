@@ -111,7 +111,7 @@
 
             <h2>Регистрация нового поверителя</h2>
 
-<form method="post"  th:action="@{/newVerifierRegistration}" th:object="${newVerifierRegistration}" class="needs-validation" novalidate>
+<form method="post"  th:action="@{/verifierRegistrationForm}" th:object="${verifierRegistrationForm}" class="needs-validation" novalidate>
     <div class="col-md-4">
         <label class="form-label" for="verifierFirstNameReg">Имя</label>
         <input  class="form-control" id="verifierFirstNameReg" th:field="*{verifierFirstName}" required  type="text" >

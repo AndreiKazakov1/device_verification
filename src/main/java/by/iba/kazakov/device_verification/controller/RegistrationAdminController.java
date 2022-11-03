@@ -29,10 +29,10 @@ public class RegistrationAdminController {
     VerifierService verifierService;
 
 
-    @RequestMapping({"/addNewVerifierAdm"})
+   /* @RequestMapping({"/addNewVerifierAdm"})
     public String addNewVerifierForm(Model model) {
         return "admin/addNewVerifierAdm";
-    }
+    }*/
 
 
     @GetMapping({"/addNewVerifierAdm"})

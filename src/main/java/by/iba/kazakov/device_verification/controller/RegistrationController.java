@@ -24,19 +24,19 @@ public class RegistrationController {
     @Autowired
     VerifierService verifierService;
 
-    @RequestMapping({"/verifierRegistrationForm"})
+   /* @RequestMapping({"/verifierRegistrationForm"})
     public String newVerifierForm (Model model) {
         return "signin/verifierRegistrationForm";
     }
+*/
 
-
-    @GetMapping({"/newVerifierRegistration"})
+    @GetMapping({"/verifierRegistrationForm"})
     public String newVerifierRegistration (Model model) {
-        model.addAttribute("newVerifierRegistration", new Verifier());
+        model.addAttribute("verifierRegistrationForm", new Verifier());
         return "signin/verifierRegistrationForm";
     }
     @Transactional
-    @PostMapping("/newVerifierRegistration")
+    @PostMapping("/verifierRegistrationForm")
     public String addNewUserReg(@Validated String userLogin, @Validated String userPassword, Verifier verifier){
         String role = "verifier";
         User user = new User();
@@ -46,15 +46,15 @@ public class RegistrationController {
         userService.save(user);
         verifier.setIdUser(user);
         verifierService.save(verifier);
-        return "sigin/newVerifierRegistrationSubmit";
+        return null /*"sigin/newVerifierRegistrationSubmit"*/;
 
     }
 
 
-
+/*
     @RequestMapping(value = {"/newVerifierRegistrationSubmit"}, method = RequestMethod.GET)
     public String submitMeasType(Model model) {
         return "sign/newVerifierRegistrationSubmit";
-    }
+    }*/
 
 }
