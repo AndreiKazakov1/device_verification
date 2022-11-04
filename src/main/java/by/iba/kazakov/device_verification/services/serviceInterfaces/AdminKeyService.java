@@ -1,6 +1,6 @@
 package by.iba.kazakov.device_verification.services.serviceInterfaces;
 
-import by.iba.kazakov.device_verification.models.AdminKey;
+import by.iba.kazakov.device_verification.models.AdminKeyForVerifier;
 
-public interface AdminKeyService extends CrudService <AdminKey, Integer>{
+public interface AdminKeyService extends CrudService <AdminKeyForVerifier, Integer>{
 }

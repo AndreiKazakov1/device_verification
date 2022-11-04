@@ -1,6 +1,6 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
-import by.iba.kazakov.device_verification.models.AdminKey;
+import by.iba.kazakov.device_verification.models.AdminKeyForVerifier;
 import by.iba.kazakov.device_verification.repositories.AdminKeyRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +18,24 @@ public class AdminKeyServiceImpl implements AdminKeyService {
 
 
     @Override
-    public Set<AdminKey> findAll() {
-        Set<AdminKey> adminKeys = new HashSet<>();
-        adminKeyRepository.findAll().forEach(adminKeys::add);
-        return adminKeys;
+    public Set<AdminKeyForVerifier> findAll() {
+        Set<AdminKeyForVerifier> adminKeyForVerifiers = new HashSet<>();
+        adminKeyRepository.findAll().forEach(adminKeyForVerifiers::add);
+        return adminKeyForVerifiers;
 
     }
 
     @Override
-    public AdminKey findById(Integer integer) {return null;
+    public AdminKeyForVerifier findById(Integer integer) {return null;
     }
 
     @Override
-    public AdminKey save(AdminKey object) {
+    public AdminKeyForVerifier save(AdminKeyForVerifier object) {
         return null;
     }
 
     @Override
-    public void delete(AdminKey object) {
+    public void delete(AdminKeyForVerifier object) {
 
     }
 

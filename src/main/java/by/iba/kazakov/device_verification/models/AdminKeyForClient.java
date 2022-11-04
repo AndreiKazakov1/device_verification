@@ -6,20 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "admin_key")
-public class AdminKey {
+@Table(name = "admin_key_client")
+public class AdminKeyForClient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_admin_key", nullable = false)
+    @Column(name = "id_admin_key_client", nullable = false)
     private Integer id;
 
-    @Column(name = "adm_key", nullable = false, length = 45)
-    private String admKey;
-
-
-
+    @Column(name = "adm_key_client", nullable = false, length = 45)
+    private String admKeyClient;
 }
+

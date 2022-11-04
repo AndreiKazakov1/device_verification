@@ -20,12 +20,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cheatsheet/">
 
-
-
-
-
-
-
     <style>
 
         @media (min-width: 768px) {
@@ -44,8 +38,6 @@
 
     </style>
 
-
-
 </head>
 <body class="bg-light">
 
@@ -54,14 +46,13 @@
         <div class="mb-3">
 
             <h2>Регистрация нового пользователя</h2>
-
         </div>
         <hr class="my-4">
         <div class="row g-5">
             <h4 class="mb-3">Сделайте выбор</h4>
             <div class="col-md-7 col-lg-8">
 
-                <form th:action="@{/getAdmKey}"  method="post" class="needs-validation" novalidate>
+                <form th:action="@{/getAdmKeyForVerifier}"  method="post" class="needs-validation" novalidate>
                         <div class="col-12">
                             <div class="input-group has-validation">
                                 <span class="input-group-text">Регистрация поверителя</span>
@@ -77,7 +68,7 @@
                     <hr class="my-4">
 
 
-                <form class="needs-validation" novalidate>
+                <form th:action="@{/getAdmKeyForClient}" class="needs-validation" novalidate>
                     <div class="col-12">
                         <div class="input-group has-validation">
                             <span class="input-group-text">Регистрация клиента &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
