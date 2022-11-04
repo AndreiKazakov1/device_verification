@@ -33,6 +33,7 @@ public class SignInController {
         return "signin/registrationChoice";
     }
 
+
     @RequestMapping(value = {"/verifierRegistrationForm"}, method = RequestMethod.GET)
     public String verifierRegistrationForm(Model model) {
         return "signin/verifierRegistrationForm";
@@ -44,9 +45,9 @@ public class SignInController {
         for (AdminKey a : adminKeys) {
           String s = a.getAdmKey();
            if (s.equals(key)) return "signin/adminKeyIsSubmitted";
-            else return "showAllClients";
+            else return "signin/adminKeyIsNotSubmitted";
         }
-        return "showAllClients";
+        return null;
     }
 }
 
