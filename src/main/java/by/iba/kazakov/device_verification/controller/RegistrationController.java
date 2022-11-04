@@ -30,14 +30,18 @@ public class RegistrationController {
     }
 */
 
-    @GetMapping({"/verifierRegistrationForm"})
+
+
+    @GetMapping({"/verifierRegistration"})
     public String newVerifierRegistration (Model model) {
-        model.addAttribute("verifierRegistrationForm", new Verifier());
+        model.addAttribute("newVerifier", new Verifier());
         return "signin/verifierRegistrationForm";
     }
     @Transactional
-    @PostMapping("/verifierRegistrationForm")
-    public String addNewUserReg(@Validated String userLogin, @Validated String userPassword, Verifier verifier){
+    @PostMapping("/verifierRegistration")
+    public String addNewUserReg(@Validated String userLogin, @Validated String userPassword,
+                                @Validated String verifierFirstName, @Validated String verifierLastName,
+                                @Validated int verifierServiceNumber, Verifier verifier){
         String role = "verifier";
         User user = new User();
         user.setLogin(userLogin);
@@ -45,16 +49,16 @@ public class RegistrationController {
         user.setRole(role);
         userService.save(user);
         verifier.setIdUser(user);
+        verifier.setVerifierFirstName(verifierFirstName);
+        verifier.setVerifierLastName(verifierLastName);
+        verifier.setVerifierServiceNumber(verifierServiceNumber);
         verifierService.save(verifier);
-        return null /*"sigin/newVerifierRegistrationSubmit"*/;
+        return "signin/newVerifierRegistrationSubmit";
 
     }
 
-
-/*
     @RequestMapping(value = {"/newVerifierRegistrationSubmit"}, method = RequestMethod.GET)
     public String submitMeasType(Model model) {
-        return "sign/newVerifierRegistrationSubmit";
-    }*/
-
+        return "signin/newVerifierRegistrationSubmit";
+    }
 }

@@ -33,17 +33,20 @@ public class SignInController {
         return "signin/registrationChoice";
     }
 
+    @RequestMapping(value = {"/verifierRegistrationForm"}, method = RequestMethod.GET)
+    public String verifierRegistrationForm(Model model) {
+        return "signin/verifierRegistrationForm";
+    }
+
     @PostMapping({"/getAdmKey"})
     public String getAdmKey(@Validated String key) {
         Set<AdminKey> adminKeys = adminKeyService.findAll();
         for (AdminKey a : adminKeys) {
           String s = a.getAdmKey();
-           if (s.equals(key)) return "signin/verifierRegistrationForm";
-else return "showAllClients";
-
+           if (s.equals(key)) return "signin/adminKeyIsSubmitted";
+            else return "showAllClients";
         }
-
-        return null;
+        return "showAllClients";
     }
 }
 
