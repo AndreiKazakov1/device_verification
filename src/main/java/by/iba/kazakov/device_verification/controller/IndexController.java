@@ -14,7 +14,12 @@ public class IndexController {
     public String index(Model model) {
         /*ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");*/
-
         return "index";
+    }
+
+    @RequestMapping(value = {"/verifier"}, method = RequestMethod.GET)
+    public String verifier(Model model) {
+
+        return "verifier";
     }
 }

@@ -1,0 +1,78 @@
+<main class="d-flex flex-nowrap">
+
+  <!--<div class="b-example-divider b-example-vr"></div>-->
+
+  <div class="d-flex" style="height: auto">
+    <div class="vr"></div>
+  </div>
+
+  <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold">Меню поверителя</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#client-collapse" aria-expanded="false" aria-controls="home-collapse">
+          Работа с клиентами
+        </button>
+        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="client-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить нового </a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать всех </a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none  " href="">Поиск/редактирование/удаление</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button   th:class="${menu == 'verifier'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                  class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#verifier-collapse" aria-expanded="false">
+          Работа с поверителями
+        </button>
+        <div th:class="${menu == 'verifier'}? 'show':'collapse'"  class="collapse " id="verifier-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/addNewVerifierAdm">Добавить нового </a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Показать всех</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="#">Поиск/редактирование/удаление </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button th:class="${menu == 'addmeastype'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#measur-collapse" aria-expanded="false">
+          Вид измерений
+        </button>
+        <div th:class="${menu == 'addmeastype'}? 'show':'collapse'" class="collapse" id="measur-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+            <li><a href="/addMeasType" class="link-dark d-inline-flex text-decoration-none ">Добавить новый</a></li>
+            <li><a href="/allMeasTypes" class="link-dark d-inline-flex text-decoration-none ">Посмотреть / удалить</a></li>
+            <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none ">Поиск и удаление</a></li>-->
+            <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>-->
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button th:class="${menu == '???'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#addition-collapse" aria-expanded="false">
+          Дополнительно для поверителя
+        </button>
+        <div th:class="${menu == '???'}? 'show':'collapse'" class="collapse" id="addition-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none border-primary">...</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none ">...</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none ">...</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none ">...</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="d-flex" style="height: auto">
+    <div class="vr"></div>
+  </div>
+
+
+  <!-- <div class="b-example-divider b-example-vr"></div>-->
+</main>
