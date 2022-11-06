@@ -1,6 +1,9 @@
 package by.iba.kazakov.device_verification.controller;
 
+import by.iba.kazakov.device_verification.models.AdminKeyForClient;
 import by.iba.kazakov.device_verification.models.AdminKeyForVerifier;
+import by.iba.kazakov.device_verification.services.implementations.AdminKeyForClientServiceImpl;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyForClientService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,8 @@ import java.util.Set;
 public class SignInController {
     @Autowired
     AdminKeyService adminKeyService;
+    @Autowired
+    AdminKeyForClientService adminKeyForClientService;
 
     @RequestMapping(value = {"/signin"}, method = RequestMethod.GET)
     public String signIn(Model model) {
@@ -46,11 +51,11 @@ public class SignInController {
     }
 
     @PostMapping({"/getAdmKeyForClient"})
-    public String getAdmKeyCli(@Validated String key) {
-        Set<AdminKeyForVerifier> adminKeyForVerifiers = adminKeyService.findAll();
-        for (AdminKeyForVerifier a : adminKeyForVerifiers) {
-            String s = a.getAdmKeyVerifier();
-            if (s.equals(key)) return "signin/adminKeyIsSubmitted";
+    public String getAdmKeyCli(@Validated String key_client) {
+        Set<AdminKeyForClient> adminKeyForClients = adminKeyForClientService.findAll();
+        for (AdminKeyForClient b : adminKeyForClients) {
+            String l = b.getAdmKeyClient();
+            if (l.equals(key_client)) return "signin/adminKeyForClientIsSubmitted";
             else return "signin/adminKeyIsNotSubmitted";
         }
         return null;

@@ -68,11 +68,11 @@
                     <hr class="my-4">
 
 
-                <form th:action="@{/getAdmKeyForClient}" class="needs-validation" novalidate>
+                <form th:action="@{/getAdmKeyForClient}" method="post" class="needs-validation" novalidate>
                     <div class="col-12">
                         <div class="input-group has-validation">
                             <span class="input-group-text">Регистрация клиента &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <input type="text" class="form-control" id="reg-key-client" placeholder="Ключ регистрации" required>
+                            <input type="text" class="form-control" id="key_client" name="key_client" placeholder="Ключ регистрации" required>
                             <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff" type="submit" >Подтвердить</button>
                             <div class="invalid-feedback">
                                 Необходимо ввести ключ регистрации.
