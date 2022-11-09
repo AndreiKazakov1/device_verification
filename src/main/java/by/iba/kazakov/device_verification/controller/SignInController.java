@@ -39,7 +39,7 @@ public class SignInController {
         return "signin/verifierRegistrationForm";
     }
 
-    @PostMapping({"/getAdmKeyForVerifier"})
+    @PostMapping({"/registrationChoice/getAdmKeyForVerifier"})
     public String getAdmKeyVer(@Validated String key) {
         Set<AdminKeyForVerifier> adminKeyForVerifiers = adminKeyService.findAll();
         for (AdminKeyForVerifier a : adminKeyForVerifiers) {
@@ -50,7 +50,7 @@ public class SignInController {
         return null;
     }
 
-    @PostMapping({"/getAdmKeyForClient"})
+    @PostMapping({"/registrationChoice/getAdmKeyForClient"})
     public String getAdmKeyCli(@Validated String key_client) {
         Set<AdminKeyForClient> adminKeyForClients = adminKeyForClientService.findAll();
         for (AdminKeyForClient b : adminKeyForClients) {
