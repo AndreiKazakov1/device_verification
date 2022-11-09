@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -12,25 +13,32 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "login", nullable = false, length = 45, unique = true)
-    private String login;
+    private String username;
 
     @Column(name = "password", nullable = false, length = 45)
     private String password;
 
-    @Column(name = "role", nullable = false, length = 20)
-    private String role;
+    @Column(name="enable")
+    private boolean enable;
 
 
-    @OneToMany(mappedBy = "idUser")
-    private Set<Administrator> administrators = new LinkedHashSet<>();
+    @ManyToMany
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Collection<Role> roles;
+
+
+
+
+    /*@OneToMany(mappedBy = "idUser")
+    private Set<Administrator> administrators = new LinkedHashSet<>();*/
 
    /* @OneToMany(mappedBy = "idUser")
     private Set<Verifier> verifiers = new LinkedHashSet<>();*/

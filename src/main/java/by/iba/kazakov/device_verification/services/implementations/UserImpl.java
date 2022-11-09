@@ -4,12 +4,15 @@ import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.repositories.UserRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class UserImpl implements UserService {
+public class UserImpl implements UserService, UserDetailsService {
     @Autowired
     UserRepository userRepository;
     @Override
@@ -18,7 +21,7 @@ public class UserImpl implements UserService {
     }
 
     @Override
-    public User findById(Integer integer) {
+    public User findById(Long integer) {
         return null;
     }
 
@@ -33,7 +36,12 @@ public class UserImpl implements UserService {
     }
 
     @Override
-    public void deleteById(Integer integer) {
+    public void deleteById(Long integer) {
 
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 }
