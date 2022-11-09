@@ -50,11 +50,11 @@ public class RegistrationController {
     public String addNewUserVerReg(@Validated String userLogin, @Validated String userPassword,
                                    @Validated String verifierFirstName, @Validated String verifierLastName,
                                    @Validated int verifierServiceNumber, Verifier verifier) {
-        String role = "verifier";
+        //String role = "verifier";
         User user = new User();
-        user.setLogin(userLogin);
+        user.setUsername(userLogin);
         user.setPassword(userPassword);
-        user.setRole(role);
+        //user.setRole(role);
         userService.save(user);
         verifier.setIdUser(user);
         verifier.setVerifierFirstName(verifierFirstName);
@@ -81,11 +81,11 @@ public class RegistrationController {
     @Transactional
     @PostMapping("/clientRegistration")
     public String addNewUserClientReg (@Validated String userLogin, @Validated String userPassword, Client client){
-        String role = "client";
+        //String role = "client";
         User user = new User();
-        user.setLogin(userLogin);
+        user.setUsername(userLogin);
         user.setPassword(userPassword);
-        user.setRole(role);
+        //user.setRole(role);
         userService.save(user);
         client.setIdUser(user);
         clientService.save(client);

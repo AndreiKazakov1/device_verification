@@ -26,8 +26,8 @@ public class User {
     @Column(name = "password", nullable = false, length = 45)
     private String password;
 
-    @Column(name="enable")
-    private boolean enable;
+    @Column(name="is_enable")
+    private boolean isEnabled;
 
 
     @ManyToMany

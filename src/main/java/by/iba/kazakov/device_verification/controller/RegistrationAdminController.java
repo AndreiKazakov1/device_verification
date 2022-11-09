@@ -43,11 +43,11 @@ public class RegistrationAdminController {
     @Transactional
     @PostMapping("/addNewVerifierAdm")
     public String addNewUser(@Validated String userLogin, @Validated String userPassword, Verifier verifier){
-            String role = "verifier";
+            //String role = "verifier";
             User user = new User();
-            user.setLogin(userLogin);
+            user.setUsername(userLogin);
             user.setPassword(userPassword);
-            user.setRole(role);
+           // user.setRole(role);
             userService.save(user);
             verifier.setIdUser(user);
             verifierService.save(verifier);
