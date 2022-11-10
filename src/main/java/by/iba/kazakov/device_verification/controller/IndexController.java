@@ -29,10 +29,11 @@ public class IndexController {
 
     @GetMapping("/indexx")
     public String pageChoice(Principal principal){
-        String s = (((Authentication)principal).getAuthorities()).toString();
-        System.out.println(s);
-        if (s.equals("[ROLE_VERIFIER]")) return "verifier";
-        else return "indexx";
+        String role = (((Authentication)principal).getAuthorities()).toString();
+        if (role.equals("[ROLE_VERIFIER]")) return "verifier";
+        //else if (role.equals("[ROLE_CLIENT]")) return "client/client";
+        else if (role.equals("[ROLE_ADMIN]")) return "indexx";
+        else return null;
     }
 
 

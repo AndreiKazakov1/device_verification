@@ -31,7 +31,7 @@ public class AdminKeyForClientServiceImpl implements AdminKeyForClientService {
 
     @Override
     public AdminKeyForClient save(AdminKeyForClient object) {
-        return null;
+        return adminKeyForClientRepository.save(object);
     }
 
     @Override

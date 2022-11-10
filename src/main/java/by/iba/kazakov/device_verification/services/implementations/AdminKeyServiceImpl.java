@@ -31,7 +31,7 @@ public class AdminKeyServiceImpl implements AdminKeyService {
 
     @Override
     public AdminKeyForVerifier save(AdminKeyForVerifier object) {
-        return null;
+        return adminKeyRepository.save(object);
     }
 
     @Override

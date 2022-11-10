@@ -14,6 +14,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "admin_key_client")
 public class AdminKeyForClient {
+    public AdminKeyForClient(String admKeyClient) {
+        this.admKeyClient = admKeyClient;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_admin_key_client", nullable = false)

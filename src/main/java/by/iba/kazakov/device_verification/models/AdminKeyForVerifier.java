@@ -12,6 +12,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "admin_key_verifier")
 public class AdminKeyForVerifier {
+    public AdminKeyForVerifier (String admKeyVerifier) {
+        this.admKeyVerifier = admKeyVerifier;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_admin_key_verifier", nullable = false)
