@@ -8,8 +8,12 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import java.security.Principal;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -20,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void setUserImpl(UserImpl userImpl){
         this.userImpl = userImpl;
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -35,12 +40,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().permitAll()  //смотри здесь https://sysout.ru/spring-custom-login-form/
                 .loginPage("/login")
                 //.loginProcessingUrl("/login")
-                //defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/indexx", true)
                  .and()
                 .logout().logoutUrl("/logout")
                 .logoutSuccessUrl("/");
 
     }
+
+   // https://www.baeldung.com/spring-redirect-after-login]
+
+    public String pageChoice (Principal principal){
+        String url = "";
+        String role = (((Authentication)principal).getAuthorities()).toString();
+        System.out.printf(role);
+        if (role.equals("ROLE_VERIFIER")) url = "/verifier";
+        else if (role.equals("ROLE_ADMIN")) url = "/indexx";
+        return url;
+    }
+
+
+
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -54,7 +73,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationProvider.setUserDetailsService(userImpl);
         return authenticationProvider;
     }
-
 
 
 }
