@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -16,6 +15,6 @@ public class MeasurementTypeSubmitController {
         /*ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("addMeasTypeSub");
 */
-        return "addMeasurementTypeSubmit";
+        return "verifier/addMeasurementTypeSubmit";
     }
 }

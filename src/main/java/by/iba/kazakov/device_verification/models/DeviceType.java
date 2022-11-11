@@ -22,10 +22,10 @@ public class DeviceType {
     @Column(name = "measurement_device_type", nullable = false, length = 150)
     private String measurementDeviceType;
 
-    @Column(name = "device_file_code", nullable = false)
+    @Column(name = "device_file_code", nullable = false, unique = true)
     private Integer deviceFileCode;
 
-    @Column(name = "device_name", nullable = false, length = 100)
+    @Column(name = "device_name", nullable = false, length = 100, unique = true)
     private String deviceName;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

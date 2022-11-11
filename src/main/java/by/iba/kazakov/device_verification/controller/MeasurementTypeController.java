@@ -27,14 +27,14 @@ public class MeasurementTypeController {
     @GetMapping ({"/addMeasType"})
     public String addMeasType (Model model) {
         model.addAttribute("addMeasType", new MeasurementType());
-        return "addMeasurementType";
+        return "verifier/addMeasurementType";
     }
 
 
     @PostMapping ("/addMeasType")
     public String saveMeasType (Model model, MeasurementType measurementType){
         measurementTypeService.save(measurementType);
-        return "addMeasurementTypeSubmit";
+        return "verifier/addMeasurementTypeSubmit";
     }
 
 
@@ -42,7 +42,7 @@ public class MeasurementTypeController {
     public String measTypeList (Model model){
         Set<MeasurementType> measurementTypes = measurementTypeService.findAll();
         model.addAttribute("meastypes", measurementTypes );
-        return "showAllMeasurementTypes";
+        return "verifier/showAllMeasurementTypes";
     }
 
 

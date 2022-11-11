@@ -18,7 +18,7 @@ public class Standart {
     @Column(name = "id_standart", nullable = false)
     private Integer id;
 
-    @Column(name = "standart_name", nullable = false, length = 100)
+    @Column(name = "standart_name", nullable = false, length = 100, unique = true)
     private String standartName;
 
     @Column(name = "standart_number", nullable = false, length = 20)

@@ -4,9 +4,11 @@ import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.models.Verifier;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.RoleService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.VerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 @Controller
@@ -27,6 +30,9 @@ public class RegistrationAdminController {
 
     @Autowired
     VerifierService verifierService;
+
+    @Autowired
+    RoleService roleService;
 
 
    /* @RequestMapping({"/addNewVerifierAdm"})
@@ -43,11 +49,11 @@ public class RegistrationAdminController {
     @Transactional
     @PostMapping("/addNewVerifierAdm")
     public String addNewUser(@Validated String userLogin, @Validated String userPassword, Verifier verifier){
-            //String role = "verifier";
             User user = new User();
             user.setUsername(userLogin);
-            user.setPassword(userPassword);
-           // user.setRole(role);
+            user.setPassword(BCrypt.hashpw(userPassword,BCrypt.gensalt(12)));
+            user.setRoles(new ArrayList<>());
+            user.getRoles().add(roleService.findByName("ROLE_VERIFIER"));
             userService.save(user);
             verifier.setIdUser(user);
             verifierService.save(verifier);

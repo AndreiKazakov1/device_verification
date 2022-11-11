@@ -14,49 +14,77 @@
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
         <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#client-collapse" aria-expanded="false" aria-controls="home-collapse">
-          Работа с клиентами
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#standart-collapse" aria-expanded="false" aria-controls="home-collapse">
+          Эталоны
         </button>
-        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="client-collapse">
+        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="standart-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить нового </a></li>
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать всех </a></li>
-            <li><a class="link-dark d-inline-flex text-decoration-none  " href="">Поиск/редактирование/удаление</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить эталон</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать все эталоны</a></li>
           </ul>
         </div>
       </li>
       <li class="mb-1">
-        <button   th:class="${menu == 'verifier'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                  class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#verifier-collapse" aria-expanded="false">
-          Работа с поверителями
+        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#method-collapse" aria-expanded="false" aria-controls="home-collapse">
+          Методики поверки
         </button>
-        <div th:class="${menu == 'verifier'}? 'show':'collapse'"  class="collapse " id="verifier-collapse">
+        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="method-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="/addNewVerifierAdm">Добавить нового </a></li>
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Показать всех</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить методику</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать все методики</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#devicetype-collapse" aria-expanded="false" aria-controls="home-collapse">
+          Тип прибора
+        </button>
+        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="devicetype-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить новый тип прибора</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать все типы</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#measchtype-collapse" aria-expanded="false" aria-controls="home-collapse">
+          Тип измерит. канала
+        </button>
+        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="measchtype-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить новый тип ИК</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать все типы ИК</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="border-top my-3"></li>
+
+      <li class="mb-1">
+        <button   th:class="${menu == 'verifier'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                  class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#devinver-collapse" aria-expanded="false">
+          Поверка прибора
+        </button>
+        <div th:class="${menu == 'verifier'}? 'show':'collapse'"  class="collapse " id="devinver-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/addNewVerifierAdm">Добавить прибор в поверку</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Провести поверку прибора</a></li>
             <li><a class="link-dark d-inline-flex text-decoration-none " href="#">Поиск/редактирование/удаление </a></li>
           </ul>
         </div>
       </li>
-      <li class="mb-1">
-        <button th:class="${menu == 'addmeastype'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#measur-collapse" aria-expanded="false">
-          Вид измерений
-        </button>
-        <div th:class="${menu == 'addmeastype'}? 'show':'collapse'" class="collapse" id="measur-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-            <li><a href="/addMeasType" class="link-dark d-inline-flex text-decoration-none ">Добавить новый</a></li>
-            <li><a href="/allMeasTypes" class="link-dark d-inline-flex text-decoration-none ">Посмотреть / удалить</a></li>
-            <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none ">Поиск и удаление</a></li>-->
-            <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>-->
-          </ul>
-        </div>
-      </li>
+
+
+
+
       <li class="border-top my-3"></li>
       <li class="mb-1">
         <button th:class="${menu == '???'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
                 class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#addition-collapse" aria-expanded="false">
-          Дополнительно для поверителя
+          Дополнительно
         </button>
         <div th:class="${menu == '???'}? 'show':'collapse'" class="collapse" id="addition-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
