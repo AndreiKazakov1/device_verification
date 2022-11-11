@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.PositiveResult;
 import by.iba.kazakov.device_verification.repositories.PositiveResultRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.PositiveResultService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class PositiveResultImpl implements PositiveResultService {
     @Autowired
     PositiveResultRepository positiveResultRepository;

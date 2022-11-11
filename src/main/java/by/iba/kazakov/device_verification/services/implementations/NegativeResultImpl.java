@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.NegativeResult;
 import by.iba.kazakov.device_verification.repositories.NegativeResultRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.NegativeResultService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class NegativeResultImpl implements NegativeResultService {
     @Autowired
     NegativeResultRepository negativeResultRepository;

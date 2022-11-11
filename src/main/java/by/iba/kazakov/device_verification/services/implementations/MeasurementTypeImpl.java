@@ -32,6 +32,7 @@ public class MeasurementTypeImpl implements MeasurementTypeService {
 
     @Override
     public MeasurementType save(MeasurementType object) {
+
         return measurementTypeRepository.save(object);
     }
 

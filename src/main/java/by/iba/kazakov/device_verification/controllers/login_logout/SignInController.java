@@ -1,8 +1,7 @@
-package by.iba.kazakov.device_verification.controller;
+package by.iba.kazakov.device_verification.controllers.login_logout;
 
 import by.iba.kazakov.device_verification.models.AdminKeyForClient;
 import by.iba.kazakov.device_verification.models.AdminKeyForVerifier;
-import by.iba.kazakov.device_verification.services.implementations.AdminKeyForClientServiceImpl;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyForClientService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyService;
 import org.springframework.beans.factory.annotation.Autowired;

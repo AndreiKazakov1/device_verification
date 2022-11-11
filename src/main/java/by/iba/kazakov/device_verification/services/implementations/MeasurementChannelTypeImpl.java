@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.MeasurementChannelType;
 import by.iba.kazakov.device_verification.repositories.MeasurementChannelTypeRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementChannelTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class MeasurementChannelTypeImpl implements MeasurementChannelTypeService {
     @Autowired
     MeasurementChannelTypeRepository measurementChannelTypeRepository;

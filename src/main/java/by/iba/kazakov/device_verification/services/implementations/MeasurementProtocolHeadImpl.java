@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.MeasurementProtocolHead;
 import by.iba.kazakov.device_verification.repositories.MeasurementProtocolHeadRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementProtocolHeadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class MeasurementProtocolHeadImpl implements MeasurementProtocolHeadService {
     @Autowired
     MeasurementProtocolHeadRepository measurementProtocolHeadRepository;

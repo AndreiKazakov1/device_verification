@@ -1,18 +1,15 @@
-package by.iba.kazakov.device_verification.controller;
+package by.iba.kazakov.device_verification.controllers.registration;
 
 
 import by.iba.kazakov.device_verification.models.Client;
-import by.iba.kazakov.device_verification.models.Role;
 import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.models.Verifier;
-import by.iba.kazakov.device_verification.services.implementations.ClientServiceImpl;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.ClientService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.RoleService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.VerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;

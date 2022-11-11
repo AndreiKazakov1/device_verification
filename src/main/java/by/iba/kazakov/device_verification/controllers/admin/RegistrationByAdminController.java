@@ -1,7 +1,5 @@
-package by.iba.kazakov.device_verification.controller;
+package by.iba.kazakov.device_verification.controllers.admin;
 
-import by.iba.kazakov.device_verification.models.Client;
-import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.models.Verifier;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.RoleService;
@@ -17,13 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.Set;
 
 @Controller
-public class RegistrationAdminController {
+public class RegistrationByAdminController {
 
     @Autowired
     UserService userService;

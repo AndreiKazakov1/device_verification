@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.ErrorType;
 import by.iba.kazakov.device_verification.repositories.ErrorTypeRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.ErrorTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class ErrorTypeImpl implements ErrorTypeService {
     @Autowired
     ErrorTypeRepository errorTypeRepository;

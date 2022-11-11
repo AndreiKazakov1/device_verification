@@ -1,4 +1,4 @@
-package by.iba.kazakov.device_verification.controller;
+package by.iba.kazakov.device_verification.controllers;
 
 
 

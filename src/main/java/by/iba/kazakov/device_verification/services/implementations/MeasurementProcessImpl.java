@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.MeasurementProcess;
 import by.iba.kazakov.device_verification.repositories.MeasurementProcessRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementProcessService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class MeasurementProcessImpl implements MeasurementProcessService {
     @Autowired
     MeasurementProcessRepository measurementProcessRepository;

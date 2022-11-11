@@ -41,7 +41,7 @@ public class DeviceInVerification {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_standart", nullable = false)
-    private Standart idStandart;
+    private Standard idStandard;
 
     @Column(name = "verification_start_date", nullable = false)
     private Instant verificationStartDate;

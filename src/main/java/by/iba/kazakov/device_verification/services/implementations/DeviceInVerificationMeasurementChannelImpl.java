@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.DeviceInVerificationMeasurement
 import by.iba.kazakov.device_verification.repositories.DeviceInVerificationMeasurementChannelRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.DeviceInVerificationMeasurementChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class DeviceInVerificationMeasurementChannelImpl implements DeviceInVerificationMeasurementChannelService {
     @Autowired
     DeviceInVerificationMeasurementChannelRepository deviceInVerificationMeasurementChannelRepository;

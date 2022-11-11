@@ -4,9 +4,10 @@ import by.iba.kazakov.device_verification.models.DeviceInVerification;
 import by.iba.kazakov.device_verification.repositories.DeviceInVerificationRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.DeviceInVerificationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class DeviceInVerificationImpl implements DeviceInVerificationService {
     @Autowired
     DeviceInVerificationRepository deviceInVerificationRepository;

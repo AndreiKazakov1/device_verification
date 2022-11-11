@@ -1,4 +1,4 @@
-package by.iba.kazakov.device_verification.controller;
+package by.iba.kazakov.device_verification.controllers.admin;
 
 
 import by.iba.kazakov.device_verification.models.Client;
@@ -20,7 +20,7 @@ public class AllClientsController {
     public String personList(Model model) {
         Set<Client> clients = clientService.findAll();
         model.addAttribute("clients", clients);
-        return "showAllClients";
+        return "admin/showAllClients";
 
 
     }}
