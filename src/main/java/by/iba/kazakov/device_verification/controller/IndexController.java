@@ -21,19 +21,25 @@ public class IndexController {
         return "index";
     }
 */
-    @RequestMapping(value = {"/verifier"}, method = RequestMethod.GET)
+   /* @RequestMapping(value = {"/verifier"}, method = RequestMethod.GET)
     public String verifier(Model model) {
 
         return "verifier";
     }
-
-    @GetMapping("/indexx")
+*/
+    @GetMapping("/index")
     public String pageChoice(Principal principal){
         String role = (((Authentication)principal).getAuthorities()).toString();
-        if (role.equals("[ROLE_VERIFIER]")) return "verifier";
-        //else if (role.equals("[ROLE_CLIENT]")) return "client/client";
-        else if (role.equals("[ROLE_ADMIN]")) return "indexx";
-        else return null;
+        switch (role) {
+            case "[ROLE_VERIFIER]":
+                return "redirect:/verifier";
+            case "[ROLE_CLIENT]":
+                return "redirect:/client";
+            case "[ROLE_ADMIN, ROLE_CLIENT, ROLE_VERIFIER]":
+                return "redirect:/admin";
+        }
+        System.out.println(role);
+         return null;
     }
 
 

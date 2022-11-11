@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().permitAll()  //смотри здесь https://sysout.ru/spring-custom-login-form/
                 .loginPage("/login")
                 //.loginProcessingUrl("/login")
-                .defaultSuccessUrl("/indexx", true)
+                .defaultSuccessUrl("/index", true)
                  .and()
                 .logout().logoutUrl("/logout")
                 .logoutSuccessUrl("/");

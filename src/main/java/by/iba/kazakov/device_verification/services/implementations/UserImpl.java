@@ -2,6 +2,7 @@ package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.Role;
 import by.iba.kazakov.device_verification.models.User;
+import by.iba.kazakov.device_verification.models.Verifier;
 import by.iba.kazakov.device_verification.repositories.UserRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -23,8 +25,12 @@ public class UserImpl implements UserService, UserDetailsService {
     UserRepository userRepository;
     @Override
     public Set<User> findAll() {
-        return null;
+        Set<User> users = new HashSet<>();
+        userRepository.findAll().forEach(users::add);
+        return users;
     }
+
+
 
     @Override
     public User findById(Long integer) {

@@ -14,10 +14,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "administrator")
 public class Administrator {
-    public Administrator(String adminFirstName, String adminLastName) {
-        this.adminFirstName = adminFirstName;
-        this.adminLastName = adminLastName;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

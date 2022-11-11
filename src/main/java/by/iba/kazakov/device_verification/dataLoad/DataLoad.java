@@ -32,11 +32,11 @@ public class DataLoad implements CommandLineRunner {
         int countRoles = roleService.findAll().size();
         int countVerKey = adminKeyService.findAll().size();
         int countClientKey = adminKeyForClientService.findAll().size();
-        int countAdmins = administratorService.findAll().size();
+        int countUsers = userService.findAll().size();
         if (countRoles == 0) setRoles();
         if (countVerKey == 0) setVerKey();
         if (countClientKey == 0) setClientKey();
-        if (countAdmins == 0) setAdmin();
+        if (countUsers == 0) setAdmin();
 
 
     }
