@@ -51,14 +51,14 @@
         </div>
       </li>
       <li class="mb-1">
-        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#devicetype-collapse" aria-expanded="false" aria-controls="home-collapse">
+        <button th:class="${menu == 'deviceType'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#deviceType-collapse" aria-expanded="false" aria-controls="home-collapse">
           Тип прибора
         </button>
-        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="devicetype-collapse">
+        <div th:class="${menu == 'deviceType'}? 'show':'collapse'" class="collapse " id="deviceType-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить новый тип прибора</a></li>
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать все типы</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/addDeviceType">Добавить новый тип прибора</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/allDeviceType">Показать все типы</a></li>
           </ul>
         </div>
       </li>
