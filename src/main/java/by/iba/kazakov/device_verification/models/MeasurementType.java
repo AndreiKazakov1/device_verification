@@ -17,7 +17,7 @@ public class MeasurementType {
     @Column(name = "id_measurement_type", nullable = false)
     private Integer id;
 
-    @Column(name = "measurement_type_col", nullable = false, length = 45, unique = true)
+    @Column(name = "measurement_type_col", nullable = false, length = 255, unique = true)
     private String measurementTypeCol;
 
 

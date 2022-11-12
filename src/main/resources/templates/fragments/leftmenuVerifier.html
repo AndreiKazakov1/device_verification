@@ -13,11 +13,11 @@
     </a>
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
-        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+        <button th:class="${menu == 'standard'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
                 class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#standard-collapse" aria-expanded="false" aria-controls="home-collapse">
           Эталоны
         </button>
-        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="standard-collapse">
+        <div th:class="${menu == 'standard'}? 'show':'collapse'" class="collapse " id="standard-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
             <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/addStandard">Добавить эталон</a></li>
             <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/allStandards">Показать все эталоны</a></li>
@@ -25,11 +25,11 @@
         </div>
       </li>
       <li class="mb-1">
-        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+        <button th:class="${menu == 'methodology'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
                 class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#method-collapse" aria-expanded="false" aria-controls="home-collapse">
           Методики поверки
         </button>
-        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="method-collapse">
+        <div th:class="${menu == 'methodology'}? 'show':'collapse'" class="collapse " id="method-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
             <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/addMethodology">Добавить методику</a></li>
             <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/allMethodologies">Показать все методики</a></li>
