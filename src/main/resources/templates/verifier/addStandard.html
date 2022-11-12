@@ -43,11 +43,11 @@
     <main ><!--class="was-validated"-->
         <div class="col-md-7 col-lg-8">
             <!-- <h4 class="mb-3">Добавить вид измерений</h4>-->
-            <form th:action="@{/verifier/addStandard}" th:object="${standard} " method="post" class="needs-validation" novalidate>
+            <form th:action="@{/verifier/addStandard}"  method="post" class="needs-validation" novalidate>
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="standardName" class="form-label">Название эталона</label>
-                        <input type="text" th:field="*{standardName}" class="form-control" id="standardName"  required >
+                        <input type="text"  name="standardName"  class="form-control" id="standardName"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
@@ -56,7 +56,7 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="standardNumber" class="form-label">Заводской номер эталона</label>
-                        <input type="text" th:field="*{standardNumber}" class="form-control" id="standardNumber"  required >
+                        <input type="text" name="standardNumber"  class="form-control" id="standardNumber"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
@@ -71,9 +71,6 @@
                         </div>
                     </div>
                 </div>
-
-
-                //th:field="*{standardVerificationDate}"
 
 
 

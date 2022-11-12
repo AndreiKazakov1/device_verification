@@ -1,0 +1,54 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'addmeastype')}">
+
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Методики поверки</title>
+
+</head>
+<body>
+
+<h3>Методики поверки</h3>
+<div id="demo_info" class="box"></div>
+<table id="example" class="display" style="width:100%">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Наименование методики</th>
+    <th>Регистрационный номер</th>
+    <th>Год введения</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr th:each="methodology : ${methodologies}">
+
+    <td th:utext="${methodology.id}">...</td>
+    <td th:utext="${methodology.methodologyName}">...</td>
+    <td th:utext="${methodology.methodologyNumber}">...</td>
+    <td th:utext="${methodology.methodologyIntroductionYear}">...</td>
+
+  </tr>
+
+  </tbody>
+
+</table>
+
+<!--  js для прокаченной таблицы-->
+<script>
+
+  $('#example').DataTable({
+    language: {
+      url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
+    }
+  });
+
+</script>
+
+</body>
+</html>

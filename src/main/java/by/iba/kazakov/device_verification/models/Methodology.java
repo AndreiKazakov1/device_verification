@@ -17,10 +17,10 @@ public class Methodology {
     @Column(name = "id_methodology", nullable = false)
     private Integer id;
 
-    @Column(name = "methodology_name", nullable = false, length = 100)
+    @Column(name = "methodology_name", nullable = false, length = 100, unique = true)
     private String methodologyName;
 
-    @Column(name = "methodology_number", nullable = false, length = 45)
+    @Column(name = "methodology_number", nullable = false, length = 45, unique = true)
     private String methodologyNumber;
 
     @Column(name = "methodology_introduction_year", nullable = false)

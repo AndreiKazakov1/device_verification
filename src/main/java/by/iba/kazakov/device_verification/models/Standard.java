@@ -3,8 +3,10 @@ package by.iba.kazakov.device_verification.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -25,7 +27,7 @@ public class Standard {
     private String standardNumber;
 
     @Column(name = "standard_verification_date", nullable = false)
-    private Date standardVerificationDate;
+    private String standardVerificationDate;
 
 
 

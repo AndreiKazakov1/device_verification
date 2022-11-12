@@ -6,27 +6,32 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Виды измерений</title>
+    <title>Эталоны</title>
 
 </head>
 <body>
 
-<h3>Виды измерений</h3>
+<h3>Эталоны</h3>
 <div id="demo_info" class="box"></div>
 <table id="example" class="display" style="width:100%">
     <thead>
     <tr>
         <th>ID</th>
-        <th>Название вида измерений</th>
+        <th>Наименование эталона</th>
+        <th>Заводской номер</th>
+        <th>Дата последней поверки</th>
+
 
     </tr>
     </thead>
     <tbody>
 
-    <tr th:each="meastype : ${meastypes}">
+    <tr th:each="standard : ${standards}">
 
-        <td th:utext="${meastype.id}">...</td>
-        <td th:utext="${meastype.measurementTypeCol}">...</td>
+        <td th:utext="${standard.id}">...</td>
+        <td th:utext="${standard.standardName}">...</td>
+        <td th:utext="${standard.standardNumber}">...</td>
+        <td th:utext="${standard.standardVerificationDate}">...</td>
 
     </tr>
 
