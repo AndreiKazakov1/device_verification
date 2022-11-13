@@ -80,7 +80,7 @@ public class MethodStandardController {
     }
 
     @GetMapping({"/verifier/allMethodologies"})
-    public String MethodologiesList (Model model){
+    public String methodologiesList (Model model){
         Set<Methodology> methodologies = methodologyService.findAll();
         model.addAttribute("methodologies", methodologies );
         return "verifier/showAllMethodologies";

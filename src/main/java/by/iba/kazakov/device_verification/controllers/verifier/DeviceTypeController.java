@@ -1,6 +1,7 @@
 package by.iba.kazakov.device_verification.controllers.verifier;
 
 import by.iba.kazakov.device_verification.models.DeviceType;
+import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.models.Methodology;
 import by.iba.kazakov.device_verification.models.Standard;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.DeviceTypeService;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Set;
 
@@ -26,9 +28,16 @@ public class DeviceTypeController {
     @Autowired
     MethodologyService methodologyService;
 
+
+
     @GetMapping({"/verifier/addDeviceType"})
     public String addDeviceType (Model model) {
         model.addAttribute("deviceType", new DeviceType());
+
+        Set<MeasurementType> measurementTypes = measurementTypeService.findAll();
+        model.addAttribute("measurementTypes", measurementTypes );
+        Set<Methodology> methodologies = methodologyService.findAll();
+        model.addAttribute("methodologies", methodologies );
         return "verifier/addDeviceType";
     }
 

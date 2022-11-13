@@ -31,7 +31,7 @@ public class MeasurementTypeController {
     }
 
 
-    @RequestMapping({"/verifier/allMeasTypes"})
+    @GetMapping({"/verifier/allMeasTypes"})
     public String measTypeList (Model model){
         Set<MeasurementType> measurementTypes = measurementTypeService.findAll();
         model.addAttribute("meastypes", measurementTypes );

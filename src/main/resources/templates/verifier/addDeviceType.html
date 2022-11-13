@@ -36,7 +36,7 @@
     <main >
         <div class="col-md-7 col-lg-8">
 
-            <form th:action="@{/verifier/addDeviceType}" th:object="${deviceType} " method="post" class="needs-validation" novalidate>
+            <form th:action="@{/verifier/addDeviceType}" th:object="${deviceType} "  method="post" class="needs-validation" novalidate>
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="measurementDeviceType" class="form-label">Тип прибора по функционалу</label>
@@ -67,37 +67,27 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="measurementType" class="form-label">Выбрать вид измерения</label>
-
-                        <div class="mb-3">
-                            <select class="form-select" id="exampleSelect">
-                                <option selected>...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-
-                        https://www.baeldung.com/thymeleaf-select-option
-
-                       <!-- <select th:field="*{gender}">
-                            <option th:value="'M'" th:text="Male"></option>
-                            <option th:value="'F'" th:text="Female"></option>
+                        <select class="form-control" id="measurementType" th:field="*{idMeasurementType.id}" >
+                            <option value="" >. . .</option>
+                            <option th:each="measurementType : ${measurementTypes}" th:value="${measurementType.id}" th:utext="${measurementType.measurementTypeCol}"></option>
                         </select>
--->
-
-
-                        <input type="text"   th:field="*{deviceName}" class="form-control" id="measurementType"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="methodology" class="form-label">Выбрать методику поверки</label>
+                        <select class="form-control" id="methodology" th:field="*{idMethodology.id}" >
+                            <option value="" >. . .</option>
+                            <option th:each="methodology : ${methodologies}" th:value="${methodology.id}" th:utext="${methodology.methodologyName}"></option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Необходимо заполнить поле.
+                        </div>
+                    </div>
+                </div>
                 <hr class="my-4">
                 <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff" type="submit" >Подтвердить</button>
             </form>

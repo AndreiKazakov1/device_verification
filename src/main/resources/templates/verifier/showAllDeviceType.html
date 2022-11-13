@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Виды измерений</title>
+    <title>Типы приборов</title>
 
 </head>
 <body>
@@ -17,16 +17,24 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Название вида измерений</th>
+        <th>Тип прибора</th>
+        <th>Код прибора</th>
+        <th>Наименование прибора</th>
+        <th>Вид измерения</th>
+        <th>Методика поверки</th>
 
     </tr>
     </thead>
     <tbody>
 
-    <tr th:each="meastype : ${meastypes}">
+    <tr th:each="deviceType : ${deviceTypes}">
 
-        <td th:utext="${meastype.id}">...</td>
-        <td th:utext="${meastype.measurementTypeCol}">...</td>
+        <td th:utext="${deviceType.id}">...</td>
+        <td th:utext="${deviceType.measurementDeviceType}">...</td>
+        <td th:utext="${deviceType.deviceFileCode}">...</td>
+        <td th:utext="${deviceType.deviceName}">...</td>
+        <td th:utext="${deviceType.idMeasurementType.measurementTypeCol}">...</td>
+        <td th:utext="${deviceType.idMethodology.methodologyName}">...</td>
 
     </tr>
 
