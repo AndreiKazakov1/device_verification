@@ -33,8 +33,8 @@ public class DeviceTypeController {
     }
 
     @PostMapping("/verifier/addDeviceType")
-    public String saveDeviceType (Methodology methodology)  {
-        methodologyService.save(methodology);
+    public String saveDeviceType (DeviceType deviceType)  {
+        deviceTypeService.save(deviceType);
         return "verifier/addDeviceTypeSubmit";
     }
 
