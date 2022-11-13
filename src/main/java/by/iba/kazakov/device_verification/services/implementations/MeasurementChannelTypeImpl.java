@@ -1,11 +1,13 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
+import by.iba.kazakov.device_verification.models.DeviceType;
 import by.iba.kazakov.device_verification.models.MeasurementChannelType;
 import by.iba.kazakov.device_verification.repositories.MeasurementChannelTypeRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementChannelTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 @Service
 public class MeasurementChannelTypeImpl implements MeasurementChannelTypeService {
@@ -13,8 +15,11 @@ public class MeasurementChannelTypeImpl implements MeasurementChannelTypeService
     MeasurementChannelTypeRepository measurementChannelTypeRepository;
     @Override
     public Set<MeasurementChannelType> findAll() {
-        return null;
+        Set<MeasurementChannelType> measurementChannelTypes= new HashSet<>();
+        measurementChannelTypeRepository.findAll().forEach(measurementChannelTypes::add);
+        return measurementChannelTypes;
     }
+
 
     @Override
     public MeasurementChannelType findById(Integer integer) {
@@ -23,7 +28,7 @@ public class MeasurementChannelTypeImpl implements MeasurementChannelTypeService
 
     @Override
     public MeasurementChannelType save(MeasurementChannelType object) {
-        return null;
+        return measurementChannelTypeRepository.save(object);
     }
 
     @Override

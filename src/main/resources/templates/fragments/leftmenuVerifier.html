@@ -45,8 +45,6 @@
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
             <li><a href="/verifier/addMeasType" class="link-dark d-inline-flex text-decoration-none ">Добавить новый</a></li>
             <li><a href="/verifier/allMeasTypes" class="link-dark d-inline-flex text-decoration-none ">Посмотреть все</a></li>
-            <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none ">Поиск и удаление</a></li>-->
-            <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>-->
           </ul>
         </div>
       </li>
@@ -63,11 +61,11 @@
         </div>
       </li>
       <li class="mb-1">
-        <button th:class="${menu == 'clients'|| menu == 'index'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#measchtype-collapse" aria-expanded="false" aria-controls="home-collapse">
+        <button th:class="${menu == 'measurementChannelType'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#measurementChannelType-collapse" aria-expanded="false" aria-controls="home-collapse">
           Тип измерит. канала
         </button>
-        <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="measchtype-collapse">
+        <div th:class="${menu == 'measurementChannelType'}? 'show':'collapse'" class="collapse " id="measurementChannelType-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
             <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить новый тип ИК</a></li>
             <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать все типы ИК</a></li>
