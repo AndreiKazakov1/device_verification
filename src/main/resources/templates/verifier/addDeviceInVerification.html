@@ -36,11 +36,11 @@
     <main >
         <div class="col-md-7 col-lg-8">
 
-            <form th:action="@{/verifier/addDeviceType}" th:object="${deviceType} "  method="post" class="needs-validation" novalidate>
+            <form th:action="@{/verifier/addDeviceInVerification}" th:object="${deviceInVerification} "  method="post" class="needs-validation" novalidate>
                 <div class="row g-3">
                     <div class="col-12">
-                        <label for="measurementDeviceType" class="form-label">Тип прибора по функционалу</label>
-                        <input type="text" th:field="*{measurementDeviceType}" class="form-control" id="measurementDeviceType"  required >
+                        <label for="deviceInVerificationNumber" class="form-label">Заводской номер прибора</label>
+                        <input type="text" th:field="*{deviceInVerificationNumber}" class="form-control" id="deviceInVerificationNumber"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
@@ -49,12 +49,18 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="deviceFileCode" class="form-label">Код прибора по тарификатору</label>
-                        <input type="number" min="1"  th:field="*{deviceFileCode}" class="form-control" id="deviceFileCode"  required >
+                        <select  class="form-select" id="deviceFileCode" th:field="*{idDeviceType.id}" >
+                            <option value="" >. . .</option>
+                            <option th:each="deviceType : ${deviceTypes}" th:value="${deviceType.id}" th:utext="${deviceType.deviceFileCode}"></option>
+                        </select>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
                 </div>
+
+                ****************начать от сюда
+
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="deviceName" class="form-label">Наименование прибора</label>

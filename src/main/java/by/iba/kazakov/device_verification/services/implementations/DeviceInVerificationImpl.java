@@ -6,6 +6,7 @@ import by.iba.kazakov.device_verification.services.serviceInterfaces.DeviceInVer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 @Service
 public class DeviceInVerificationImpl implements DeviceInVerificationService {
@@ -13,7 +14,9 @@ public class DeviceInVerificationImpl implements DeviceInVerificationService {
     DeviceInVerificationRepository deviceInVerificationRepository;
     @Override
     public Set<DeviceInVerification> findAll() {
-        return null;
+        Set<DeviceInVerification> deviceInVerifications = new HashSet<>();
+        deviceInVerificationRepository.findAll().forEach(deviceInVerifications::add);
+        return deviceInVerifications;
     }
 
     @Override
@@ -23,7 +26,7 @@ public class DeviceInVerificationImpl implements DeviceInVerificationService {
 
     @Override
     public DeviceInVerification save(DeviceInVerification object) {
-        return null;
+        return deviceInVerificationRepository.save(object);
     }
 
     @Override
