@@ -19,8 +19,8 @@ public class Client {
     @Column(name = "id_client", nullable = false)
     private Integer id;
 
-    @Column(name = "clien_name", nullable = false, length = 45)
-    private String clienName;
+    @Column(name = "client_name", nullable = false, length = 45)
+    private String clientName;
 
     @Column(name = "client_address", nullable = false, length = 150)
     private String clientAddress;

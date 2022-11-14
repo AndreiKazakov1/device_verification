@@ -91,7 +91,7 @@
         <form class="needs-validation" method="post" novalidate  th:action="@{/clientRegistration}"  th:object="${newClient}" >
           <div class="col-md-4">
             <label class="form-label" for="clientNameReg">Название организации</label>
-            <input  class="form-control" id="clientNameReg" required th:field="*{clienName}"  type="text" >
+            <input class="form-control" id="clientNameReg" required th:field="*{clientName}" type="text" >
           </div>
           <div class="col-md-4">
             <label class="form-label" for="clientAddressReg">Юридический адрес</label>

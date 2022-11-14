@@ -31,27 +31,43 @@
     </style>
 </head>
 <body class="bg-light">
-<h3>Добавить тип прибора</h3>
+<h3>Добавить прибор в поверку</h3>
 <div class="container">
     <main >
         <div class="col-md-7 col-lg-8">
 
             <form th:action="@{/verifier/addDeviceInVerification}" th:object="${deviceInVerification} "  method="post" class="needs-validation" novalidate>
-                <div class="row g-3">
+                <!--<div class="row g-3">
                     <div class="col-12">
                         <label for="deviceInVerificationNumber" class="form-label">Заводской номер прибора</label>
-                        <input type="text" th:field="*{deviceInVerificationNumber}" class="form-control" id="deviceInVerificationNumber"  required >
+                        <input type="text"  th:field="*{deviceInVerificationNumber}" class="form-control" id="deviceInVerificationNumber"  required >
+                        <div class="invalid-feedback">
+                            Необходимо заполнить поле.
+                        </div>
+                    </div>
+                </div>-->
+
+                <div class="col-12">
+                    <label for="deviceInVerificationNumber" class="form-label">Заводской номер прибора</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">№</span>
+                        <input type="text"  th:field="*{deviceInVerificationNumber}" class="form-control" id="deviceInVerificationNumber"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
                 </div>
+
+
+
+
+
                 <div class="row g-3">
                     <div class="col-12">
-                        <label for="deviceFileCode" class="form-label">Код прибора по тарификатору</label>
+                        <label for="deviceFileCode" class="form-label">Код и название прибора по тарификатору</label>
                         <select  class="form-select" id="deviceFileCode" th:field="*{idDeviceType.id}" >
                             <option value="" >. . .</option>
-                            <option th:each="deviceType : ${deviceTypes}" th:value="${deviceType.id}" th:utext="${deviceType.deviceFileCode}"></option>
+                            <option th:each="deviceType : ${deviceTypes}" th:value="${deviceType.id}" th:utext="${'Код-&nbsp;'+deviceType.deviceFileCode+'&nbsp;&nbsp;&nbsp;'+deviceType.deviceName}"></option>
                         </select>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
@@ -59,41 +75,58 @@
                     </div>
                 </div>
 
-                ****************начать от сюда
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="clientName" class="form-label">Код и название организации (клиента)</label>
+                        <select  class="form-select" id="clientName" th:field="*{idClient.id}" >
+                            <option value="" >. . .</option>
+                            <option th:each="client : ${clients}" th:value="${client.id}" th:utext="${'Код-&nbsp;'+client.clientFileCode+'&nbsp;&nbsp;&nbsp;'+client.clientName}"></option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Необходимо заполнить поле.
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div class="row g-3">
                     <div class="col-12">
-                        <label for="deviceName" class="form-label">Наименование прибора</label>
-                        <input type="text"   th:field="*{deviceName}" class="form-control" id="deviceName"  required >
-                        <div class="invalid-feedback">
-                            Необходимо заполнить поле.
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-3">
-                    <div class="col-12">
-                        <label for="measurementType" class="form-label">Выбрать вид измерения</label>
-                        <select  class="form-select" id="measurementType" th:field="*{idMeasurementType.id}" >
+                        <label for="verifier" class="form-label">Назначенный поверитель</label>
+                        <select  class="form-select" id="verifier" th:field="*{idVerifier.id}" >
                             <option value="" >. . .</option>
-                            <option th:each="measurementType : ${measurementTypes}" th:value="${measurementType.id}" th:utext="${measurementType.measurementTypeCol}"></option>
+                            <option th:each="verifier : ${verifiers}" th:value="${verifier.id}" th:utext="${verifier.verifierFirstName+'&nbsp;&nbsp;&nbsp;'+verifier.verifierLastName}"></option>
                         </select>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
                 </div>
+
                 <div class="row g-3">
                     <div class="col-12">
-                        <label for="methodology" class="form-label">Выбрать методику поверки</label>
-                        <select class="form-select" id="methodology" th:field="*{idMethodology.id}" >
-                            <option value="" >. . .</option>
-                            <option th:each="methodology : ${methodologies}" th:value="${methodology.id}" th:utext="${methodology.methodologyName}"></option>
+                        <label for="standard" class="form-label">Эталон (эталонные СИ)</label>
+                        <select  class="form-select" id="standard" th:field="*{idStandard.id}" >
+                            <option value=""  >. . .</option>
+                            <option th:each="standard : ${standards}" th:value="${standard.id}" th:utext="${standard.standardName+'&nbsp;&nbsp;&nbsp;'+standard.standardNumber}"></option>
                         </select>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
                 </div>
+
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="verificationStartDate" class="form-label">Дата и время принятия прибора в поверку</label>
+                        <input type="datetime-local"   th:field="*{verificationStartDate}" class="form-control" id="verificationStartDate"  required >
+                        <div class="invalid-feedback">
+                            Необходимо заполнить поле.
+                        </div>
+                    </div>
+                </div>
+
+
                 <hr class="my-4">
                 <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff" type="submit" >Подтвердить</button>
                 <hr class="my-4">

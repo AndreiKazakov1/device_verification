@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Calendar;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +21,7 @@ public class DeviceInVerification {
     @Column(name = "id_device_in_verification", nullable = false)
     private Integer id;
 
-    @Column(name = "device_in_verification_number", nullable = false, length = 45)
+    @Column(name = "device_in_verification_number", nullable = false, length = 45, unique = true)
     private String deviceInVerificationNumber;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -44,7 +45,7 @@ public class DeviceInVerification {
     private Standard idStandard;
 
     @Column(name = "verification_start_date", nullable = false)
-    private Instant verificationStartDate;
+    private String verificationStartDate;
 
 
 
