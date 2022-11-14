@@ -36,7 +36,7 @@
     <main >
         <div class="col-md-7 col-lg-8">
 
-            <form th:action="@{/verifier/addMeasurementChannelType}" th:object="${measurementChannel} "  method="post" class="needs-validation" novalidate>
+            <form th:action="@{/verifier/addMeasurementChannelType}" th:object="${measurementChannelType} "  method="post" class="needs-validation" novalidate>
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="sensorType" class="form-label">Тип датчика</label>
@@ -55,65 +55,74 @@
                         </div>
                     </div>
                 </div>
-                <hr class="my-4">
-                <div class="row g-2">
-                    <div class="col-6">
-                        <label for="startInputRangeN" class="form-label">Начало входного диапазона</label>
-                        <input type="number"   th:field="*{startInputRange}" class="form-control" id="startInputRangeN"  required >
-                        <div class="invalid-feedback">
-                            Необходимо заполнить поле.
-                        </div>
-                    </div>
 
+                <hr class="my-4">
+
+                <div class="row g-3">
+                    <div class="col-6">
+                        <label for="startInputRange" class="form-label">Начало входного диапазона</label>
+                        <input type="number"  min="-200"  max="4" step="0.01" th:field="*{startInputRange}" class="form-control" id="startInputRange"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
+                        <div class="invalid-feedback">
+                            Необходимо заполнить поле.
+                        </div>
                     <div class="col-6">
-                        <label for="startInputRange" class="form-label">Конец входного диапазона</label>
-                        <input type="number"  th:field="*{startInputRange}" class="form-control" id="startInputRange"  required >
+                        <label for="endInputRange" class="form-label">Конец входного диапазона</label>
+                        <input type="number" min="0"  max="1367"  step="0.01" th:field="*{endInputRange}" class="form-control" id="endInputRange"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
                 <div class="col-6">
-                    <label for="startInputRangeU" class="form-label">Единица измерения</label>
-
-                    <select  class="form-select" id="startInputRangeU" th:field="*{startInputRange}" >
+                    <label for="inputMeasuringSignalUnit" class="form-label">Ед. измерения входного сигнала</label>
+                    <select  class="form-select" id="inputMeasuringSignalUnit" th:field="*{inputMeasuringSignalUnit}" >
                         <option value="" >. . .</option>
-                        <option value="Java">°C</option>
-                        <option value="Java">мВ</option>
-                        <option value="Java">мА</option>
-                        <option value="Java">Ом</option>
+                        <option value="°C">°C</option>
+                        <option value="мВ">мВ</option>
+                        <option value="мА">мА</option>
+                        <option value="Ом">Ом</option>
                     </select>
                 </div>
+                </div>
                 <hr class="my-4">
+
                 <div class="row g-3">
-                    <div class="col-12">
-                        <label for="measurementType" class="form-label">Выбрать вид измерения</label>
-                        <select class="form-control" id="measurementType" th:field="*{idMeasurementType.id}" >
-                            <option value="" >. . .</option>
-                            <option th:each="measurementType : ${measurementTypes}" th:value="${measurementType.id}" th:utext="${measurementType.measurementTypeCol}"></option>
-                        </select>
+                    <div class="col-6">
+                        <label for="startOutputRange" class="form-label">Начало выходного диапазона</label>
+                        <input type="number"  min="-200"  max="0" step="0.01" th:field="*{startOutputRange}" class="form-control" id="startOutputRange"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
-                </div>
-                <div class="row g-3">
-                    <div class="col-12">
-                        <label for="methodology" class="form-label">Выбрать методику поверки</label>
-                        <select class="form-control" id="methodology" th:field="*{idMethodology.id}" >
-                            <option value="" >. . .</option>
-                            <option th:each="methodology : ${methodologies}" th:value="${methodology.id}" th:utext="${methodology.methodologyName}"></option>
-                        </select>
+                    <div class="invalid-feedback">
+                        Необходимо заполнить поле.
+                    </div>
+                    <div class="col-6">
+                        <label for="endOutputRange" class="form-label">Конец выходного диапазона</label>
+                        <input type="number" min="0"  max="1367"  step="0.01" th:field="*{endOutputRange}" class="form-control" id="endOutputRange"  required >
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
+                    <div class="col-6">
+                        <label for="outputMeasuringSignalUnit" class="form-label">Ед. измерения выходного сигнала</label>
+                        <select  class="form-select" id="outputMeasuringSignalUnit" th:field="*{outputMeasuringSignalUnit}" >
+                            <option value="" >. . .</option>
+                            <option value="°C">°C</option>
+                            <option value="мВ">мВ</option>
+                            <option value="мА">мА</option>
+                            <option value="Ом">Ом</option>
+                        </select>
+                    </div>
                 </div>
+
                 <hr class="my-4">
                 <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff" type="submit" >Подтвердить</button>
+                <hr class="my-4">
+
             </form>
         </div>
     </main>

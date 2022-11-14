@@ -68,7 +68,7 @@
         <div th:class="${menu == 'measurementChannelType'}? 'show':'collapse'" class="collapse " id="measurementChannelType-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
             <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/addMeasurementChannelType">Добавить новый тип ИК</a></li>
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать все типы ИК</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/showAllMeasurementChannelTypes">Показать все типы ИК</a></li>
           </ul>
         </div>
       </li>
@@ -76,15 +76,15 @@
       <li class="border-top my-3"></li>
 
       <li class="mb-1">
-        <button   th:class="${menu == 'verifier'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                  class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#devinver-collapse" aria-expanded="false">
+        <button   th:class="${menu == 'deviceInVerification'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                  class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#deviceInVerification-collapse" aria-expanded="false">
           Поверка прибора
         </button>
-        <div th:class="${menu == 'verifier'}? 'show':'collapse'"  class="collapse " id="devinver-collapse">
+        <div th:class="${menu == 'deviceInVerification'}? 'show':'collapse'"  class="collapse " id="deviceInVerification-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="/addNewVerifierAdm">Добавить прибор в поверку</a></li>
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Провести поверку прибора</a></li>
-            <li><a class="link-dark d-inline-flex text-decoration-none " href="#">Поиск/редактирование/удаление </a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/">Добавить прибор в поверку</a></li>
+            <li><a class="link-dark d-inline-flex text-decoration-none " href="/verifier/">Провести поверку прибора</a></li>
+           <!-- <li><a class="link-dark d-inline-flex text-decoration-none " href="//">Поиск/редактирование/удаление </a></li>-->
           </ul>
         </div>
       </li>

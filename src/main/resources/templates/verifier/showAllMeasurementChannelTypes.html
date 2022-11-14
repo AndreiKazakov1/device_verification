@@ -6,35 +6,42 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Типы приборов</title>
+    <title>Типы измерительных каналов</title>
 
 </head>
 <body>
 
-<h3>Виды измерений</h3>
+<h3>Типы измерительных каналов</h3>
 <div id="demo_info" class="box"></div>
 <table id="example" class="display" style="width:100%">
     <thead>
     <tr>
         <th>ID</th>
-        <th>Тип прибора</th>
-        <th>Код прибора</th>
-        <th>Наименование прибора</th>
-        <th>Вид измерения</th>
-        <th>Методика поверки</th>
+        <th>Тип датчика</th>
+        <th>НСХ</th>
+        <th>Нач. вх. диапазона</th>
+        <th>Кон. вх. диапазона</th>
+        <th>Ед. измер. вх. сигнала</th>
+        <th>Нач. вых. диапазона</th>
+        <th>Кон. вых. диапазона</th>
+        <th>Ед. измер. вых. сигнала</th>
 
     </tr>
     </thead>
     <tbody>
 
-    <tr th:each="deviceType : ${deviceTypes}">
+    <tr th:each="measurementChannelType : ${measurementChannelTypes}">
 
-        <td th:utext="${deviceType.id}">...</td>
-        <td th:utext="${deviceType.measurementDeviceType}">...</td>
-        <td th:utext="${deviceType.deviceFileCode}">...</td>
-        <td th:utext="${deviceType.deviceName}">...</td>
-        <td th:utext="${deviceType.idMeasurementType.measurementTypeCol}">...</td>
-        <td th:utext="${deviceType.idMethodology.methodologyName}">...</td>
+        <td th:utext="${measurementChannelType.id}">...</td>
+        <td th:utext="${measurementChannelType.sensorType}">...</td>
+        <td th:utext="${measurementChannelType.nominalStaticCharacteristic}">...</td>
+        <td th:utext="${measurementChannelType.startInputRange}">...</td>
+        <td th:utext="${measurementChannelType.startOutputRange}">...</td>
+        <td th:utext="${measurementChannelType.inputMeasuringSignalUnit}">...</td>
+        <td th:utext="${measurementChannelType.endInputRange}">...</td>
+        <td th:utext="${measurementChannelType.endOutputRange}">...</td>
+        <td th:utext="${measurementChannelType.outputMeasuringSignalUnit}">...</td>
+
 
     </tr>
 

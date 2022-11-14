@@ -25,14 +25,14 @@ public class MeasurementChannelTypeController {
 
     @GetMapping({"/verifier/addMeasurementChannelType"})
     public String addMeasurementChannelType (Model model) {
-        model.addAttribute("measurementChannel", new MeasurementChannelType());
+        model.addAttribute("measurementChannelType", new MeasurementChannelType());
         return "verifier/addMeasurementChannelType";
     }
 
     @PostMapping("/verifier/addMeasurementChannelType")
     public String saveMeasurementChannelType (MeasurementChannelType measurementChannelType)  {
         measurementChannelTypeService.save(measurementChannelType);
-        return "verifier/addMeasurementChannelType";
+        return "verifier/addMeasurementChannelTypeSubmit";
     }
 
     @GetMapping(value = {"/verifier/addMeasurementChannelTypeSubmit"})
