@@ -81,7 +81,7 @@
                         <label for="methodology" class="form-label">Выбрать методику поверки</label>
                         <select class="form-select" id="methodology" th:field="*{idMethodology.id}" >
                             <option value="" >. . .</option>
-                            <option th:each="methodology : ${methodologies}" th:value="${methodology.id}" th:utext="${methodology.methodologyName}"></option>
+                            <option th:each="methodology : ${methodologies}" th:value="${methodology.id}" th:utext="${'№&nbsp;'+methodology.methodologyNumber+'&nbsp;&nbsp;&nbsp;'+methodology.methodologyName}"></option>
                         </select>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.

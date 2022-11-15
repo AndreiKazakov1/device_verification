@@ -102,6 +102,9 @@ public class RegistrationController {
     }
 
 
-
+    @RequestMapping(value = {"/newClientRegistrationSubmit"}, method = RequestMethod.GET)
+    public String newClientRegistrationSubmit(Model model) {
+        return "signin/newClientRegistrationSubmit";
+    }
 
 }

@@ -34,7 +34,7 @@
         <td th:utext="${deviceType.deviceFileCode}">...</td>
         <td th:utext="${deviceType.deviceName}">...</td>
         <td th:utext="${deviceType.idMeasurementType.measurementTypeCol}">...</td>
-        <td th:utext="${deviceType.idMethodology.methodologyName}">...</td>
+        <td th:utext="${'№&nbsp;'+deviceType.idMethodology.methodologyNumber+'&nbsp;&nbsp;&nbsp;'+deviceType.idMethodology.methodologyName}">...</td>
 
     </tr>
 

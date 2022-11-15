@@ -56,11 +56,14 @@
         <div class="row g-3">
           <div class="col-12">
             <label for="methodologyNumber" class="form-label">Регистрационный номер методики</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">№</span>
             <input type="text" th:field="*{methodologyNumber}"  class="form-control" id="methodologyNumber"  required >
             <div class="invalid-feedback">
               Необходимо заполнить поле.
             </div>
           </div>
+        </div>
         </div>
         <div class="row g-3">
           <div class="col-12">
