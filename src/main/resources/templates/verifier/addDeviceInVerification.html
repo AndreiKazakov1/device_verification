@@ -65,7 +65,7 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="deviceFileCode" class="form-label">Код и название прибора по тарификатору</label>
-                        <select  class="form-select" id="deviceFileCode" th:field="*{idDeviceType.id}" >
+                        <select  class="form-select" id="deviceFileCode" th:field="*{idDeviceType.id}" required >
                             <option value="" >. . .</option>
                             <option th:each="deviceType : ${deviceTypes}" th:value="${deviceType.id}" th:utext="${'Код-&nbsp;'+deviceType.deviceFileCode+'&nbsp;&nbsp;&nbsp;'+deviceType.deviceName}"></option>
                         </select>
@@ -78,7 +78,7 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="clientName" class="form-label">Код и название организации (клиента)</label>
-                        <select  class="form-select" id="clientName" th:field="*{idClient.id}" >
+                        <select  class="form-select" id="clientName" th:field="*{idClient.id}" required>
                             <option value="" >. . .</option>
                             <option th:each="client : ${clients}" th:value="${client.id}" th:utext="${'Код-&nbsp;'+client.clientFileCode+'&nbsp;&nbsp;&nbsp;'+client.clientName}"></option>
                         </select>
@@ -93,15 +93,15 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="verifier" class="form-label">Назначенный поверитель</label>
-                        <select  class="form-select" id="verifier" th:field="*{idVerifier.id}" >
-                            <option value="" >. . .</option>
-                            <option th:each="verifier : ${verifiers}" th:value="${verifier.id}" th:utext="${verifier.verifierFirstName+'&nbsp;&nbsp;&nbsp;'+verifier.verifierLastName}"></option>
+                        <select  class="form-control" id="verifier" th:field="*{idVerifier.id}" required>
+                            <option  th:each="verifier : ${verifier}" th:value="${verifier.id}" th:utext="${verifier.verifierFirstName+'&nbsp;&nbsp;&nbsp;'+verifier.verifierLastName}"></option>
                         </select>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
                         </div>
                     </div>
                 </div>
+
 
                 <div class="row g-3">
                     <div class="col-12">

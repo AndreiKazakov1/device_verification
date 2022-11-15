@@ -20,7 +20,7 @@ public class Verifier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_verifier", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "verifier_first_name", nullable = false, length = 45)
     private String verifierFirstName;
@@ -40,8 +40,8 @@ public class Verifier {
     @JoinColumn(name = "id_admin_key", nullable = false)
     private AdminKey idAdminKey;*/
 
-    @OneToMany(mappedBy = "idVerifier")
-    private Set<DeviceInVerification> deviceInVerifications = new LinkedHashSet<>();
+    /*@OneToMany(mappedBy = "idVerifier")
+    private Set<DeviceInVerification> deviceInVerifications = new LinkedHashSet<>();*/
 
 
 

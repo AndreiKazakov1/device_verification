@@ -2,7 +2,6 @@ package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.Role;
 import by.iba.kazakov.device_verification.models.User;
-import by.iba.kazakov.device_verification.models.Verifier;
 import by.iba.kazakov.device_verification.repositories.UserRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,4 +72,8 @@ public class UserImpl implements UserService, UserDetailsService {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
         }
 
+    @Override
+    public Long findByName(String name) {
+        return userRepository.findByUsername(name).getId();
+    }
 }

@@ -1,12 +1,17 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
+import by.iba.kazakov.device_verification.models.AdminKeyForVerifier;
+import by.iba.kazakov.device_verification.models.Role;
+import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.models.Verifier;
 import by.iba.kazakov.device_verification.repositories.VerifierRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.VerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Service
@@ -22,9 +27,24 @@ public class VerifierImpl implements VerifierService {
     }
 
     @Override
-    public Verifier findById(Integer integer) {
+    public Verifier findById(Long id) {
+        return new Verifier();
+    }
+
+
+
+    public Verifier findByUserId(Long id){
+        Set<Verifier> verifiers = new HashSet<>();
+        verifierRepository.findAll().forEach(verifiers::add);
+        for (Verifier verifier:verifiers) {
+            Long idUser = verifier.getIdUser().getId();
+            if (Objects.equals(id, idUser)) return verifier;
+        }
         return null;
     }
+
+
+
 
     @Override
     public Verifier save(Verifier object) {return  verifierRepository.save(object);
@@ -36,7 +56,7 @@ public class VerifierImpl implements VerifierService {
     }
 
     @Override
-    public void deleteById(Integer integer) {
+    public void deleteById(Long id) {
 
     }
 

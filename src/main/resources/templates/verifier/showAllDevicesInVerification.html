@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'deviceInVerification')}">
+
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>Приборы в поверке</title>
+
 </head>
 <body>
+
+<h3>Приборы в поверке</h3>
+<div id="demo_info" class="box"></div>
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Номер прибора</th>
+        <th>Код и наименование прибора</th>
+        <th>Код и название организации (клиент)</th>
+        <th>Назначенный поверитель</th>
+        <th>Дата поступления в поверку</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="devicesInVerification : ${devicesInVerifications}">
+
+        <td th:utext="${'№&nbsp'+devicesInVerification.id}">...</td>
+        <td th:utext="${devicesInVerification.deviceInVerificationNumber}">...</td>
+        <td th:utext="${devicesInVerification.idDeviceType.deviceFileCode+'&nbsp;&nbsp;&nbsp;'+devicesInVerification.idDeviceType.deviceName}">...</td>
+        <td th:utext="${devicesInVerification.idClient.clientFileCode+'&nbsp;&nbsp;&nbsp;'+devicesInVerification.idClient.clientName}">...</td>
+        <td th:utext="${devicesInVerification.idVerifier.verifierFirstName+'&nbsp;&nbsp;&nbsp;'+devicesInVerification.idVerifier.verifierLastName}">...</td>
+        <td th:utext="${devicesInVerification.verificationStartDate}">...</td>
+
+    </tr>
+
+    </tbody>
+
+</table>
+
+<!--  js для прокаченной таблицы-->
+<script>
+
+    $('#example').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
+        }
+    });
+
+</script>
 
 </body>
 </html>

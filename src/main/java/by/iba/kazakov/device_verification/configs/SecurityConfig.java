@@ -49,15 +49,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
    // https://www.baeldung.com/spring-redirect-after-login]
 
-    public String pageChoice (Principal principal){
+   /* public String pageChoice (Principal principal){
         String url = "";
-        String role = (((Authentication)principal).getAuthorities()).toString();
+        String role = principal.getName();
         System.out.printf(role);
         if (role.equals("ROLE_VERIFIER")) url = "/verifier";
         else if (role.equals("ROLE_ADMIN")) url = "/indexx";
         return url;
     }
-
+*/
 
 
 

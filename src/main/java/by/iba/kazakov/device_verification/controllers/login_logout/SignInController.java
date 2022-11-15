@@ -22,7 +22,7 @@ public class SignInController {
     @Autowired
     AdminKeyForClientService adminKeyForClientService;
 
-    @RequestMapping(value = {"/signin"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/","/signin"}, method = RequestMethod.GET)
     public String signIn(Model model) {
         return "signin/signinPage";
     }
