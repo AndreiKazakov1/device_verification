@@ -42,25 +42,10 @@ public class DeviceInVerificationController {
         model.addAttribute("deviceTypes", deviceTypes );
         Set<Client> clients = clientService.findAll();
         model.addAttribute("clients", clients );
-
-
         String name = principal.getName();
-        System.out.println(name);
         Long id = userService.findByName(name);
-        System.out.println(id);
-
         Verifier verifier = verifierService.findByUserId(id);
-
-
-
-
-     //   Set<Verifier> verifiers = verifierService.findAll();
         model.addAttribute("verifier", verifier );
-
-
-
-
-
         Set<Standard> standards = standardService.findAll();
         model.addAttribute("standards", standards );
         return "verifier/addDeviceInVerification";

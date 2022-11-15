@@ -32,7 +32,6 @@ public class VerifierImpl implements VerifierService {
     }
 
 
-
     public Verifier findByUserId(Long id){
         Set<Verifier> verifiers = new HashSet<>();
         verifierRepository.findAll().forEach(verifiers::add);
@@ -42,8 +41,6 @@ public class VerifierImpl implements VerifierService {
         }
         return null;
     }
-
-
 
 
     @Override
@@ -59,7 +56,6 @@ public class VerifierImpl implements VerifierService {
     public void deleteById(Long id) {
 
     }
-
 
 
 }
