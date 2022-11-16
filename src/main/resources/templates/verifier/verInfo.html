@@ -1,4 +1,3 @@
-
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
@@ -16,19 +15,50 @@
 </head>
 <body>
 
-<hr class="my-4">
-
 <h3>Программная поддержка процесса проведения поверки СИ</h3>
 <h5>(вторичные средства измерения температуры)</h5>
 
 
+
+
+
 <hr class="my-4">
+
+<div class="container">
+  <main >
+    <div class="col-md-7 col-lg-8">
+
+      <form th:action="@{/verifier/verInfo}" th:object="${verifier} "  method="get" class="needs-validation" novalidate>
+
+        <label  for="idVer" class="form-label"> <b>Назначенный поверитель</b></label>
+
+        <div class="row g-3">
+          <div class="col-12">
+        <ul class="list-group list-group-flush" id="idVer">
+          <li class="list-group-item " th:utext="${verifier.verifierFirstName}"></li>
+          <li class="list-group-item" th:utext="${verifier.verifierLastName}">Second item</li>
+          <li class="list-group-item" th:utext="${'Т/н:&nbsp '+verifier.verifierServiceNumber}"></li>
+          <li class="list-group-item" ></li>
+        </ul>
+      </div>
+        </div>
+
+      </form>
+    </div>
+  </main>
+</div>
+
+
+
+<hr class="my-4">
+
+
+
 
 
 
 </body>
 </html>
-
 
 
 
