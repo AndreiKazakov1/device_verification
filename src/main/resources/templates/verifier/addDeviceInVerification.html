@@ -95,7 +95,7 @@
                 <div class="row g-3">
                     <div class="col-12"  >
                         <label for="verifier" class="form-label"  >Назначенный поверитель</label>
-                        <select  class="form-select" id="verifier" th:field="*{idVerifier.id}" required>
+                        <select  class="form-control" id="verifier" th:field="*{idVerifier.id}" required>
                             <option th:each="verifier : ${verifier}" th:value="${verifier.id}" th:utext="${verifier.verifierFirstName+'&nbsp;&nbsp;&nbsp;'+verifier.verifierLastName}"></option>
                         </select>
 
