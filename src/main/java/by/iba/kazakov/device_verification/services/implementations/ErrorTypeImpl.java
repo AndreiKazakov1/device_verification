@@ -1,11 +1,13 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
+import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.ErrorType;
 import by.iba.kazakov.device_verification.repositories.ErrorTypeRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.ErrorTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 @Service
 public class ErrorTypeImpl implements ErrorTypeService {
@@ -13,8 +15,11 @@ public class ErrorTypeImpl implements ErrorTypeService {
     ErrorTypeRepository errorTypeRepository;
     @Override
     public Set<ErrorType> findAll() {
-        return null;
+        Set<ErrorType>errorTypes = new HashSet<>();
+        errorTypeRepository.findAll().forEach(errorTypes::add);
+        return errorTypes;
     }
+
 
     @Override
     public ErrorType findById(Integer integer) {
@@ -23,7 +28,7 @@ public class ErrorTypeImpl implements ErrorTypeService {
 
     @Override
     public ErrorType save(ErrorType object) {
-        return null;
+        return errorTypeRepository.save(object);
     }
 
     @Override

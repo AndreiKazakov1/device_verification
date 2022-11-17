@@ -1,7 +1,7 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'deviceInVerification')}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'errorType')}">
 <head>
     <meta charset="UTF-8"/>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 
 <div class="card">
     <div class="card-body ">
-        <div class="alert alert-success"> <strong>Прибор успешно добавлен в поверку.</strong></div>
+        <div class="alert alert-success"> <strong>Тип погрешноти успешно добавден.</strong></div>
     </div>
 </div>
 <div>
@@ -24,7 +24,3 @@
 </div>
 
 </body>
-</html>
-
-</html>
-

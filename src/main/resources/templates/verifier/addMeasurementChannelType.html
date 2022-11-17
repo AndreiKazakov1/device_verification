@@ -78,8 +78,8 @@
                     </div>
                 <div class="col-6">
                     <label for="inputMeasuringSignalUnit" class="form-label">Ед. измерения входного сигнала</label>
-                    <select  class="form-select" id="inputMeasuringSignalUnit" th:field="*{inputMeasuringSignalUnit}" >
-                        <option value="" >. . .</option>
+                    <select  class="form-select" id="inputMeasuringSignalUnit" th:field="*{inputMeasuringSignalUnit}" required >
+                        <option value="">. . .</option>
                         <option value="°C">°C</option>
                         <option value="мВ">мВ</option>
                         <option value="мА">мА</option>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-6">
                         <label for="outputMeasuringSignalUnit" class="form-label">Ед. измерения выходного сигнала</label>
-                        <select  class="form-select" id="outputMeasuringSignalUnit" th:field="*{outputMeasuringSignalUnit}" >
+                        <select  class="form-select" id="outputMeasuringSignalUnit" th:field="*{outputMeasuringSignalUnit}" required >
                             <option value="" >. . .</option>
                             <option value="°C">°C</option>
                             <option value="мВ">мВ</option>

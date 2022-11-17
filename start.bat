@@ -1,0 +1,1 @@
+java -jar C:\Users\ANKazakov\IBA_2021\diplom\project\target\device_verification-0.0.1-SNAPSHOT.jar

@@ -29,7 +29,7 @@
 
     <tr th:each="devicesInVerification : ${devicesInVerifications}">
 
-        <td th:utext="${'№&nbsp'+devicesInVerification.id}">...</td>
+        <td th:utext="${devicesInVerification.id}">...</td>
         <td th:utext="${devicesInVerification.deviceInVerificationNumber}">...</td>
         <td th:utext="${devicesInVerification.idDeviceType.deviceFileCode+'&nbsp;&nbsp;&nbsp;'+devicesInVerification.idDeviceType.deviceName}">...</td>
         <td th:utext="${devicesInVerification.idClient.clientFileCode+'&nbsp;&nbsp;&nbsp;'+devicesInVerification.idClient.clientName}">...</td>

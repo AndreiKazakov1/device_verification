@@ -53,7 +53,12 @@ public class DeviceInVerificationController {
 
     @PostMapping("/verifier/addDeviceInVerification")
     public String saveDeviceInVerification (DeviceInVerification deviceInVerification)  {
-        deviceInVerificationService.save(deviceInVerification);
+        try {
+            deviceInVerificationService.save(deviceInVerification);
+        }
+        catch (Exception e){
+             return "verifier/errorInput";
+        }
         return "verifier/addDeviceInVerificationSubmit";
     }
 
@@ -61,7 +66,6 @@ public class DeviceInVerificationController {
 
     @GetMapping(value = {"/verifier/addDeviceInVerificationSubmit"})
     public String submitDeviceInVerification() {
-
         return "verifier/addDeviceInVerificationSubmit";
     }
 
