@@ -18,19 +18,14 @@ import java.util.Set;
 public class DeviceInVerificationController {
     @Autowired
     DeviceTypeService deviceTypeService;
-
     @Autowired
     ClientService clientService;
-
     @Autowired
     VerifierService verifierService;
-
     @Autowired
     StandardService standardService;
-
     @Autowired
     DeviceInVerificationService deviceInVerificationService;
-
     @Autowired
     UserService userService;
 

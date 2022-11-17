@@ -17,7 +17,7 @@ public class ErrorType {
     @Column(name = "id_error_type", nullable = false)
     private Integer id;
 
-    @Column(name = "error_type_col", nullable = false, length = 20)
+    @Column(name = "error_type_col", nullable = false, length = 100)
     private String errorTypeCol;
 
     @Column(name = "error_unit", nullable = false, length = 10)

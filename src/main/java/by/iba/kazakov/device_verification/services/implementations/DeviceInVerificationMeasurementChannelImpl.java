@@ -35,4 +35,8 @@ public class DeviceInVerificationMeasurementChannelImpl implements DeviceInVerif
     public void deleteById(Integer integer) {
 
     }
+
+
+
+
 }

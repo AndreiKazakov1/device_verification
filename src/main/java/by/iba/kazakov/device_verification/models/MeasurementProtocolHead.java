@@ -23,6 +23,12 @@ public class MeasurementProtocolHead {
     @Column(name = "measurement_protocol_head_number", nullable = false, length = 10)
     private String measurementProtocolHeadNumber;
 
+    @Column(name = "measurement_protocol_head_verOrg", nullable = false, length = 10)
+    private String measurementProtocolHeadVerOrg = "БелГИМ";
+
+    @Column(name = "measurement_protocol_head_date", nullable = false, length = 10)
+    private String measurementProtocolHeadDate;
+
     @Column(name = "lab_temperature", nullable = false, precision = 5, scale = 1)
     private BigDecimal labTemperature;
 
@@ -31,6 +37,9 @@ public class MeasurementProtocolHead {
 
     @Column(name = "lab_preasure", nullable = false, precision = 5, scale = 1)
     private BigDecimal labPreasure;
+
+    @Column(name = "lab_voltage", nullable = false, precision = 5, scale = 1)
+    private BigDecimal labVoltage;
 
     @Column(name = "order_number", nullable = false)
     private Integer orderNumber;
