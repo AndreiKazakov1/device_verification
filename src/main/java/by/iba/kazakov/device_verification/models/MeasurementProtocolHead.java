@@ -24,7 +24,7 @@ public class MeasurementProtocolHead {
     private String measurementProtocolHeadNumber;
 
     @Column(name = "measurement_protocol_head_verOrg", nullable = false, length = 10)
-    private String measurementProtocolHeadVerOrg = "БелГИМ";
+    private String measurementProtocolHeadVerOrg;
 
     @Column(name = "measurement_protocol_head_date", nullable = false, length = 10)
     private String measurementProtocolHeadDate;
