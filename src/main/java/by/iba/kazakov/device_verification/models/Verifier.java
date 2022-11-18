@@ -28,7 +28,7 @@ public class Verifier {
     @Column(name = "verifier_last_name", nullable = false, length = 45)
     private String verifierLastName;
 
-    @Column(name = "verifier_service_number", nullable = false)
+    @Column(name = "verifier_service_number", nullable = false, unique = true)
     private Integer verifierServiceNumber;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

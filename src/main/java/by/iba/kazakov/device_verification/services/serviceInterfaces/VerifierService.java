@@ -8,5 +8,5 @@ public interface VerifierService
 
     Verifier findByUserId(Long id);
 
-
+    boolean verServNumValidation(Integer verServiceNum);
 }

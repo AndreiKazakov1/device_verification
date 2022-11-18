@@ -20,10 +20,10 @@ public class User {
     @Column(name = "id_user", nullable = false)
     private Long id;
 
-    @Column(name = "login", nullable = false, length = 255, unique = true)
+    @Column(name = "login", nullable = false, length = 100, unique = true)
     private String username;
 
-    @Column(name = "password", nullable = false, length = 255)
+    @Column(name = "password", nullable = false, length = 100)
     private String password;
 
     @Column(name="is_enable")

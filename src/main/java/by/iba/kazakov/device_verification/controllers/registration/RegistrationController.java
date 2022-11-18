@@ -35,14 +35,6 @@ public class RegistrationController {
     RoleService roleService;
 
 
-
-   /* @RequestMapping({"/verifierRegistrationForm"})
-    public String newVerifierForm (Model model) {
-        return "signin/verifierRegistrationForm";
-    }
-*/
-
-
     @GetMapping({"/verifierRegistration"})
     public String newVerifierRegistration(Model model) {
         model.addAttribute("newVerifier", new Verifier());
@@ -51,24 +43,35 @@ public class RegistrationController {
 
     }
 
+
+
     @Transactional
     @PostMapping("/verifierRegistration")
     public String addNewUserVerReg(@Validated String userLogin, @Validated String userPassword,
                                    @Validated String verifierFirstName, @Validated String verifierLastName,
                                    @Validated int verifierServiceNumber, Verifier verifier) {
 
-        User user = new User();
-        user.setUsername(userLogin);
-        user.setPassword(BCrypt.hashpw(userPassword,BCrypt.gensalt(12)));
-        user.setRoles(new ArrayList<>());
-        user.getRoles().add(roleService.findByName("ROLE_VERIFIER"));
-        userService.save(user);
-        verifier.setIdUser(user);
-        verifier.setVerifierFirstName(verifierFirstName);
-        verifier.setVerifierLastName(verifierLastName);
-        verifier.setVerifierServiceNumber(verifierServiceNumber);
-        verifierService.save(verifier);
-        return "signin/newVerifierRegistrationSubmit";
+            boolean logFlag = false;
+            boolean sevrNumFlag = false;
+            if (userService.loginValidation(userLogin)) logFlag = true;
+            if(verifierService.verServNumValidation(verifierServiceNumber)) sevrNumFlag = true;
+
+            if (logFlag && sevrNumFlag){
+            User user = new User();
+            user.setUsername(userLogin);
+            user.setPassword(BCrypt.hashpw(userPassword, BCrypt.gensalt(12)));
+            user.setRoles(new ArrayList<>());
+            user.getRoles().add(roleService.findByName("ROLE_VERIFIER"));
+            userService.save(user);
+            verifier.setIdUser(user);
+            verifier.setVerifierFirstName(verifierFirstName);
+            verifier.setVerifierLastName(verifierLastName);
+            verifier.setVerifierServiceNumber(verifierServiceNumber);
+            verifierService.save(verifier);
+            return "signin/newVerifierRegistrationSubmit";
+            }
+            if (!logFlag) return "signin/registrationLogErrorInput";
+            else return "signin/registrationServNumErrorInput";
 
     }
 
@@ -89,15 +92,19 @@ public class RegistrationController {
     @Transactional
     @PostMapping("/clientRegistration")
     public String addNewUserClientReg (@Validated String userLogin, @Validated String userPassword, Client client){
-        User user = new User();
-        user.setUsername(userLogin);
-        user.setPassword(BCrypt.hashpw(userPassword,BCrypt.gensalt(12)));
-        user.setRoles(new ArrayList<>());
-        user.getRoles().add(roleService.findByName("ROLE_CLIENT"));
-        userService.save(user);
-        client.setIdUser(user);
-        clientService.save(client);
-        return "signin/newClientRegistrationSubmit";
+
+
+        if(userService.loginValidation(userLogin)) {
+            User user = new User();
+            user.setUsername(userLogin);
+            user.setPassword(BCrypt.hashpw(userPassword, BCrypt.gensalt(12)));
+            user.setRoles(new ArrayList<>());
+            user.getRoles().add(roleService.findByName("ROLE_CLIENT"));
+            userService.save(user);
+            client.setIdUser(user);
+            clientService.save(client);
+            return "signin/newClientRegistrationSubmit";
+        }return "signin/registrationLogErrorInputClient";
 
     }
 

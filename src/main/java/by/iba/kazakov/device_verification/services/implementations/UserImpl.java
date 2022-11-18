@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -28,7 +29,6 @@ public class UserImpl implements UserService, UserDetailsService {
         userRepository.findAll().forEach(users::add);
         return users;
     }
-
 
 
     @Override
@@ -57,7 +57,7 @@ public class UserImpl implements UserService, UserDetailsService {
 
 
     @Override
-    @Transactional
+    @Transactional()
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findByUsername(username);
         if(user == null){
@@ -76,4 +76,19 @@ public class UserImpl implements UserService, UserDetailsService {
     public Long findByName(String name) {
         return userRepository.findByUsername(name).getId();
     }
+
+
+    @Override
+    public boolean loginValidation(String login) {
+        Set<User> users = new HashSet<>();
+        userRepository.findAll().forEach(users::add);
+        for (User user : users) {
+            String loginForValidation = user.getUsername();
+            if (Objects.equals(loginForValidation, login)) return false;
+        } return true;
+    }
+
+
+
+
 }
