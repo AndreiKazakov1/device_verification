@@ -38,13 +38,13 @@ public class VerificationProcessController {
         return "verifier/measurementProtocolHead";
     }
 
-/*
-    @PostMapping("/verifier/addDeviceType")
-    public String saveDeviceType (DeviceType deviceType)  {
-        deviceTypeService.save(deviceType);
-        return "verifier/addDeviceTypeSubmit";
+
+    @PostMapping("/verifier/measurementProtocolHead")
+    public String saveMeasurementProtocolHead (MeasurementProtocolHead measurementProtocolHead)  {
+        measurementProtocolHeadService.save(measurementProtocolHead);
+        return "verifier/measurementProtocolHead";
     }
-    */
+
 
    /* @PostMapping("/verifier/addMeasurementChannelType")
     public String saveMeasurementChannelType (MeasurementChannelType measurementChannelType)  {

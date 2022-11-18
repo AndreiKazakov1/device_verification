@@ -23,7 +23,7 @@ public class MeasurementProtocolHeadImpl implements MeasurementProtocolHeadServi
 
     @Override
     public MeasurementProtocolHead save(MeasurementProtocolHead object) {
-        return null;
+        return measurementProtocolHeadRepository.save(object);
     }
 
     @Override
