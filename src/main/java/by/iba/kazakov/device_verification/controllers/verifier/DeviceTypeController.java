@@ -20,10 +20,8 @@ import java.util.Set;
 public class DeviceTypeController {
     @Autowired
     DeviceTypeService deviceTypeService;
-
     @Autowired
     MeasurementTypeService measurementTypeService;
-
     @Autowired
     MethodologyService methodologyService;
 

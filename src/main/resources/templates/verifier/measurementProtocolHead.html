@@ -129,7 +129,7 @@
                         <label for="labTemperature" class="form-label">Температура</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">°C</span>
-                        <input type="number"  min="0"  max="40" step="0.01" th:field="*{labTemperature}" class="form-control" id="labTemperature"  required >
+                        <input type="number"  min="20"  max="40" step="0.1" th:field="*{labTemperature}" class="form-control" id="labTemperature"  required >
                         </div>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
@@ -140,7 +140,7 @@
                         <label for="labHumidity" class="form-label">Влажность</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">%</span>
-                        <input type="number" min="0"  max="100"  step="0.01" th:field="*{labHumidity}" class="form-control" id="labHumidity"  required >
+                        <input type="number" min="30"  max="100"  step="0.1" th:field="*{labHumidity}" class="form-control" id="labHumidity"  required >
                         </div>
                             <div class="invalid-feedback">
                             Необходимо заполнить поле.
@@ -151,7 +151,7 @@
                         <label for="labPressure" class="form-label">Атмосферное давление</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">кПа</span>
-                            <input type="number" min="89"  max="120"  step="0.01" th:field="*{labPressure}" class="form-control" id="labPressure"  required >
+                            <input type="number" min="89"  max="120"  step="0.1" th:field="*{labPressure}" class="form-control" id="labPressure"  required >
                         </div>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
@@ -173,6 +173,8 @@
                     <hr class="my-4">
                 <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff"
                         type="submit" >Продолжить</button>
+                <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+                        onclick="document.location='/verifier/verInfo'" >На главную</button>
                 <hr class="my-4">
             </form>
         </div>

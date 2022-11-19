@@ -6,15 +6,20 @@ import by.iba.kazakov.device_verification.services.serviceInterfaces.DeviceInVer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 @Service
 public class DeviceInVerificationMeasurementChannelImpl implements DeviceInVerificationMeasurementChannelService {
     @Autowired
     DeviceInVerificationMeasurementChannelRepository deviceInVerificationMeasurementChannelRepository;
+
     @Override
     public Set<DeviceInVerificationMeasurementChannel> findAll() {
-        return null;
+        Set<DeviceInVerificationMeasurementChannel> deviceInVerificationMeasurementChannels = new HashSet<>();
+        deviceInVerificationMeasurementChannelRepository.findAll().forEach(deviceInVerificationMeasurementChannels::add);
+        return deviceInVerificationMeasurementChannels;
     }
+
 
     @Override
     public DeviceInVerificationMeasurementChannel findById(Integer integer) {
@@ -23,7 +28,7 @@ public class DeviceInVerificationMeasurementChannelImpl implements DeviceInVerif
 
     @Override
     public DeviceInVerificationMeasurementChannel save(DeviceInVerificationMeasurementChannel object) {
-        return null;
+        return deviceInVerificationMeasurementChannelRepository.save(object);
     }
 
     @Override

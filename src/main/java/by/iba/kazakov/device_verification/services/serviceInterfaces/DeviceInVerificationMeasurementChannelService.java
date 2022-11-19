@@ -4,4 +4,5 @@ import by.iba.kazakov.device_verification.models.DeviceInVerificationMeasurement
 import by.iba.kazakov.device_verification.services.serviceInterfaces.CrudService;
 
 public interface DeviceInVerificationMeasurementChannelService extends CrudService<DeviceInVerificationMeasurementChannel, Integer> {
+
 }
