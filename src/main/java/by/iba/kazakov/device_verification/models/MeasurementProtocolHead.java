@@ -20,10 +20,10 @@ public class MeasurementProtocolHead {
     @Column(name = "id_measurement_protocol_head", nullable = false)
     private Integer id;
 
-    @Column(name = "measurement_protocol_head_number", nullable = false, length = 20)
+    @Column(name = "measurement_protocol_head_number", nullable = false, length = 20, unique = true)
     private String measurementProtocolHeadNumber;
 
-    @Column(name = "measurement_protocol_head_verOrg", nullable = false, length = 20)
+    @Column(name = "measurement_protocol_head_verification_Org", nullable = false, length = 20)
     private String measurementProtocolHeadVerOrg;
 
     @Column(name = "measurement_protocol_head_date", nullable = false, length = 10)
@@ -35,8 +35,8 @@ public class MeasurementProtocolHead {
     @Column(name = "lab_humidity", nullable = false, precision = 5, scale = 1)
     private BigDecimal labHumidity;
 
-    @Column(name = "lab_preasure", nullable = false, precision = 5, scale = 1)
-    private BigDecimal labPreasure;
+    @Column(name = "lab_pressure", nullable = false, precision = 5, scale = 1)
+    private BigDecimal labPressure;
 
     @Column(name = "lab_voltage", nullable = false, precision = 5, scale = 1)
     private BigDecimal labVoltage;

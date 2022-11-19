@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'measurementProtocolHead')}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'deviceInVerification')}">
 
 <head>
     <meta charset="UTF-8"/>
@@ -82,8 +82,8 @@
 
                 <div class="row g-3">
                     <div class="col-8">
-                        <label for="deviceFileCode" class="form-label">Номер принятого в поверку прибора/клиент</label>
-                        <select  class="form-select"   id="deviceFileCode" th:field="*{idDeviceInVerification.id}" required >
+                        <label for="deviceInVerificationNumber" class="form-label">Номер принятого в поверку прибора/клиент</label>
+                        <select  class="form-select"   id="deviceInVerificationNumber" th:field="*{idDeviceInVerification.id}" required >
                             <option value="" >. . .</option>
                             <option     th:each="deviceInVerification : ${deviceInVerifications}" th:value="${deviceInVerification.id}"
                                         th:utext="${'№-&nbsp;'+deviceInVerification.deviceInVerificationNumber+'&nbsp;&nbsp;Клиент&nbsp;'+
@@ -126,10 +126,10 @@
 
                 <div class="row g-3">
                     <div class="col-6">
-                        <label for="startInputRange" class="form-label">Температура</label>
+                        <label for="labTemperature" class="form-label">Температура</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">°C</span>
-                        <input type="number"  min="0"  max="40" step="0.01" th:field="*{labTemperature}" class="form-control" id="startInputRange"  required >
+                        <input type="number"  min="0"  max="40" step="0.01" th:field="*{labTemperature}" class="form-control" id="labTemperature"  required >
                         </div>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
@@ -137,10 +137,10 @@
                     </div>
 
                     <div class="col-6">
-                        <label for="endInputRange" class="form-label">Влажность</label>
+                        <label for="labHumidity" class="form-label">Влажность</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">%</span>
-                        <input type="number" min="0"  max="100"  step="0.01" th:field="*{labHumidity}" class="form-control" id="endInputRange"  required >
+                        <input type="number" min="0"  max="100"  step="0.01" th:field="*{labHumidity}" class="form-control" id="labHumidity"  required >
                         </div>
                             <div class="invalid-feedback">
                             Необходимо заполнить поле.
@@ -148,10 +148,10 @@
                     </div>
 
                     <div class="col-6">
-                        <label for="endInputRange" class="form-label">Атмосферное давление</label>
+                        <label for="labPressure" class="form-label">Атмосферное давление</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">кПа</span>
-                            <input type="number" min="89"  max="120"  step="0.01" th:field="*{labPreasure}" class="form-control" id="endInputRange"  required >
+                            <input type="number" min="89"  max="120"  step="0.01" th:field="*{labPressure}" class="form-control" id="labPressure"  required >
                         </div>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
@@ -159,10 +159,10 @@
                     </div>
 
                     <div class="col-6">
-                        <label for="endInputRange" class="form-label">Напряжение питания сети</label>
+                        <label for="labVoltage" class="form-label">Напряжение питания сети</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">V</span>
-                            <input type="number" min="220"  max="235"  step="0.1" th:field="*{labVoltage}" class="form-control" id="endInputRange"  required >
+                            <input type="number" min="220"  max="235"  step="0.1" th:field="*{labVoltage}" class="form-control" id="labVoltage"  required >
                         </div>
                         <div class="invalid-feedback">
                             Необходимо заполнить поле.
