@@ -62,16 +62,16 @@
         </div>
 -->
 
-        <div id="demo_info" class="box"></div>
+     <!--   <div id="demo_info" class="box"></div>
         <table id="example" class="display" style="width:100%">
           <thead>
           <tr>
             <th>ID</th>
-            <!--<th>Тип прибора</th>
+            &lt;!&ndash;<th>Тип прибора</th>
             <th>Код прибора</th>
             <th>Наименование прибора</th>
             <th>Вид измерения</th>
-            <th>Методика поверки</th>-->
+            <th>Методика поверки</th>&ndash;&gt;
 
           </tr>
           </thead>
@@ -93,7 +93,28 @@
         </table>
 
 
+-->
 
+        <h3>Типы погрешностей измерения</h3>
+        <div id="demo_info1" class="box"></div>
+        <table id="example1" class="display" style="width:100%">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Тип погрешности</th>
+            <!--<th>Единица измерения </th>-->
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="es : ${measurementChannelTypes}">
+            <td >xfghxfgbszfgbn</td>
+            <td >xfghxfgbszfgbn</td>
+
+            <td th:utext="${errorType.errorUnit}">...</td>-->
+          </tr>
+          </tbody>
+        </table>
+        <hr class="my-4">
 
 
 
