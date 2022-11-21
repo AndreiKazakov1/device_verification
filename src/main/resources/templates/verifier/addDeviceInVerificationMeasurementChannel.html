@@ -1,0 +1,112 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'deviceInVerification')}">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <!-- <title>Добавить вид измерений</title>-->
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+
+
+
+  <style>
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+    <title></title>
+</head>
+<body class="bg-light">
+<h3>Добавить измерительные каналы прибора в поверке</h3>
+<div class="container">
+  <main >
+    <div class="col-md-7 col-lg-8">
+
+      <form th:action="@{/verifier/addDeviceInVerificationMeasurementChannel}" th:object="${deviceInVerificationMeasurementChannel} "  method="post" class="needs-validation" novalidate>
+
+
+       <div class="row g-3">
+
+          <div class="col-3">
+              <label for="channelIndexNumber" class="form-label">Номер канала</label>
+              <div class="input-group has-validation">
+                  <span class="input-group-text">№</span>
+                  <input type="text"  th:field="*{channelIndexNumber}" class="form-control" id="channelIndexNumber"  required >
+                  <div class="invalid-feedback">
+                      Необходимо заполнить поле.
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="col-5">
+            <label for="errorValue" class="form-label">Значение погрешности</label>
+            <input type="number" min="0" max="100" step="0.01" th:field="*{errorValue}" class="form-control" id="errorValue"  required >
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
+          </div>
+
+         <div class="col-8">
+            <label for="deviceFileCode" class="form-label">Тип канала</label>
+            <select  class="form-select"   id="deviceFileCode" th:field="*{idMeasurementChannelType}" required >
+              <option value="" >. . .</option>
+              <option     th:each="measurementChannelType : ${measurementChannelTypes}" th:value="${measurementChannelType.id}"
+                          th:utext="${'Код-&nbsp;'+measurementChannelType.nominalStaticCharacteristic+'&nbsp;&nbsp;&nbsp;'+measurementChannelType.id}"></option>
+            </select>
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
+          </div>
+
+           </div>
+
+
+
+        <hr class="my-4">
+        <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+                type="submit" >Подтвердить</button>
+        <hr class="my-4">
+      </form>
+    </div>
+  </main>
+</div>
+<script>
+  (() => {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation')
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
+
+
+</body>
+</html>
+</html>
