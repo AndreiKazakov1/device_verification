@@ -81,9 +81,9 @@
                 <h5>Данные о приборе</h5>
 
                 <div class="row g-3">
-                    <div class="col-8">
+                    <div class="col-12">
                         <label for="deviceInVerificationNumber" class="form-label">Номер принятого в поверку прибора/клиент</label>
-                        <select  class="form-select"   id="deviceInVerificationNumber" th:field="*{idDeviceInVerification.id}" required >
+                        <select  class="form-select"   id="deviceInVerificationNumber" th:field="*{idDeviceInVerification}" required >
                             <option value="" >. . .</option>
                             <option     th:each="deviceInVerification : ${deviceInVerifications}" th:value="${deviceInVerification.id}"
                                         th:utext="${'№-&nbsp;'+deviceInVerification.deviceInVerificationNumber+'&nbsp;&nbsp;Клиент&nbsp;'+
@@ -94,9 +94,9 @@
                         </div>
                     </div>
 
-                    <div class="col-8">
+                    <div class="col-12">
                         <label for="errorType" class="form-label">Тип погрешности измерения</label>
-                        <select  class="form-select"   id="errorType" th:field="*{idErrorType.id}" required >
+                        <select  class="form-select"   id="errorType" th:field="*{idErrorType}" required >
                             <option value="" >. . .</option>
                             <option     th:each="errorType : ${errorTypes}" th:value="${errorType.id}" th:utext="${errorType.errorTypeCol+'&nbsp;&nbsp;'+
                             errorType.errorUnit}"></option>
@@ -106,7 +106,7 @@
                         </div>
                     </div>
 
-                    <div class="col-8">
+                    <div class="col-12">
                         <label for="chanelQuantity" class="form-label">Количество измерительных каналов</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">№</span>

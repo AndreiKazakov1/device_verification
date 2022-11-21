@@ -38,87 +38,62 @@
     <div class="col-md-7 col-lg-8">
       <form th:action="@{/verifier/deviceInVerificationMeasurementChannel}" th:object="${deviceInVerificationMeasurementChannel} "  method="post" class="needs-validation" novalidate>
         <h5>Основные данные</h5>
-
-
-
-       <!-- <a th:utext="${}">-->
-
-        <!--<div class="row g-3">
-          <div class="col-8">
-            <label for="measurementProtocolHeadNumber" class="form-label">Номер протокола поверки</label>
-            <input type="text" th:field="*{measurementProtocolHeadNumber}" class="form-control" id="measurementProtocolHeadNumber"  required placeholder="10-12-ХХХ/55">
-            <div class="invalid-feedback">
-              Необходимо заполнить поле.
-            </div>
-
-          </div>
-          <div class="col-8">
-            <label for="measurementProtocolHeadDate" class="form-label"></label>
-            <input type="date"   th:field="*{measurementProtocolHeadDate}" class="form-control" id="measurementProtocolHeadDate"  required >
-            <div class="invalid-feedback">
-              Необходимо заполнить поле.
-            </div>
+        <div class="row g-3">
+          <div class="col-12">
+            <ul class="list-group list-group-flush" id="idVer">
+              <li class="list-group-item" th:utext="${'Номер текущего протокола &nbsp;-&nbsp;&nbsp;'+ measurementProtocolHead.measurementProtocolHeadNumber}"></li>
+              <li class="list-group-item " th:utext="${'Номер прибора в поверке &nbsp;-&nbsp;&nbsp;'+ measurementProtocolHead.idDeviceInVerification.deviceInVerificationNumber}"></li>
+              <li class="list-group-item " th:utext="${'Количество измерительных каналов &nbsp;-&nbsp;&nbsp;'+ measurementProtocolHead.deviceInVerificationMeasurementChannelsQuantity}"></li>
+            </ul>
           </div>
         </div>
--->
-
-     <!--   <div id="demo_info" class="box"></div>
-        <table id="example" class="display" style="width:100%">
-          <thead>
-          <tr>
-            <th>ID</th>
-            &lt;!&ndash;<th>Тип прибора</th>
-            <th>Код прибора</th>
-            <th>Наименование прибора</th>
-            <th>Вид измерения</th>
-            <th>Методика поверки</th>&ndash;&gt;
-
-          </tr>
-          </thead>
-          <tbody>
-
-          <tr >
-
-
-            <td th:utext="${measurementProtocolHead.id}">...</td>
-            <td th:utext="${measurementProtocolHead.measurementProtocolHeadNumber}">...</td>
-            <td th:utext="${measurementProtocolHead.deviceInVerificationMeasurementChannelsQuantity}">...</td>
-
-
-
-          </tr>
-
-          </tbody>
-
-        </table>
-
-
--->
-
-        <h3>Типы погрешностей измерения</h3>
-        <div id="demo_info1" class="box"></div>
-        <table id="example1" class="display" style="width:100%">
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>Тип погрешности</th>
-            <!--<th>Единица измерения </th>-->
-          </tr>
-          </thead>
-          <tbody>
-          <tr th:each="es : ${measurementChannelTypes}">
-            <td >xfghxfgbszfgbn</td>
-            <td >xfghxfgbszfgbn</td>
-
-            <td th:utext="${errorType.errorUnit}">...</td>-->
-          </tr>
-          </tbody>
-        </table>
         <hr class="my-4">
-
-
-
+        <h5>Ввести данные по каналам</h5>
         <hr class="my-4">
+        <div class="row g-3">
+
+          <div class="col-4">
+            <label for="channelIndexNumber" class="form-label">Температура</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">№</span>
+              <input type="number"  min="1"  max="40" step="1" th:field="*{channelIndexNumber}" class="form-control" id="channelIndexNumber"  required >
+            </div>
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
+          </div>
+
+          <div class="col-4">
+            <label for="errorValue" class="form-label">Влажность</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">%</span>
+              <input type="number" min="0"  max="100"  step="0.01" th:field="*{errorValue}" class="form-control" id="errorValue"  required >
+            </div>
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
+          </div>
+
+          <div class="col-6">
+            <label for="labPressure" class="form-label">Атмосферное давление</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">кПа</span>
+              <input type="number" min="89"  max="120"  step="0.1" th:field="*{}" class="form-control" id="labPressure"  required >
+            </div>
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
         <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff"
                 type="submit" >Продолжить</button>
         <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
@@ -128,25 +103,6 @@
     </div>
   </main>
 </div>
-
-<!--  js для прокаченной таблицы-->
-<script>
-
-  $('#example').DataTable({
-    language: {
-      url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
-    }
-  });
-
-</script>
-
-
-
-
-
-
-
-
 
 
 <script>
