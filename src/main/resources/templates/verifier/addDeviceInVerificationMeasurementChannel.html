@@ -13,9 +13,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 
-
-
-
   <style>
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
@@ -39,49 +36,71 @@
 <h3>Добавить измерительные каналы прибора в поверке</h3>
 <div class="container">
   <main >
-    <div class="col-md-7 col-lg-8">
+    <div class="col-md-7 col-lg-10">
 
       <form th:action="@{/verifier/addDeviceInVerificationMeasurementChannel}" th:object="${deviceInVerificationMeasurementChannel} "  method="post" class="needs-validation" novalidate>
-
-
+          <hr class="my-4">
+<h6>Текущие данные</h6>
+          <div class="row g-3">
+              <div class="col-12">
+                  <ul class="list-group list-group-flush" id="idVer">
+                      <li class="list-group-item" th:utext="${'Номер протокола в поверке:&nbsp '+measurementProtocolHead.measurementProtocolHeadNumber}"></li>
+                      <li class="list-group-item" th:utext="${'Номер прибора в поверке:&nbsp'+measurementProtocolHead.idDeviceInVerification.deviceInVerificationNumber}"></li>
+                      <li class="list-group-item" th:utext="${'Количество измерительных каналов:&nbsp '+measurementProtocolHead.deviceInVerificationMeasurementChannelsQuantity}"></li>
+                      <li class="list-group-item" ></li>
+                  </ul>
+              </div>
+          </div>
        <div class="row g-3">
-
-          <div class="col-3">
+          <div class="col-4">
               <label for="channelIndexNumber" class="form-label">Номер канала</label>
               <div class="input-group has-validation">
                   <span class="input-group-text">№</span>
-                  <input type="text"  th:field="*{channelIndexNumber}" class="form-control" id="channelIndexNumber"  required >
+
+                  <select  class="form-select"   id="channelIndexNumber" th:field="*{channelIndexNumber}" required >
+                      <option value="" >. . .</option>
+                      <option     th:each="channelArrs : ${channelArr}" th:value="${channelArrs+1}"
+                                  th:utext="${channelArrs+1}"></option>
+                  </select>
                   <div class="invalid-feedback">
                       Необходимо заполнить поле.
                   </div>
               </div>
           </div>
-
-
-          <div class="col-5">
-            <label for="errorValue" class="form-label">Значение погрешности</label>
-            <input type="number" min="0" max="100" step="0.01" th:field="*{errorValue}" class="form-control" id="errorValue"  required >
+          <div class="col-8">
+            <label for="errorValue" class="form-label">Класс точности (погрешность) прибора</label>
+           <!-- <input type="number" min="0" max="100" step="0.01" th:field="*{errorValue}" class="form-control" id="errorValue"  required >-->
+              <select  class="form-select" id="errorValue" th:field="*{errorValue}" required >
+                  <option value="">. . .</option>
+                  <option value="0,25">0,25</option>
+                  <option value="0,5">0,5</option>
+                  <option value="1,0">1,0</option>
+                  <option value="1,5">1,5</option>
+              </select>
             <div class="invalid-feedback">
               Необходимо заполнить поле.
             </div>
           </div>
-
-         <div class="col-8">
+         <div class="col-12">
             <label for="deviceFileCode" class="form-label">Тип канала</label>
             <select  class="form-select"   id="deviceFileCode" th:field="*{idMeasurementChannelType}" required >
               <option value="" >. . .</option>
               <option     th:each="measurementChannelType : ${measurementChannelTypes}" th:value="${measurementChannelType.id}"
-                          th:utext="${'Код-&nbsp;'+measurementChannelType.nominalStaticCharacteristic+'&nbsp;&nbsp;&nbsp;'+measurementChannelType.id}"></option>
+                          th:utext="${'Код-&nbsp;'+measurementChannelType.nominalStaticCharacteristic+'&nbsp;&nbsp;Начало выходного диапазона&nbsp;'+measurementChannelType.endInputRange
+                          +'&nbsp;&nbsp;Конец выходного диапазона&nbsp;'+measurementChannelType.endOutputRange }"></option>
             </select>
             <div class="invalid-feedback">
               Необходимо заполнить поле.
             </div>
-          </div>
-
-           </div>
-
-
-
+         </div>
+               <div class="col-12"  hidden>
+                   <label for="verifier" class="form-label"  >Назначенный поверитель</label>
+                   <select  class="form-control" id="verifier" th:field="*{idMeasurementProtocolHead}" required>
+                       <option th:each="m : ${measurementProtocolHead}" th:value="${measurementProtocolHead.id}"
+                               th:utext="${measurementProtocolHead.id}"></option>
+                   </select>
+               </div>
+       </div>
         <hr class="my-4">
         <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff"
                 type="submit" >Подтвердить</button>
@@ -106,7 +125,73 @@
   })()
 </script>
 
-
 </body>
 </html>
 </html>
+
+
+
+<!-- <table id="example" class="display" style="width:100%">
+             <thead>
+             <tr>
+                 &lt;!&ndash;<th>ID</th>
+                 <th>Название вида измерений</th>&ndash;&gt;
+
+             </tr>
+             </thead>
+             <tbody>
+
+             <tr th:each="es : ${e}">
+
+                 <td ><div class="row g-3"><div class="col-8">
+                     <label for="channelIndexNumber" class="form-label">Номер канала</label>
+                     &lt;!&ndash;<div class="input-group has-validation">&ndash;&gt;
+                         <span class="input-group-text">№</span>&ndash;&gt;
+
+                         <select  class="form-select"   id="channelIndexNumber" th:field="*{channelIndexNumber}" required >
+                             <option value="" >. . .</option>
+                             <option     th:each="es : ${e}" th:value="${es+1}"
+                                         th:utext="${es+1}"></option>
+                         </select>
+                         <div class="invalid-feedback">
+                             Необходимо заполнить поле.
+                         </div>
+                    &lt;!&ndash; </div>&ndash;&gt;
+                 </div></div></td>
+                 <td ><div class="col-10">
+                     <label for="errorValue" class="form-label">Класс точности (погрешность)</label>
+                     <input type="number" min="0" max="100" step="0.01" th:field="*{errorValue}" class="form-control" id="errorValue"  required >
+                     <div class="invalid-feedback">
+                         Необходимо заполнить поле.
+                     </div>
+                 </div>
+                 </td>
+                 <td ><div class="col-10">
+                     <label for="deviceFileCode" class="form-label">Тип канала</label>
+                     <select  class="form-select"   id="deviceFileCode" th:field="*{idMeasurementChannelType}" required >
+                         <option value="" >. . .</option>
+                         <option     th:each="measurementChannelType : ${measurementChannelTypes}" th:value="${measurementChannelType.id}"
+                                     th:utext="${'Код-&nbsp;'+measurementChannelType.nominalStaticCharacteristic+'&nbsp;&nbsp;Начало выходного диапазона&nbsp;'+measurementChannelType.endInputRange
+                         +'&nbsp;&nbsp;Конец выходного диапазона&nbsp;'+measurementChannelType.endOutputRange }"></option>
+                     </select>
+                     <div class="invalid-feedback">
+                         Необходимо заполнить поле.
+                     </div>
+                 </div></td>
+                 <td > <div class="col-2"  hidden>
+                     <label for="verifier" class="form-label"  >Назначенный поверитель</label>
+                     <select  class="form-control" id="verifier" th:field="*{idMeasurementProtocolHead}" required>
+                         <option th:each="m : ${measurementProtocolHead}" th:value="${measurementProtocolHead.id}"
+                                 th:utext="${measurementProtocolHead.id}"></option>
+                     </select>
+
+                 </div></td>
+                  <td> <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+                               type="submit" >Сохранить</button></td>
+             </tr>
+
+             </tbody>
+
+         </table>
+
+-->

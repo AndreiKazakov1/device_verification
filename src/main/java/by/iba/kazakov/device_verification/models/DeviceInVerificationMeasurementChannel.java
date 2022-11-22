@@ -31,6 +31,12 @@ public class DeviceInVerificationMeasurementChannel {
     @JoinColumn(name = "id_measurement_channel_type", nullable = false)
     private MeasurementChannelType idMeasurementChannelType;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "id_measurement_protocol_head", nullable = false)
+    private MeasurementProtocolHead idMeasurementProtocolHead;
+
 
 
 }
+

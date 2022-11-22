@@ -45,6 +45,9 @@ public class ProtocolHeadController {
     public String saveMeasurementProtocolHead (MeasurementProtocolHead measurementProtocolHead)  {
         try {
               measurementProtocolHeadService.save(measurementProtocolHead);
+              measurementProtocolHeadService.currentProtocolId(measurementProtocolHead.getId());
+              measurementProtocolHeadService.currentChannelsCount(measurementProtocolHead.getDeviceInVerificationMeasurementChannelsQuantity());
+
 
         }catch (Exception e){
             return "verifier/errorInputProtocolNumber";

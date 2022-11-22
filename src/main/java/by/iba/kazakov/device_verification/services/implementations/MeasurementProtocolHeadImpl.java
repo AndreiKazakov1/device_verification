@@ -1,8 +1,6 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
-import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.MeasurementProtocolHead;
-import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.repositories.MeasurementProtocolHeadRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementProtocolHeadService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +47,39 @@ public class MeasurementProtocolHeadImpl implements MeasurementProtocolHeadServi
     @Override
     public void deleteById(Integer integer) {
 
+    }
+
+
+    public static int currentProtocolId;
+    @Override
+    public void currentProtocolId(Integer currProtocolId){
+        currentProtocolId = currProtocolId;
+    }
+    @Override
+    public Integer returnCurrentProtocolId(){
+        return currentProtocolId;
+    }
+
+
+    public static int currentChannelsCount;
+    @Override
+    public void currentChannelsCount(Integer currChannelsCount){
+        currentChannelsCount = currChannelsCount;
+    }
+    @Override
+    public Integer returnCurrentChannelsCount(){
+        return currentChannelsCount;
+    }
+
+
+
+    @Override
+    public int[] channelArr(){
+        int[] arr = new int[currentChannelsCount];
+        for(int i = 1; i<currentChannelsCount; i++){
+            arr[i]= i;
+        }
+        return arr;
     }
 
 
