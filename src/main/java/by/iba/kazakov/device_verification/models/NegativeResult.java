@@ -18,7 +18,7 @@ public class NegativeResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_negative_result", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "unsuitability_conclusion_number", nullable = false, length = 30)
     private String unsuitabilityConclusionNumber;

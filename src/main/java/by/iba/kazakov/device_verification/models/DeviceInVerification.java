@@ -19,7 +19,7 @@ public class DeviceInVerification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_device_in_verification", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "device_in_verification_number", nullable = false, length = 45, unique = true)
     private String deviceInVerificationNumber;

@@ -1,8 +1,6 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.DeviceInVerification;
-import by.iba.kazakov.device_verification.models.MeasurementProtocolHead;
-import by.iba.kazakov.device_verification.models.Verifier;
 import by.iba.kazakov.device_verification.repositories.DeviceInVerificationRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.DeviceInVerificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +21,17 @@ public class DeviceInVerificationImpl implements DeviceInVerificationService {
     }
 
     @Override
-    public DeviceInVerification findById(Integer id) {
+    public DeviceInVerification findById(Integer integer) {
+        return null;
+    }
+
+    @Override
+    public DeviceInVerification findById(Long id) {
 
         Set<DeviceInVerification> deviceInVerifications = new HashSet<>();
         deviceInVerificationRepository.findAll().forEach(deviceInVerifications::add);
         for (DeviceInVerification deviceInVerification: deviceInVerifications) {
-            Integer findID = deviceInVerification.getId();
+            Long findID = deviceInVerification.getId();
             if (Objects.equals(findID, id)) return deviceInVerification;
         }
         return null;

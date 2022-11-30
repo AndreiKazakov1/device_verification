@@ -18,7 +18,7 @@ public class DeviceInVerificationMeasurementChannel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_device_in_verification_measurement_channels", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "channel_index_number", nullable = false)
     private Integer channelIndexNumber;

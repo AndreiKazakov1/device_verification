@@ -17,7 +17,7 @@ public class MeasurementProcess {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_measurement_process", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "verification_point_index_number", nullable = false)
     private Integer verificationPointIndexNumber;

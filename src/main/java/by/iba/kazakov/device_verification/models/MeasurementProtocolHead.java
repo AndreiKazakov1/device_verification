@@ -18,7 +18,7 @@ public class MeasurementProtocolHead {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_measurement_protocol_head", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "measurement_protocol_head_number", nullable = false, length = 20, unique = true)
     private String measurementProtocolHeadNumber;

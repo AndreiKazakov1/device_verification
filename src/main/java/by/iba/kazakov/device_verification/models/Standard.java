@@ -18,7 +18,7 @@ public class Standard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_standard", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "standard_name", nullable = false, length = 100, unique = true)
     private String standardName;

@@ -21,7 +21,7 @@ public class AdminKeyForClient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_admin_key_client", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "adm_key_client", nullable = false, length = 45)
     private String admKeyClient;

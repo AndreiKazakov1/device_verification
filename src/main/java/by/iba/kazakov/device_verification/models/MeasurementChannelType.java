@@ -16,7 +16,7 @@ public class MeasurementChannelType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_measurement_channel_type", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "sensor_type", nullable = false, length = 45)
     private String sensorType;

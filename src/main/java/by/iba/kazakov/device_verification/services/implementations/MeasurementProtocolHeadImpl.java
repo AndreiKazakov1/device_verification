@@ -23,14 +23,24 @@ public class MeasurementProtocolHeadImpl implements MeasurementProtocolHeadServi
     }
 
     @Override
-    public MeasurementProtocolHead findById(Integer id) {
+    public MeasurementProtocolHead findById(Integer integer) {
+        return null;
+    }
+
+    @Override
+    public MeasurementProtocolHead findById(Long id) {
         Set<MeasurementProtocolHead> measurementProtocolHeads = new HashSet<>();
         measurementProtocolHeadRepository.findAll().forEach(measurementProtocolHeads::add);
         for (MeasurementProtocolHead measurementProtocolHead: measurementProtocolHeads) {
-            Integer findID = measurementProtocolHead.getId();
+            Long findID = measurementProtocolHead.getId();
             if (Objects.equals(findID, id)) return measurementProtocolHead;
         }
         return null;
+    }
+
+    @Override
+    public void currentProtocolId(Integer currProtocolId) {
+
     }
 
 
@@ -50,13 +60,13 @@ public class MeasurementProtocolHeadImpl implements MeasurementProtocolHeadServi
     }
 
 
-    public static int currentProtocolId;
+    public static Long currentProtocolId;
     @Override
-    public void currentProtocolId(Integer currProtocolId){
+    public void currentProtocolId(Long currProtocolId){
         currentProtocolId = currProtocolId;
     }
     @Override
-    public Integer returnCurrentProtocolId(){
+    public Long returnCurrentProtocolId(){
         return currentProtocolId;
     }
 

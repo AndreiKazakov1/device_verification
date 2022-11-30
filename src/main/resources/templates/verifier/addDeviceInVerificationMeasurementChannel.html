@@ -72,8 +72,8 @@
            <!-- <input type="number" min="0" max="100" step="0.01" th:field="*{errorValue}" class="form-control" id="errorValue"  required >-->
               <select  class="form-select" id="errorValue" th:field="*{errorValue}" required >
                   <option value="">. . .</option>
-                  <option value="0,25">0,25</option>
-                  <option value="0,5">0,5</option>
+                  <option th:value="Float"=0.25>0,25</option>
+                  <option  value="0,5">0,5</option>
                   <option value="1,0">1,0</option>
                   <option value="1,5">1,5</option>
               </select>
@@ -83,7 +83,7 @@
           </div>
          <div class="col-12">
             <label for="deviceFileCode" class="form-label">Тип канала</label>
-            <select  class="form-select"   id="deviceFileCode" th:field="*{idMeasurementChannelType}" required >
+            <select  class="form-select"   id="deviceFileCode" th:field="*{idMeasurementChannelType.id}" required >
               <option value="" >. . .</option>
               <option     th:each="measurementChannelType : ${measurementChannelTypes}" th:value="${measurementChannelType.id}"
                           th:utext="${'Код-&nbsp;'+measurementChannelType.nominalStaticCharacteristic+'&nbsp;&nbsp;Начало выходного диапазона&nbsp;'+measurementChannelType.endInputRange
@@ -95,7 +95,7 @@
          </div>
                <div class="col-12"  hidden>
                    <label for="verifier" class="form-label"  >Назначенный поверитель</label>
-                   <select  class="form-control" id="verifier" th:field="*{idMeasurementProtocolHead}" required>
+                   <select  class="form-control" id="verifier" th:field="*{idMeasurementProtocolHead.id}" required>
                        <option th:each="m : ${measurementProtocolHead}" th:value="${measurementProtocolHead.id}"
                                th:utext="${measurementProtocolHead.id}"></option>
                    </select>

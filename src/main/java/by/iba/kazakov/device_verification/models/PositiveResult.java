@@ -18,7 +18,7 @@ public class PositiveResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_positive_result", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "verification_certificate_number", nullable = false, length = 30)
     private String verificationCertificateNumber;

@@ -67,7 +67,7 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="measurementType" class="form-label">Выбрать вид измерения</label>
-                        <select  class="form-select" id="measurementType" th:field="*{idMeasurementType}" required>
+                        <select  class="form-select" id="measurementType" th:field="*{idMeasurementType.id}" required>
                             <option value=""  >. . .</option>
                             <option th:each="measurementType : ${measurementTypes}" th:value="${measurementType.id}" th:utext="${measurementType.measurementTypeCol}"></option>
                         </select>
@@ -79,7 +79,7 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="methodology" class="form-label">Выбрать методику поверки</label>
-                        <select class="form-select" id="methodology" th:field="*{idMethodology}" required>
+                        <select class="form-select" id="methodology" th:field="*{idMethodology.id}" required>
                             <option value=""  >. . .</option>
                             <option th:each="methodology : ${methodologies}" th:value="${methodology.id}" th:utext="${'№&nbsp;'+methodology.methodologyNumber+'&nbsp;&nbsp;&nbsp;'+methodology.methodologyName}"></option>
                         </select>

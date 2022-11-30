@@ -18,7 +18,7 @@ public class VerInfo {
     UserService userService;
 
     @GetMapping({"/verifier/verInfo"})
-    public String addDeviceInVerification (Model model, Principal principal) {
+    public String verInfo (Model model, Principal principal) {
         String name = principal.getName();
         Long id = userService.findByName(name);
         Verifier verifier = verifierService.findByUserId(id);

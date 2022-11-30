@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Service
@@ -22,8 +23,8 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findById(Integer integer) {
-        return null;
+    public Client findById(Integer id) {
+        return new Client();
     }
 
     @Override
@@ -40,4 +41,17 @@ public class ClientServiceImpl implements ClientService {
     public void deleteById(Integer integer) {
 
     }
+
+    @Override
+    public Client findClientByUserId(Long id){
+        Set<Client> clients = new HashSet<>();
+        clientRepository.findAll().forEach(clients::add);
+        for(Client client:clients){
+            Long idUser = client.getIdUser().getId();
+            if(Objects.equals(id, idUser))return client;
+        }
+        return null;
+    }
+
+
 }

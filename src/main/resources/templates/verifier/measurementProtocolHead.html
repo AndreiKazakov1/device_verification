@@ -83,7 +83,7 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="deviceInVerificationNumber" class="form-label">Номер принятого в поверку прибора/клиент</label>
-                        <select  class="form-select"   id="deviceInVerificationNumber" th:field="*{idDeviceInVerification}" required >
+                        <select  class="form-select"   id="deviceInVerificationNumber" th:field="*{idDeviceInVerification.id}" required >
                             <option value="" >. . .</option>
                             <option     th:each="deviceInVerification : ${deviceInVerifications}" th:value="${deviceInVerification.id}"
                                         th:utext="${'№-&nbsp;'+deviceInVerification.deviceInVerificationNumber+'&nbsp;&nbsp;Клиент&nbsp;'+
@@ -96,7 +96,7 @@
 
                     <div class="col-12">
                         <label for="errorType" class="form-label">Тип погрешности измерения</label>
-                        <select  class="form-select"   id="errorType" th:field="*{idErrorType}" required >
+                        <select  class="form-select"   id="errorType" th:field="*{idErrorType.id}" required >
                             <option value="" >. . .</option>
                             <option     th:each="errorType : ${errorTypes}" th:value="${errorType.id}" th:utext="${errorType.errorTypeCol+'&nbsp;&nbsp;'+
                             errorType.errorUnit}"></option>

@@ -15,7 +15,7 @@ public class ErrorType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_error_type", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "error_type_col", nullable = false, length = 100)
     private String errorTypeCol;

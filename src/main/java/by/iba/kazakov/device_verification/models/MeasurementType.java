@@ -15,7 +15,7 @@ public class MeasurementType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_measurement_type", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "measurement_type_col", nullable = false, length = 255, unique = true)
     private String measurementTypeCol;
