@@ -10,13 +10,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,9 +30,16 @@ public class UserImpl implements UserService, UserDetailsService {
 
 
     @Override
-    public User findById(Long integer) {
+    public User findById(Long userId) {
+        Set<User> users = new HashSet<>();
+        userRepository.findAll().forEach(users::add);
+        for (User user: users){
+            Long id = user.getId();
+            if(Objects.equals(userId, id)) return user;
+        }
         return null;
     }
+
 
     @Override
     public User save(User object) {
@@ -77,6 +82,10 @@ public class UserImpl implements UserService, UserDetailsService {
         return userRepository.findByUsername(name).getId();
     }
 
+    @Override
+    public String findPassByName(String name){return  userRepository.findByUsername(name).getPassword();}
+
+
 
     @Override
     public boolean loginValidation(String login) {
@@ -88,7 +97,24 @@ public class UserImpl implements UserService, UserDetailsService {
         } return true;
     }
 
+    @Override
+    public boolean oldClientsPassValidation(String pass, Long currentClientsId) {
+        Set<User> users = new HashSet<>();
+        userRepository.findAll().forEach(users::add);
+        for (User user : users) {
+            Long id = user.getId();
+            if (Objects.equals(currentClientsId, id)) {
+                String oldPass = user.getPassword();
+                return BCrypt.checkpw(pass, oldPass);
+            }return false;
+        }
+        return false;
+    }
 
 
+    @Override
+    public boolean twoClientsPassEquals(String clientsNewPass, String clientsNewPassSubmit){
+        return Objects.equals(clientsNewPass, clientsNewPassSubmit);
+    }
 
 }

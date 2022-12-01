@@ -20,7 +20,7 @@
                 <div th:class="${menu == 'client'}? 'show':'collapse'" class="collapse " id="client-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="/client/clientInfo">Просмотреть персональные данные</a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Изменить пароль</a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/client/clientsPassUpdate">Изменить пароль</a></li>
                     </ul>
                 </div>
             </li>
@@ -37,20 +37,6 @@
                     </ul>
                 </div>
             </li>
-            <!--<li class="mb-1">
-                <button th:class="${menu == 'addmeastype'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                        class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#measur-collapse" aria-expanded="false">
-                    Вид измерений
-                </button>
-                <div th:class="${menu == 'addmeastype'}? 'show':'collapse'" class="collapse" id="measur-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-                        <li><a href="/addMeasType" class="link-dark d-inline-flex text-decoration-none ">Добавить новый</a></li>
-                        <li><a href="/allMeasTypes" class="link-dark d-inline-flex text-decoration-none ">Посмотреть / удалить</a></li>
-                        &lt;!&ndash;<li><a href="#" class="link-dark d-inline-flex text-decoration-none ">Поиск и удаление</a></li>&ndash;&gt;
-                        &lt;!&ndash;<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>&ndash;&gt;
-                    </ul>
-                </div>
-            </li>-->
             <li class="border-top my-3"></li>
             <li class="mb-1">
                 <button th:class="${menu == '???'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
