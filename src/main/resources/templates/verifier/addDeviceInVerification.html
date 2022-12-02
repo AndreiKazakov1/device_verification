@@ -44,12 +44,6 @@
         <div class="col-md-7 col-lg-8">
 
             <form th:action="@{/verifier/addDeviceInVerification}" th:object="${deviceInVerification} "  method="post" class="needs-validation" novalidate>
-
-
-
-
-
-
                 <div class="col-12">
                     <label for="deviceInVerificationNumber" class="form-label">Заводской номер прибора</label>
                     <div class="input-group has-validation">
@@ -60,9 +54,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="deviceFileCode" class="form-label">Код и название прибора по тарификатору</label>

@@ -48,16 +48,17 @@ public class ClientInfoPassController {
         Long currentClientsId = userService.findByName(name);
         Client client = clientService.findClientByUserId(currentClientsId);
 
-        if ((userService.oldClientsPassValidation(clientsOldPass, currentClientsId))&&
-                ((userService.twoClientsPassEquals(clientsNewPass, clientsNewPassSubmit)))) {
-                userService.findById(currentClientsId).setPassword(BCrypt.hashpw(clientsNewPass, BCrypt.gensalt(12)));
-                userService.save(client.getIdUser());
-                return "client/changeClientsPasswordSubmit";
-            }
-        if (!(userService.oldClientsPassValidation(clientsOldPass, currentClientsId)))
-            return "client/changeClientsOldPasswordErr";
-        if(!(userService.twoClientsPassEquals(clientsNewPass, clientsNewPassSubmit)))
-            return "client/changeClientsTwoPasswordsErr";
+        boolean f1, f2;
+        f1=userService.oldClientsPassValidation(clientsOldPass, currentClientsId);
+        f2=userService.twoClientsPassEquals(clientsNewPass, clientsNewPassSubmit);
+        if(!f1)return "client/changeClientsOldPasswordErr";
+        if(!f2) return "client/changeClientsTwoPasswordsErr";
+        if(f1&&f2){
+            userService.findById(currentClientsId).setPassword(BCrypt.hashpw(clientsNewPass, BCrypt.gensalt(12)));
+            userService.save(client.getIdUser());
+            return "client/changeClientsPasswordSubmit";
+        }
+
         else return null;
     }
 

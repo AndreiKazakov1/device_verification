@@ -99,16 +99,16 @@ public class UserImpl implements UserService, UserDetailsService {
 
     @Override
     public boolean oldClientsPassValidation(String pass, Long currentClientsId) {
+        String oldPass="";
         Set<User> users = new HashSet<>();
         userRepository.findAll().forEach(users::add);
         for (User user : users) {
             Long id = user.getId();
-            if (Objects.equals(currentClientsId, id)) {
-                String oldPass = user.getPassword();
-                return BCrypt.checkpw(pass, oldPass);
-            }return false;
-        }
-        return false;
+            if (Objects.equals(currentClientsId, id))
+                oldPass = user.getPassword();
+            }
+        return BCrypt.checkpw(pass, oldPass);
+
     }
 
 
