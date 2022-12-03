@@ -27,17 +27,18 @@
   <main >
     <div class="col-md-7 col-lg-8">
 
-      <form th:action="@{/client/clientInfo}" th:object="${client} "  method="get" class="needs-validation" novalidate>
+      <form th:action="@{/client/clientInfo}" th:object="${client}"  method="get" class="needs-validation" novalidate>
 
         <label  for="idVer" class="form-label"> <b>Персональная информация по текущему клиенту</b></label>
-
+        <hr class="my-4">
         <div class="row g-3">
           <div class="col-12">
             <ul class="list-group list-group-flush" id="idVer">
-              <li class="list-group-item " th:utext="${'Название организации'+'&nbsp;&nbsp;&nbsp;'+client.clientName}"></li>
-              <li class="list-group-item" th:utext="${'Юридический адресс'+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+client.clientAddress}">Second item</li>
-              <li class="list-group-item" th:utext="${'Телефонный номер'+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+client.clientPhoneNumber}"></li>
-              <li class="list-group-item" th:utext="${'Код из картотеки'+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+client.clientFileCode}"></li>
+              <li class="list-group-item "th:utext="${'Название организации:'+'&nbsp;&nbsp;&nbsp;'+client.clientName}"></li>
+              <li class="list-group-item" th:utext="${'Юридический адресс:'+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+client.clientAddress}"></li>
+              <li class="list-group-item" th:utext="${'Телефонный номер:'+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+client.clientPhoneNumber}"></li>
+              <li class="list-group-item" th:utext="${'Код из картотеки:'+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+client.clientFileCode}"></li>
+              <li class="list-group-item" th:object="${allClientsDevices}" th:utext="${'Количество сданных СИ:'+'&nbsp;&nbsp;'+allClientsDevices.size()}"></li>
               <li class="list-group-item" ></li>
             </ul>
           </div>

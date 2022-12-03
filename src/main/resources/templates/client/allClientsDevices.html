@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutClient :: layout (~{::body}, 'allClientsDevices')}">
+
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Приборы в поверке</title>
+
+</head>
+<body>
+
+<h3>Приборы в поверке</h3>
+<div id="demo_info" class="box"></div>
+<table id="example" class="display" style="width:100%">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Номер прибора</th>
+    <th>Код и наименование прибора</th>
+    <th>Код и название организации (клиент)</th>
+    <th>Назначенный поверитель</th>
+    <th>Дата поступления в поверку</th>
+
+  </thead>
+  <tbody>
+
+  <tr th:each="clientsDevice : ${allClientsDevices}">
+
+    <td th:utext="${clientsDevice.id}">...</td>
+    <td th:utext="${clientsDevice.deviceInVerificationNumber}">...</td>
+    <td th:utext="${clientsDevice.idDeviceType.deviceFileCode+'&nbsp;&nbsp;&nbsp;'+clientsDevice.idDeviceType.deviceName}">...</td>
+    <td th:utext="${clientsDevice.idClient.clientFileCode+'&nbsp;&nbsp;&nbsp;'+clientsDevice.idClient.clientName}">...</td>
+    <td th:utext="${clientsDevice.idVerifier.verifierFirstName+'&nbsp;&nbsp;&nbsp;'+clientsDevice.idVerifier.verifierLastName}">...</td>
+    <td th:utext="${clientsDevice.verificationStartDate}">...</td>
+
+  </tr>
+
+  </tbody>
+
+</table>
+<hr class="my-4">
+<!--  js для прокаченной таблицы-->
+<script>
+
+  $('#example').DataTable({
+    language: {
+      url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
+    }
+  });
+
+</script>
+
+</body>
+</html>

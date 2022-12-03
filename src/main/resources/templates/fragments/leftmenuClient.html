@@ -25,15 +25,15 @@
                 </div>
             </li>
             <li class="mb-1">
-                <button   th:class="${menu == 'verifier'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
-                          class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#verifier-collapse" aria-expanded="false">
+                <button   th:class="${menu == 'allClientsDevices'}?'btn btn-toggle d-inline-flex align-items-center  border-1':'btn btn-toggle d-inline-flex align-items-center  border-1 collapsed'"
+                          class="btn btn-toggle d-inline-flex align-items-center  border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#allClientsDevices-collapse" aria-expanded="false">
                     СИ в поверке
                 </button>
-                <div th:class="${menu == 'verifier'}? 'show':'collapse'"  class="collapse " id="verifier-collapse">
+                <div th:class="${menu == 'allClientsDevices'}? 'show':'collapse'"  class="collapse " id="allClientsDevices-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/addNewVerifierAdm">Все СИ клиента в поверке</a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Готовые СИ</a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="#">Поиск СИ ???</a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/client/allClientsDevices">Все СИ клиента в поверке</a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Проверить готовность прибора</a></li>
+
                     </ul>
                 </div>
             </li>

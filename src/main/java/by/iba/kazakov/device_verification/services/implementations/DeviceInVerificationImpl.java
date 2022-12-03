@@ -60,4 +60,21 @@ public class DeviceInVerificationImpl implements DeviceInVerificationService {
         }
         return null;
     }
+
+
+
+    @Override
+    public Set<DeviceInVerification> findAllDevicesByClientsId(Long clientsId) {
+        Set<DeviceInVerification> deviceInVerifications = new HashSet<>();
+        deviceInVerificationRepository.findAll().forEach(deviceInVerifications::add);
+        Set<DeviceInVerification> allDevicesForOneClient = new HashSet<>();
+        for(DeviceInVerification deviceInVerification:deviceInVerifications){
+           Long id = deviceInVerification.getIdClient().getId();
+           if(Objects.equals(id, clientsId)) allDevicesForOneClient.add(deviceInVerification);
+        }
+        return allDevicesForOneClient;
+    }
+
+
+
 }

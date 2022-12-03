@@ -1,7 +1,9 @@
 package by.iba.kazakov.device_verification.controllers.client;
 
 import by.iba.kazakov.device_verification.models.Client;
+import by.iba.kazakov.device_verification.models.DeviceInVerification;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.ClientService;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.DeviceInVerificationService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -12,12 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.Set;
 
 @Controller
 public class ClientInfoPassController {
     @Autowired
     ClientService clientService;
-
+    @Autowired
+    DeviceInVerificationService deviceInVerificationService;
     @Autowired
     UserService userService;
 
@@ -28,6 +32,9 @@ public class ClientInfoPassController {
         Long id = userService.findByName(name);
         Client client = clientService.findClientByUserId(id);
         model.addAttribute("client", client);
+        Long clientsId = client.getId();
+        Set<DeviceInVerification> allClientsDevices = deviceInVerificationService.findAllDevicesByClientsId(clientsId);
+        model.addAttribute("allClientsDevices", allClientsDevices);
         return "client/clientInfo";
     }
 
@@ -53,16 +60,9 @@ public class ClientInfoPassController {
         f2=userService.twoClientsPassEquals(clientsNewPass, clientsNewPassSubmit);
         if(!f1)return "client/changeClientsOldPasswordErr";
         if(!f2) return "client/changeClientsTwoPasswordsErr";
-        if(f1&&f2){
-            userService.findById(currentClientsId).setPassword(BCrypt.hashpw(clientsNewPass, BCrypt.gensalt(12)));
-            userService.save(client.getIdUser());
-            return "client/changeClientsPasswordSubmit";
-        }
-
-        else return null;
+        userService.findById(currentClientsId).setPassword(BCrypt.hashpw(clientsNewPass, BCrypt.gensalt(12)));
+        userService.save(client.getIdUser());
+        return "client/changeClientsPasswordSubmit";
     }
-
-
-
 
 }
