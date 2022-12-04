@@ -3,7 +3,7 @@ package by.iba.kazakov.device_verification.controllers.login_logout;
 import by.iba.kazakov.device_verification.models.AdminKeyForClient;
 import by.iba.kazakov.device_verification.models.AdminKeyForVerifier;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyForClientService;
-import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyService;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyForVerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import java.util.Set;
 @Controller
 public class SignInController {
     @Autowired
-    AdminKeyService adminKeyService;
+    AdminKeyForVerifierService adminKeyService;
     @Autowired
     AdminKeyForClientService adminKeyForClientService;
 

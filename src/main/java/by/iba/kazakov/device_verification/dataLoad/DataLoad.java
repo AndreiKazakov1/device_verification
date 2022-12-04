@@ -16,7 +16,7 @@ public class DataLoad implements CommandLineRunner {
     RoleService roleService;
 
     @Autowired
-    AdminKeyService adminKeyService;
+    AdminKeyForVerifierService adminKeyService;
 
     @Autowired
     AdminKeyForClientService adminKeyForClientService;

@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'changeRegKey')}">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Person List</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+</head>
+<body class="bg-light">
+
+<div class="container">
+    <main>
+        <div class="mb-3">
+            <div class="row g-3">
+
+                <h4>Сменить ключ регистрации клиента</h4>
+
+                <form class="needs-validation" method="post" novalidate  th:action="@{/admin/changeRegKeyClient}"  th:object="${adminKeyForClient}" >
+
+                    <div class="col-md-4">
+                        <label class="form-label" for="clientsOldRegKey">Текущее значение ключа</label>
+                        <span class="form-control " id="clientsOldRegKey" th:utext="${adminKeyForClient.getAdmKeyClient()}" type="text" ></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" for="clientsNewRegKey">Ввести новое значение ключа</label>
+                        <input class="form-control" id="clientsNewRegKey" required name="clientsNewRegKey" type="text" >
+                    </div>
+                    <br>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                                Данные введены корректно?
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+                            type="submit"   >Подтвердить</button>
+
+                </form>
+            </div>
+        </div>
+
+    </main>
+</div>
+<script>
+    (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+</body>
+

@@ -2,7 +2,7 @@ package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.AdminKeyForVerifier;
 import by.iba.kazakov.device_verification.repositories.AdminKeyRepository;
-import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyService;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyForVerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.Set;
 
 
 @Service
-public class AdminKeyServiceImpl implements AdminKeyService {
+public class AdminKeyForVerifierServiceImpl implements AdminKeyForVerifierService {
     @Autowired
     AdminKeyRepository adminKeyRepository;
 

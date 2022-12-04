@@ -1,13 +1,14 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.Administrator;
-import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.repositories.AdministratorRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.AdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -21,13 +22,21 @@ public class AdministratorServiceImpl implements AdministratorService {
         administratorRepository.findAll().forEach(administrators ::add);
         return administrators;
     }
-
-
+    @Override
+    public Administrator findAdministratorByUserId(Long id) {
+        Set<Administrator> administrators = new HashSet<>();
+        administratorRepository.findAll().forEach(administrators::add);
+        for (Administrator administrator : administrators) {
+            Long idUser = administrator.getIdUser().getId();
+            if (Objects.equals(id, idUser)) return administrator;
+        }
+        return null;
+    }
 
 
     @Override
     public Administrator findById(Integer integer) {
-        return null;
+        return new Administrator();
     }
 
     @Override
