@@ -20,7 +20,7 @@
                 <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="client-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить нового </a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/allClients">Показать всех </a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/allClients">Показать всех </a></li>
                         <li><a class="link-dark d-inline-flex text-decoration-none  " href="">Поиск/редактирование/удаление</a></li>
                     </ul>
                 </div>
@@ -32,8 +32,8 @@
                 </button>
                 <div th:class="${menu == 'verifier'}? 'show':'collapse'"  class="collapse " id="verifier-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/addNewVerifierAdm">Добавить нового </a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/showAllVerifiers">Показать всех</a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/addNewVerifierAdm">Добавить нового </a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/showAllVerifiers">Показать всех</a></li>
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="#">Поиск/редактирование/удаление </a></li>
                     </ul>
                 </div>
@@ -46,7 +46,7 @@
                 <div th:class="${menu == 'changeRegKey'}? 'show':'collapse'" class="collapse" id="changeRegKey-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
                         <li><a href="/admin/changeRegKeyClient" class="link-dark d-inline-flex text-decoration-none ">Изменить ключ клиента</a></li>
-                        <li><a href="/changeRegKeyVerifier" class="link-dark d-inline-flex text-decoration-none ">Изменить ключ поверителя</a></li>
+                        <li><a href="/admin/changeRegKeyVerifier" class="link-dark d-inline-flex text-decoration-none ">Изменить ключ поверителя</a></li>
                         <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none ">Поиск и удаление</a></li>-->
                         <!--<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>-->
                     </ul>

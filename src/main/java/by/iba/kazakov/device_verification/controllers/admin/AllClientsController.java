@@ -15,7 +15,7 @@ public class AllClientsController {
     @Autowired
     ClientService clientService;
 
-    @RequestMapping({"/allClients"})
+    @RequestMapping({"/admin/allClients"})
 
     public String personList(Model model) {
         Set<Client> clients = clientService.findAll();

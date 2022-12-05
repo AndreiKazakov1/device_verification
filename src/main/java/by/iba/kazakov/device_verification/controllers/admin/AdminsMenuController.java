@@ -61,6 +61,20 @@ public class AdminsMenuController {
         return "admin/changeRegKeyClientSubmit";
     }
 
+    @GetMapping({"/admin/changeRegKeyVerifier"})
+    public String changeRegKeyVerifier_(Model model){
+        AdminKeyForVerifier adminKeyForVerifier = adminKeyForVerifierService.findOnlyFirst();
+        model.addAttribute("adminKeyForVerifier", adminKeyForVerifier);
+        return "admin/changeRegKeyVerifier";
+    }
+
+    @PostMapping({"/admin/changeRegKeyVerifier"})
+    public String changeRegKeyVerifier(@Validated String verifiersNewRegKey){
+        AdminKeyForVerifier adminKeyForVerifier = adminKeyForVerifierService.findOnlyFirst();
+        adminKeyForVerifierService.findOnlyFirst().setAdmKeyVerifier(verifiersNewRegKey);
+        adminKeyForVerifierService.save(adminKeyForVerifier);
+        return "admin/changeRegKeyVerifierSubmit";
+    }
 
 
 

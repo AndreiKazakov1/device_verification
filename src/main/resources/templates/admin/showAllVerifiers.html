@@ -19,6 +19,7 @@
         <th>Фамилия</th>
         <th>Табельный номер</th>
 
+
     </tr>
     </thead>
     <tbody>
@@ -28,8 +29,13 @@
         <td th:utext="${verifier.verifierLastName}">...</td>
         <td th:utext="${verifier.verifierServiceNumber}">...</td>
 
-    </tr>
-    </tbody>
+
+    <!--<button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+            onclick="document.location='/admin/adminInfo'" >Вернуться назад</button>
+    <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+            type="submit"   >Подтвердить</button>
+    -->
+
 </table>
 <script>
     $('#example').DataTable({

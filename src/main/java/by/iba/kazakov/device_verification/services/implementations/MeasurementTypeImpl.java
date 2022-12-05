@@ -1,10 +1,7 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
-import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.MeasurementType;
-import by.iba.kazakov.device_verification.repositories.ClientRepository;
 import by.iba.kazakov.device_verification.repositories.MeasurementTypeRepository;
-import by.iba.kazakov.device_verification.services.serviceInterfaces.ClientService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.MeasurementTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,20 +40,15 @@ public class MeasurementTypeImpl implements MeasurementTypeService {
 
     @Override
     public void deleteById(Integer integer) {
-    measurementTypeRepository.deleteById(integer);
+
     }
+
+    @Override
+    public void deleteById(Long id) {
+    measurementTypeRepository.deleteById(Math.toIntExact(id));
+    }
+
+
 }
 
 
-/*
-@Service
-public class ClientServiceImpl implements ClientService {
-    @Autowired
-    ClientRepository clientRepository;
-
-    @Override
-    public Set<Client> findAll() {
-        Set<Client> clients = new HashSet<>();
-        clientRepository.findAll().forEach(clients::add);
-        return clients;
-    }*/

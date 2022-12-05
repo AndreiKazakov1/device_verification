@@ -32,46 +32,44 @@ public class RegistrationByAdminController {
     RoleService roleService;
 
 
-   /* @RequestMapping({"/addNewVerifierAdm"})
-    public String addNewVerifierForm(Model model) {
-        return "admin/addNewVerifierAdm";
-    }*/
-
-
-    @GetMapping({"/addNewVerifierAdm"})
+    @GetMapping({"/admin/addNewVerifierAdm"})
     public String addNewVerifier (Model model) {
         model.addAttribute("addNewVerifierAdm", new Verifier());
         return "admin/addNewVerifierAdm";
     }
     @Transactional
-    @PostMapping("/addNewVerifierAdm")
+    @PostMapping("/admin/addNewVerifierAdm")
     public String addNewUser(@Validated String userLogin, @Validated String userPassword, Verifier verifier){
+            boolean logFlag = false;
+            boolean sevrNumFlag = false;
+            if (userService.loginValidation(userLogin)) logFlag = true;
+            if(verifierService.verServNumValidation(verifier.getVerifierServiceNumber())) sevrNumFlag = true;
+
+        if (logFlag && sevrNumFlag) {
             User user = new User();
             user.setUsername(userLogin);
-            user.setPassword(BCrypt.hashpw(userPassword,BCrypt.gensalt(12)));
+            user.setPassword(BCrypt.hashpw(userPassword, BCrypt.gensalt(12)));
             user.setRoles(new ArrayList<>());
             user.getRoles().add(roleService.findByName("ROLE_VERIFIER"));
             userService.save(user);
             verifier.setIdUser(user);
             verifierService.save(verifier);
-        return "admin/addNewVerifierAdmSubmit";
-
+            return "admin/addNewVerifierAdmSubmit";
+        }
+        if (!logFlag) return "admin/registrationLogErrorInput";
+        else return "admin/registrationServNumErrorInput";
     }
 
 
-    @RequestMapping(value = {"/addNewVerifierAdmSubmit"}, method = RequestMethod.GET)
-    public String submitMeasType(Model model) {
+    @RequestMapping(value = {"/admin/addNewVerifierAdmSubmit"}, method = RequestMethod.GET)
+    public String submitMeasType() {
         return "admin/addNewVerifierAdmSubmit";
     }
 
-    @RequestMapping({"/showAllVerifiers"})
+    @RequestMapping({"/admin/showAllVerifiers"})
     public String showAllVerifiers(Model model) {
         Set<Verifier> verifiers = verifierService.findAll();
         model.addAttribute("verifiers", verifiers);
         return "admin/showAllVerifiers";
-
-
     }
-
-
 }

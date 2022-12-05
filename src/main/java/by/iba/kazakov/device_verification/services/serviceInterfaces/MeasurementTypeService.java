@@ -4,4 +4,5 @@ import by.iba.kazakov.device_verification.models.MeasurementType;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.CrudService;
 
 public interface MeasurementTypeService extends CrudService<MeasurementType, Integer> {
+    void deleteById(Long id);
 }

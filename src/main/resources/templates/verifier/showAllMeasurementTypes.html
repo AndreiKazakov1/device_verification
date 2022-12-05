@@ -2,15 +2,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutVerifier :: layout (~{::body}, 'addmeastype')}">
-
-
 <head>
     <meta charset="UTF-8"/>
     <title>Виды измерений</title>
-
 </head>
 <body>
-
 <h3>Виды измерений</h3>
 <div id="demo_info" class="box"></div>
 <table id="example" class="display" style="width:100%">
@@ -18,24 +14,19 @@
     <tr>
         <th>ID</th>
         <th>Название вида измерений</th>
-
+        <th>Действие</th>
     </tr>
     </thead>
     <tbody>
-
     <tr th:each="meastype : ${meastypes}">
-
         <td th:utext="${meastype.id}">...</td>
         <td th:utext="${meastype.measurementTypeCol}">...</td>
+       <!-- <td ><a style="color:red;" th:href="|@{verifier/deleteMeasurementType/${meastype.id}}|">Delete</a></td>-->
 
     </tr>
-
     </tbody>
-
 </table>
 <hr class="my-4">
-
-<!--  js для прокаченной таблицы-->
 <script>
 
     $('#example').DataTable({
@@ -43,8 +34,12 @@
             url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
         }
     });
-
 </script>
-
 </body>
 </html>
+
+
+
+
+
+

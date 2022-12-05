@@ -26,6 +26,23 @@ public class AdminKeyForVerifierServiceImpl implements AdminKeyForVerifierServic
     }
 
     @Override
+    public AdminKeyForVerifier findOnlyFirst() {
+        Set<AdminKeyForVerifier> adminKeyForVerifiers=new HashSet<>();
+        adminKeyRepository.findAll().forEach((adminKeyForVerifiers ::add));
+
+        for (AdminKeyForVerifier adminKeyForVerifier:adminKeyForVerifiers){
+            Long id = adminKeyForVerifier.getId();
+            AdminKeyForVerifier adminKeyForVerifier1;
+            if (id == 1) {
+                adminKeyForVerifier1 = adminKeyForVerifier;
+                return adminKeyForVerifier1;
+            }
+        }
+        return null;
+    }
+
+
+    @Override
     public AdminKeyForVerifier findById(Integer integer) {return null;
     }
 
