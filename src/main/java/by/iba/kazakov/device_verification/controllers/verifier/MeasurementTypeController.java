@@ -37,11 +37,13 @@ public class MeasurementTypeController {
     }
 
 
-    @DeleteMapping(value = "verifier/deleteMeasurementType/{id}")
-    public String deleteMeasurementType(@PathVariable Long id) {
+
+
+
+    @GetMapping(value = "/verifier/del/{id}")
+    public String deleteMeasurementType(@PathVariable  Long id) {
+        System.out.println(id);
         measurementTypeService.deleteById(id);
-        return "verifier/showAllMeasurementTypes";
-
+        return "redirect:/verifier/showAllMeasurementTypes";
     }
-
 }
