@@ -21,10 +21,20 @@ public class MeasurementTypeController {
         return "verifier/addMeasurementType";
     }
 
+    @GetMapping({"/verifier/duplicateMeasurementTypeErr"})
+    public String addMeasTypeErr() {
+        return "verifier/duplicateMeasurementTypeErr";
+    }
+
+
 
     @PostMapping("/verifier/addMeasType")
     public String saveMeasType(Model model, MeasurementType measurementType) {
-        measurementTypeService.save(measurementType);
+        try {
+            measurementTypeService.save(measurementType);
+        }catch (Exception e){
+            return "redirect:/verifier/duplicateMeasurementTypeErr";
+        }
         return "verifier/addMeasurementTypeSubmit";
     }
 
@@ -37,13 +47,10 @@ public class MeasurementTypeController {
     }
 
 
-
-
-
-    @GetMapping(value = "/verifier/del/{id}")
-    public String deleteMeasurementType(@PathVariable  Long id) {
-        System.out.println(id);
-        measurementTypeService.deleteById(id);
-        return "redirect:/verifier/showAllMeasurementTypes";
+    @PostMapping(value = "/verifier/{id}/del")
+    public String deleteMeasurementType(@PathVariable (value = "id") long id) {
+        MeasurementType measurementType =  measurementTypeService.findById(id);
+        measurementTypeService.delete(measurementType);
+        return "redirect:/verifier/allMeasTypes";
     }
 }

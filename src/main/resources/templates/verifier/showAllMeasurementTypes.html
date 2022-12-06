@@ -21,7 +21,10 @@
     <tr th:each="meastype : ${meastypes}">
         <td th:utext="${meastype.id}">...</td>
         <td th:utext="${meastype.measurementTypeCol}">...</td>
-       <td ><a style="color:red;" th:href="@{/verifier/del/${meastype.id}}" >Delete</a></td>
+        <td ><form th:action="'/verifier/'+${meastype.id}+'/del'"  method="post">
+                <button class="btn btn-outline-danger" type="submit" >Удалить</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
@@ -42,5 +45,24 @@
 
 
 
-
-
+<!--
+<td ><form th:action="'/verifier/'+${meastype.id}+'/del'"  method="post">
+    <button type="button" class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Удалить
+    </button>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title "  id="staticBackdropLabel">Подтвердить удаление</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-danger" type="submit">Удалить</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</td>-->

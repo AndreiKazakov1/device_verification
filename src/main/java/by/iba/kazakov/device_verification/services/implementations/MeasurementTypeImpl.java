@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Service
@@ -24,6 +25,17 @@ public class MeasurementTypeImpl implements MeasurementTypeService {
 
     @Override
     public MeasurementType findById(Integer integer) {
+        return null;
+    }
+
+    @Override
+    public MeasurementType findById(Long id) {
+        Set<MeasurementType> measurementTypes = new HashSet<>();
+        measurementTypeRepository.findAll().forEach(measurementTypes::add);
+        for (MeasurementType measurementType:measurementTypes){
+            Long id_ = measurementType.getId();
+            if (Objects.equals(id, id_)) return measurementType;
+        }
         return null;
     }
 
