@@ -1,15 +1,13 @@
 package by.iba.kazakov.device_verification.controllers.admin;
 
 import by.iba.kazakov.device_verification.models.*;
-import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyForClientService;
-import by.iba.kazakov.device_verification.services.serviceInterfaces.AdminKeyForVerifierService;
-import by.iba.kazakov.device_verification.services.serviceInterfaces.AdministratorService;
-import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
@@ -25,6 +23,8 @@ public class AdminsMenuController {
     AdminKeyForClientService adminKeyForClientService;
     @Autowired
     AdminKeyForVerifierService adminKeyForVerifierService;
+    @Autowired
+    VerifierService verifierService;
 
 
     /*@GetMapping({"/admin/admin"})
@@ -76,6 +76,43 @@ public class AdminsMenuController {
         return "admin/changeRegKeyVerifierSubmit";
     }
 
+    @GetMapping({"/admin/blockingUser"})
+    public String blockingUser(Model model){
+        Set<Verifier> verifiers = verifierService.findAll();
+        model.addAttribute("verifiers", verifiers);
+        return "admin/blockingUser";
+    }
 
+
+   /* @PostMapping({"/admin/blockingUser"})
+    public String blockingUser(@Validated String verifierFirstName, @Validated String verifierLastName){
+        Verifier verifier = verifierService.findByFirstSecondName(verifierFirstName, verifierLastName);
+        if(verifier.getId()>0) return "redirect:/admin/adminInfo";
+       else return "redirect:/admin/blockingUserErr";
+        //Long id = verifier.getIdUser().getId();
+        //return "admin/blockingUserErr";
+    }*/
+
+
+
+    @PostMapping(value = "/admin/{id}/block")
+    public String blockingUser1(@PathVariable (value = "id") Long id) {
+        User user = userService.findById(id);
+        user.setEnabled(false);
+        userService.save(user);
+        return "redirect:/admin/block";
+    }
+
+    @GetMapping({"/admin/block"})
+    public String block(){
+        return "redirect:/admin/block";
+    }
+
+    @GetMapping({"/admin/blockingUserErr"})
+    public String blockingUserErr(){
+        return "admin/blockingUserErr";
+    }
 
 }
+
+

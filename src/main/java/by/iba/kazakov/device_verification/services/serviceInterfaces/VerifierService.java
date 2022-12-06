@@ -8,5 +8,7 @@ public interface VerifierService
 
     Verifier findByUserId(Long id);
 
+    Verifier findByFirstSecondName(String fn, String ln);
+
     boolean verServNumValidation(Integer verServiceNum);
 }

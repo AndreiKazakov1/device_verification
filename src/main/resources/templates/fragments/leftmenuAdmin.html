@@ -20,8 +20,8 @@
                 <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="client-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить нового </a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/allClients">Показать всех </a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none  " href="">Поиск/редактирование/удаление</a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/allClients">Показать всех/удалить/редактировать </a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none  " href="">Блокировка пользователя</a></li>
                     </ul>
                 </div>
             </li>
@@ -33,8 +33,8 @@
                 <div th:class="${menu == 'verifier'}? 'show':'collapse'"  class="collapse " id="verifier-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/addNewVerifierAdm">Добавить нового </a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/showAllVerifiers">Показать всех</a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="#">Поиск/редактирование/удаление </a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/showAllVerifiers">Показать всех/удалить/редактировать</a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/blockingUser">Блокировка пользователя</a></li>
                     </ul>
                 </div>
             </li>

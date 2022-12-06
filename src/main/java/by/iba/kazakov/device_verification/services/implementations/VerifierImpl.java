@@ -38,6 +38,17 @@ public class VerifierImpl implements VerifierService {
         return null;
     }
 
+    @Override
+    public Verifier findByFirstSecondName(String fn, String ln){
+        Set<Verifier> verifiers = new HashSet<>();
+        verifierRepository.findAll().forEach(verifiers::add);
+        for (Verifier verifier:verifiers){
+            String fn_=verifier.getVerifierFirstName();
+            String ln_=verifier.getVerifierLastName();
+            if((Objects.equals(fn_, fn))&&(Objects.equals(ln_, ln)))return verifier;
+        }
+        return null;
+    }
 
     @Override
     public Verifier save(Verifier object) {return  verifierRepository.save(object);

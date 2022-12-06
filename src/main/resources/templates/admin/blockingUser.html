@@ -1,0 +1,63 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:replace="~{fragments/layout :: layout (~{::body}, 'verifier')}" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>All verifiers</title>
+</head>
+<body>
+<h3>Блокировка поверителей</h3>
+<div id="demo_info" class="box"></div>
+<table id="example" class="display" style="width:100%">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Статус</th>
+    <th>Заблокировать</th>
+    <th>Разблокировать</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="verifier: ${verifiers}">
+    <td th:utext="${verifier.id}">...</td>
+    <td th:utext="${verifier.verifierFirstName}">...</td>
+    <td th:utext="${verifier.verifierLastName}">...</td>
+    <td th:utext="${verifier.getIdUser().isEnabled()}">...</td>
+    <td ><form th:action="'/admin/'+${verifier.getIdUser().id}+'/block'"  method="post">
+      <button class="btn btn-outline-danger" type="submit" >block</button>
+    </form>
+    </td>
+
+    <!--<button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+            onclick="document.location='/admin/adminInfo'" >Вернуться назад</button>
+    <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+            type="submit"   >Подтвердить</button>
+    -->
+
+</table>
+<script>
+  $('#example').DataTable({
+    language: {
+      url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
+    }
+  });
+</script>
+</body>
+
+
+<!--
+<div class="col-md-4">
+  <label class="form-label" for="verifierFirstNameAdm">Имя</label>
+  <input class="form-control" id="verifierFirstNameAdm" required name="verifierFirstName" type="text">
+</div>
+<div class="col-md-4">
+  <label class="form-label" for="verifierLastNameAdm">Фамилия</label>
+  <input class="form-control" id="verifierLastNameAdm" required name="verifierLastName" type="text">
+</div>-->
