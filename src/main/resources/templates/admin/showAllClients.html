@@ -14,8 +14,8 @@
 
 </head>
 <body>
-
 <h3>Список клиентов</h3>
+<hr class="my-4">
 <div id="demo_info" class="box"></div>
 <table id="example" class="display" style="width:100%">
     <thead>
@@ -27,15 +27,10 @@
         <th>Код клиента</th>
         <th>Удалить</th>
         <th>Изменить</th>
-
     </tr>
     </thead>
     <tbody>
-
-
-
     <tr th:each="client : ${clients}">
-
         <td th:utext="${client.id}">...</td>
         <td th:utext="${client.clientName}">...</td>
         <td th:utext="${client.clientAddress}">...</td>
@@ -50,24 +45,17 @@
         </form>
         </td>
     </tr>
-
    <!-- &#10060;   &#10036;-->
-
     </tbody>
-
 </table>
-
-
-<!--  js для прокаченной таблицы-->
+<hr class="my-4">
 <script>
-
     $('#example').DataTable({
         language: {
             url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/ru.json'
         }
     });
-
 </script>
-
 </body>
-
+</html>
+</html>
