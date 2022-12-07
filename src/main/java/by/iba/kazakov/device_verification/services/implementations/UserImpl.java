@@ -48,7 +48,7 @@ public class UserImpl implements UserService, UserDetailsService {
 
     @Override
     public void delete(User object) {
-
+        userRepository.delete(object);
     }
 
     @Override
@@ -93,6 +93,7 @@ public class UserImpl implements UserService, UserDetailsService {
         userRepository.findAll().forEach(users::add);
         for (User user : users) {
             String loginForValidation = user.getUsername();
+
             if (Objects.equals(loginForValidation, login)) return false;
         } return true;
     }
@@ -115,6 +116,7 @@ public class UserImpl implements UserService, UserDetailsService {
     @Override
     public boolean twoClientsPassEquals(String clientsNewPass, String clientsNewPassSubmit){
         return Objects.equals(clientsNewPass, clientsNewPassSubmit);
+
     }
 
 

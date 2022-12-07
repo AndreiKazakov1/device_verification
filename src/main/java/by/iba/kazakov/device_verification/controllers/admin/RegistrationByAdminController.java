@@ -66,13 +66,6 @@ public class RegistrationByAdminController {
         return "admin/addNewVerifierAdmSubmit";
     }
 
-    @RequestMapping({"/admin/showAllVerifiers"})
-    public String showAllVerifiers(Model model) {
-        Set<Verifier> verifiers = verifierService.findAll();
-        model.addAttribute("verifiers", verifiers);
-        return "admin/showAllVerifiers";
-    }
-
 
     //******************Client***************
 
@@ -88,7 +81,8 @@ public class RegistrationByAdminController {
     public String addNewUserClientRegAdm (@Validated String userLogin, @Validated String userPassword, Client client){
 
 
-        if(userService.loginValidation(userLogin)) {
+        if(userService.loginValidation(userLogin) &&
+                clientService.clientFileCodeValidation(client.getClientFileCode())) {
             User user = new User();
             user.setUsername(userLogin);
             user.setPassword(BCrypt.hashpw(userPassword, BCrypt.gensalt(12)));
@@ -98,8 +92,8 @@ public class RegistrationByAdminController {
             client.setIdUser(user);
             clientService.save(client);
             return "admin/addNewClientAdmSubmit";
-        }return "admin/registrationClientLogErrorInput";
-
+        } if(!(userService.loginValidation(userLogin))) return "admin/registrationClientLogErrorInput";
+          else return   "admin/registrationFileCodeNumErrorInput";
     }
 
 

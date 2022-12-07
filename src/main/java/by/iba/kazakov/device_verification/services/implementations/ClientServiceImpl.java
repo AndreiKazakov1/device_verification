@@ -34,7 +34,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void delete(Client object) {
-
+    clientRepository.delete(object);
     }
 
     @Override
@@ -49,6 +49,46 @@ public class ClientServiceImpl implements ClientService {
         for(Client client:clients){
             Long idUser = client.getIdUser().getId();
             if(Objects.equals(id, idUser))return client;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean clientFileCodeValidation(Integer fileCodeNum) {
+        Set<Client> clients = new HashSet<>();
+        clientRepository.findAll().forEach(clients::add);
+        for (Client client:clients) {
+            Integer fileCodeNumForValid = client.getClientFileCode();
+            if(Objects.equals(fileCodeNumForValid, fileCodeNum)) return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String isEnable(Long id){
+        Set<Client> clients = new HashSet<>();
+        clientRepository.findAll().forEach(clients::add);
+        Client client_ = new Client();
+        String activity = "";
+        for(Client client:clients){
+            Long id_ = client.getIdUser().getId();
+            if (Objects.equals(id_, id))client_=client;
+        }
+        boolean isEnable = client_.getIdUser().isEnabled();
+        if (isEnable) activity = "активен";
+        else activity = "заблокирован";
+        return activity;
+
+    }
+
+
+    @Override
+    public Client findById(Long id) {
+        Set<Client> clients = new HashSet<>();
+        clientRepository.findAll().forEach(clients::add);
+        for (Client client:clients){
+            Long id_ = client.getId();
+            if (Objects.equals(id, id_)) return client;
         }
         return null;
     }

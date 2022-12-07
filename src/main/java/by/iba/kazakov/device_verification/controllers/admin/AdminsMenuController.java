@@ -9,8 +9,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -25,15 +28,8 @@ public class AdminsMenuController {
     AdminKeyForVerifierService adminKeyForVerifierService;
     @Autowired
     VerifierService verifierService;
-
-
-    /*@GetMapping({"/admin/admin"})
-    public String returnCurrentAdmin(Model model) {
-        Administrator administrator = administratorService.findById(1);
-        System.out.println(administrator.getAdminFirstName());
-        model.addAttribute("administrator", administrator);
-        return "admin/adminInfo";
-    }*/
+    @Autowired
+    ClientService clientService;
 
     @GetMapping({"/admin/adminInfo"})
     public String adminInfo (Model model, Principal principal) {
@@ -44,7 +40,7 @@ public class AdminsMenuController {
         return "admin/adminInfo";
     }
 
-
+//***************  changeRegKey  *****************
     @GetMapping({"/admin/changeRegKeyClient"})
     public String changeRegKeyClient_(Model model){
         AdminKeyForClient adminKeyForClient = adminKeyForClientService.findOnlyFirst();
@@ -74,9 +70,9 @@ public class AdminsMenuController {
         adminKeyForVerifierService.save(adminKeyForVerifier);
         return "admin/changeRegKeyVerifierSubmit";
     }
-
+//*************   blockingUser   *******************
     @GetMapping({"/admin/blockingUser"})
-    public String blockingUser(Model model) {
+    public String blockingUserVerifier(Model model) {
         Set<Verifier> verifiers = verifierService.findAll();
         model.addAttribute("verifierService", verifierService);
         model.addAttribute("verifiers", verifiers);
@@ -85,7 +81,7 @@ public class AdminsMenuController {
 
 
     @PostMapping(value = "/admin/{id}/block")
-    public String blockingUser1(@PathVariable (value = "id") Long id) {
+    public String blockingUserVerifier_(@PathVariable (value = "id") Long id) {
         User user = userService.findById(id);
         user.setEnabled(false);
         userService.save(user);
@@ -93,55 +89,78 @@ public class AdminsMenuController {
     }
 
     @PostMapping(value = "/admin/{id}/unlock")
-    public String unlockingUser(@PathVariable (value = "id") Long id) {
+    public String unlockingUserVerifier(@PathVariable (value = "id") Long id) {
         User user = userService.findById(id);
         user.setEnabled(true);
         userService.save(user);
         return  "redirect:/admin/blockingUser";
     }
 
-
-
-
-
-   /* @GetMapping({"/verifier/allMeasTypes"})
-    public String measTypeList(Model model) {
-        Set<MeasurementType> measurementTypes = measurementTypeService.findAll();
-        model.addAttribute("meastypes", measurementTypes);
-        return "verifier/showAllMeasurementTypes";
-    }
-
-
-    @PostMapping(value = "/verifier/{id}/del")
-    public String deleteMeasurementType(@PathVariable (value = "id") long id) {
-        MeasurementType measurementType =  measurementTypeService.findById(id);
-        measurementTypeService.delete(measurementType);
-        return "redirect:/verifier/allMeasTypes";
-    }
-*/
-
-
-
-
-
-
-
-
-
-
     @GetMapping({"/admin/blockingUserErr"})
-    public String blockingUserErr(){
+    public String blockingUserVerifierErr(){
         return "admin/blockingUserErr";
     }
+
+
+    @GetMapping({"/admin/blockingUserClient"})
+    public String blockingUserClient(Model model) {
+        Set<Client> clients = clientService.findAll();
+        model.addAttribute("clientService", clientService);
+        model.addAttribute("clients", clients);
+        return "admin/blockingUserClient";
+    }
+
+
+    @PostMapping(value = "/admin/{id}/blockClient")
+    public String blockingUserClient_(@PathVariable (value = "id") Long id) {
+        User user = userService.findById(id);
+        user.setEnabled(false);
+        userService.save(user);
+        return  "redirect:/admin/blockingUserClient";
+    }
+
+    @PostMapping(value = "/admin/{id}/unlockClient")
+    public String unlockingUserClient(@PathVariable (value = "id") Long id) {
+        User user = userService.findById(id);
+        user.setEnabled(true);
+        userService.save(user);
+        return  "redirect:/admin/blockingUserClient";
+    }
+
+
+
+
+    //************* Work with Verifiers ***************
+    @RequestMapping({"/admin/showAllVerifiers"})
+    public String showAllVerifiers(Model model) {
+        Set<Verifier> verifiers = verifierService.findAll();
+        model.addAttribute("verifiers", verifiers);
+        return "admin/showAllVerifiers";
+    }
+
+
+    //************* Work with Clients ***************
+
+    @RequestMapping({"/admin/allClients"})
+    public String personList(Model model) {
+        Set<Client> clients = clientService.findAll();
+        model.addAttribute("clients", clients);
+        return "admin/showAllClients";
+    }
+
+    @PostMapping(value = "/admin/{id}/deleteClient")
+    public String deleteClient(@PathVariable (value = "id") long id) {
+        Client client = clientService.findById(id);
+        Long clId = client.getIdUser().getId();
+        User user = userService.findById(clId);
+        userService.delete(user);
+        return "redirect:/admin/allClients";
+    }
+
+
+
+
 
 }
 
 
- /* @PostMapping({"/admin/blockingUser"})
-    public String blockingUser(@Validated String verifierFirstName, @Validated String verifierLastName){
-        Verifier verifier = verifierService.findByFirstSecondName(verifierFirstName, verifierLastName);
-        if(verifier.getId()>0) return "redirect:/admin/adminInfo";
-       else return "redirect:/admin/blockingUserErr";
-        //Long id = verifier.getIdUser().getId();
-        //return "admin/blockingUserErr";
-    }*/

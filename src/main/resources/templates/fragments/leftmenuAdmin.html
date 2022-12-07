@@ -19,9 +19,9 @@
                 </button>
                 <div th:class="${menu == 'clients'}? 'show':'collapse'" class="collapse " id="client-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-                        <li><a class="link-dark d-inline-flex text-decoration-none " href="">Добавить нового </a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/addNewClientAdm">Добавить нового </a></li>
                         <li><a class="link-dark d-inline-flex text-decoration-none " href="/admin/allClients">Показать всех/удалить/редактировать </a></li>
-                        <li><a class="link-dark d-inline-flex text-decoration-none  " href="">Блокировка/разблокировка клиента</a></li>
+                        <li><a class="link-dark d-inline-flex text-decoration-none  " href="/admin/blockingUserClient">Блокировка/разблокировка клиента</a></li>
                     </ul>
                 </div>
             </li>

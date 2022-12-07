@@ -28,7 +28,7 @@ public class Client {
     @Column(name = "client_phone_number", length = 20)
     private String clientPhoneNumber;
 
-    @Column(name = "client_file_code", nullable = false)
+    @Column(name = "client_file_code", nullable = false, unique = true)
     private Integer clientFileCode;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
