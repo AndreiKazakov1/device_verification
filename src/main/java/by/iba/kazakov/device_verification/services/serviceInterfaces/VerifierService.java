@@ -11,4 +11,7 @@ public interface VerifierService
     Verifier findByFirstSecondName(String fn, String ln);
 
     boolean verServNumValidation(Integer verServiceNum);
+
+
+    String isEnable(Long id);
 }

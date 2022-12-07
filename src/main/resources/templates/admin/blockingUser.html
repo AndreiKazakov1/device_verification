@@ -9,7 +9,7 @@
   <title>All verifiers</title>
 </head>
 <body>
-<h3>Блокировка поверителей</h3>
+<h4>Блокировка/разблокировка поверителей</h4>
 <div id="demo_info" class="box"></div>
 <table id="example" class="display" style="width:100%">
   <thead>
@@ -18,8 +18,8 @@
     <th>Имя</th>
     <th>Фамилия</th>
     <th>Статус</th>
-    <th>Заблокировать</th>
-    <th>Разблокировать</th>
+    <th>Заблок.</th>
+    <th>Разблок.</th>
 
 
   </tr>
@@ -29,17 +29,19 @@
     <td th:utext="${verifier.id}">...</td>
     <td th:utext="${verifier.verifierFirstName}">...</td>
     <td th:utext="${verifier.verifierLastName}">...</td>
-    <td th:utext="${verifier.getIdUser().isEnabled()}">...</td>
+    <!--<td th:utext="${verifier.getIdUser().isEnabled()}">...</td>-->
+    <td th:utext="${verifierService.isEnable((verifier.getIdUser().id))}">...</td>
+
     <td ><form th:action="'/admin/'+${verifier.getIdUser().id}+'/block'"  method="post">
-      <button class="btn btn-outline-danger" type="submit" >block</button>
+      <button class="btn btn-outline-danger" type="submit" >
+        &#10060;</button>
     </form>
     </td>
-
-    <!--<button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
-            onclick="document.location='/admin/adminInfo'" >Вернуться назад</button>
-    <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
-            type="submit"   >Подтвердить</button>
-    -->
+    <td ><form th:action="'/admin/'+${verifier.getIdUser().id}+'/unlock'"  method="post">
+      <button class="btn btn-outline-success" type="submit" >
+        &#9989;</button>
+    </form>
+    </td>
 
 </table>
 <script>
@@ -50,7 +52,7 @@
   });
 </script>
 </body>
-
+</html>
 
 <!--
 <div class="col-md-4">
@@ -61,3 +63,9 @@
   <label class="form-label" for="verifierLastNameAdm">Фамилия</label>
   <input class="form-control" id="verifierLastNameAdm" required name="verifierLastName" type="text">
 </div>-->
+<!--<button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+            onclick="document.location='/admin/adminInfo'" >Вернуться назад</button>
+    <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
+            type="submit"   >Подтвердить</button>
+    -->
+

@@ -1,6 +1,7 @@
 package by.iba.kazakov.device_verification.services.implementations;
 
 import by.iba.kazakov.device_verification.models.Verifier;
+import by.iba.kazakov.device_verification.repositories.UserRepository;
 import by.iba.kazakov.device_verification.repositories.VerifierRepository;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.VerifierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import java.util.Set;
 public class VerifierImpl implements VerifierService {
     @Autowired
     VerifierRepository verifierRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public Set<Verifier> findAll() {
@@ -76,6 +79,22 @@ public class VerifierImpl implements VerifierService {
        return true;
     }
 
+    @Override
+    public String isEnable(Long id){
+        Set<Verifier> verifiers = new HashSet<>();
+        verifierRepository.findAll().forEach(verifiers::add);
+        Verifier verifier_ = new Verifier();
+        String activity = "";
+        for(Verifier verifier:verifiers){
+            Long id_ = verifier.getIdUser().getId();
+            if (Objects.equals(id_, id))verifier_=verifier;
+        }
+           boolean isEnable = verifier_.getIdUser().isEnabled();
+           if (isEnable) activity = "активен";
+           else activity = "заблокирован";
+           return activity;
+
+    }
 
 
 }

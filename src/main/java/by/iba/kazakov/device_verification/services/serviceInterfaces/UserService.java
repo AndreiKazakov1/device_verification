@@ -13,4 +13,6 @@ public interface UserService extends CrudService<User, Long> {
     boolean oldClientsPassValidation(String pass, Long currentClientsId);
 
     boolean twoClientsPassEquals(String clientsNewPass, String clientsNewPassSubmit);
+
+
 }

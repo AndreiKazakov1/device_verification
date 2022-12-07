@@ -92,27 +92,45 @@
           <div class="col-md-4">
             <label class="form-label" for="clientNameReg">Название организации</label>
             <input class="form-control" id="clientNameReg" required th:field="*{clientName}" type="text" >
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="clientAddressReg">Юридический адрес</label>
             <input  class="form-control" id="clientAddressReg"  required th:field="*{clientAddress}"   type="text" >
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="clientPhoneNumberReg">Номер телефона</label>
             <input class="form-control" id="clientPhoneNumberReg" required th:field="*{clientPhoneNumber}"  type="tel" >
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="clientFileCodeReg">Код клиента из картотеки</label>
             <input class="form-control" id="clientFileCodeReg" required th:field="*{clientFileCode}"  type="number" min="0">
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
           </div>
 
           <div class="col-md-4">
             <label class="form-label" for="clientLoginReg">Логин</label>
             <input class="form-control" id="clientLoginReg" required name="userLogin" type="text" >
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="clientPassReg">Пароль</label>
             <input class="form-control" id="clientPassReg" required name="userPassword" type="password" >
+            <div class="invalid-feedback">
+              Необходимо заполнить поле.
+            </div>
           </div>
           <br>
           <div class="col-12">

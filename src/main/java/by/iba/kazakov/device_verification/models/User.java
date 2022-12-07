@@ -36,6 +36,9 @@ public class User {
 
 
 
+    }
+
+
 
     /*@OneToMany(mappedBy = "idUser")
     private Set<Administrator> administrators = new LinkedHashSet<>();*/
@@ -45,4 +48,3 @@ public class User {
 
 
 
-}

@@ -1,7 +1,9 @@
 package by.iba.kazakov.device_verification.controllers.admin;
 
+import by.iba.kazakov.device_verification.models.Client;
 import by.iba.kazakov.device_verification.models.User;
 import by.iba.kazakov.device_verification.models.Verifier;
+import by.iba.kazakov.device_verification.services.serviceInterfaces.ClientService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.RoleService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.UserService;
 import by.iba.kazakov.device_verification.services.serviceInterfaces.VerifierService;
@@ -21,16 +23,14 @@ import java.util.Set;
 
 @Controller
 public class RegistrationByAdminController {
-
     @Autowired
     UserService userService;
-
     @Autowired
     VerifierService verifierService;
-
     @Autowired
     RoleService roleService;
-
+    @Autowired
+    ClientService clientService;
 
     @GetMapping({"/admin/addNewVerifierAdm"})
     public String addNewVerifier (Model model) {
@@ -72,4 +72,45 @@ public class RegistrationByAdminController {
         model.addAttribute("verifiers", verifiers);
         return "admin/showAllVerifiers";
     }
+
+
+    //******************Client***************
+
+    @GetMapping({"/admin/addNewClientAdm"})
+    public String newClientRegistrationAdm(Model model) {
+        model.addAttribute("newClient", new Client());
+        return "admin/addNewClientAdm";
+
+    }
+
+    @Transactional
+    @PostMapping("/admin/addNewClientAdm")
+    public String addNewUserClientRegAdm (@Validated String userLogin, @Validated String userPassword, Client client){
+
+
+        if(userService.loginValidation(userLogin)) {
+            User user = new User();
+            user.setUsername(userLogin);
+            user.setPassword(BCrypt.hashpw(userPassword, BCrypt.gensalt(12)));
+            user.setRoles(new ArrayList<>());
+            user.getRoles().add(roleService.findByName("ROLE_CLIENT"));
+            userService.save(user);
+            client.setIdUser(user);
+            clientService.save(client);
+            return "admin/addNewClientAdmSubmit";
+        }return "admin/registrationClientLogErrorInput";
+
+    }
+
+
+    @RequestMapping(value = {"/admin/addNewClientAdmSubmit"}, method = RequestMethod.GET)
+    public String newClientRegistrationSubmit(Model model) {
+        return "admin/addNewClientAdmSubmit";
+    }
+
+
+
+
+
+
 }

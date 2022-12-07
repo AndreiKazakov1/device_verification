@@ -41,7 +41,6 @@ public class AdminsMenuController {
         Long id = userService.findByName(name);
         Administrator administrator = administratorService.findAdministratorByUserId(id);
         model.addAttribute("administrator", administrator );
-
         return "admin/adminInfo";
     }
 
@@ -77,22 +76,12 @@ public class AdminsMenuController {
     }
 
     @GetMapping({"/admin/blockingUser"})
-    public String blockingUser(Model model){
+    public String blockingUser(Model model) {
         Set<Verifier> verifiers = verifierService.findAll();
+        model.addAttribute("verifierService", verifierService);
         model.addAttribute("verifiers", verifiers);
         return "admin/blockingUser";
     }
-
-
-   /* @PostMapping({"/admin/blockingUser"})
-    public String blockingUser(@Validated String verifierFirstName, @Validated String verifierLastName){
-        Verifier verifier = verifierService.findByFirstSecondName(verifierFirstName, verifierLastName);
-        if(verifier.getId()>0) return "redirect:/admin/adminInfo";
-       else return "redirect:/admin/blockingUserErr";
-        //Long id = verifier.getIdUser().getId();
-        //return "admin/blockingUserErr";
-    }*/
-
 
 
     @PostMapping(value = "/admin/{id}/block")
@@ -100,13 +89,45 @@ public class AdminsMenuController {
         User user = userService.findById(id);
         user.setEnabled(false);
         userService.save(user);
-        return "redirect:/admin/block";
+        return  "redirect:/admin/blockingUser";
     }
 
-    @GetMapping({"/admin/block"})
-    public String block(){
-        return "redirect:/admin/block";
+    @PostMapping(value = "/admin/{id}/unlock")
+    public String unlockingUser(@PathVariable (value = "id") Long id) {
+        User user = userService.findById(id);
+        user.setEnabled(true);
+        userService.save(user);
+        return  "redirect:/admin/blockingUser";
     }
+
+
+
+
+
+   /* @GetMapping({"/verifier/allMeasTypes"})
+    public String measTypeList(Model model) {
+        Set<MeasurementType> measurementTypes = measurementTypeService.findAll();
+        model.addAttribute("meastypes", measurementTypes);
+        return "verifier/showAllMeasurementTypes";
+    }
+
+
+    @PostMapping(value = "/verifier/{id}/del")
+    public String deleteMeasurementType(@PathVariable (value = "id") long id) {
+        MeasurementType measurementType =  measurementTypeService.findById(id);
+        measurementTypeService.delete(measurementType);
+        return "redirect:/verifier/allMeasTypes";
+    }
+*/
+
+
+
+
+
+
+
+
+
 
     @GetMapping({"/admin/blockingUserErr"})
     public String blockingUserErr(){
@@ -116,3 +137,11 @@ public class AdminsMenuController {
 }
 
 
+ /* @PostMapping({"/admin/blockingUser"})
+    public String blockingUser(@Validated String verifierFirstName, @Validated String verifierLastName){
+        Verifier verifier = verifierService.findByFirstSecondName(verifierFirstName, verifierLastName);
+        if(verifier.getId()>0) return "redirect:/admin/adminInfo";
+       else return "redirect:/admin/blockingUserErr";
+        //Long id = verifier.getIdUser().getId();
+        //return "admin/blockingUserErr";
+    }*/
