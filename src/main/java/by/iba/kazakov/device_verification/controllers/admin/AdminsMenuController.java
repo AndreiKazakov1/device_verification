@@ -157,8 +157,18 @@ public class AdminsMenuController {
         return "redirect:/admin/allClients";
     }
 
+    @PostMapping({"/admin/{id}/editClient"})
+    public String editClient(Model model, @PathVariable (value = "id") long id) {
+        Client client = clientService.findById(id);
+        model.addAttribute("client", client);
+        return "admin/editClient";
+    }
 
-
+    @PostMapping("admin/editClient")
+    public String editClient_(Client client){
+        clientService.save(client);
+        return "redirect:/admin/allClients";
+    }
 
 
 }
