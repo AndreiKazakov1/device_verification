@@ -3,28 +3,54 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">verifier</a>
+            <a class="navbar-brand" href="#adminInfo" data-bs-toggle="modal">Информация о программе</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="modal fade" id="adminInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title "  id="staticBackdropLabel">Основная информация</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                        </div>
+                        <div class="modal-body">
+                            <strong>Программа "5Ψ_program"</strong> предназначена для оптимизации процесса проведения поверки СИ.<br>
+                            <strong>Клиенту</strong> дает возможность проверить готовность сданного в поверку прибора и ознакомиться с ее результатами,
+                            изменить пароль доступа к программе, просмотреть персональные данные.<br>
+                            <strong>Поверителю</strong> дает возможность добавить прибор в поверку, провести поверку и зафиксировать
+                            результаты измерения в протокол; добавить МП, новый вид СИ, измерительный канал, эталон и т.п.<br>
+                            <strong>Администратору</strong> У администратора свои задачи. О них следует знать только ему.<br>
+                            <br><br>
+                            *************************************************************<br>
+                            *************************************************************<br>
+                            Программа разработана ©А.Н. Казаков<br>
+                            *************************************************************<br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                            <!--<button type="button" class="btn btn-primary">Понял</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Документация</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/verifier/info">Методики поверки</a></li>
+                            <li><a class="dropdown-item" href="\resources\static\reu">Руководства по эксплуатации</a></li>
+
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Полезные ссылки</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://www.oei.by">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="https://www.oei.by">ОЕИ</a></li>
+                            <li><a class="dropdown-item" href="https://gosstandart.gov.by/">Госстандарт</a></li>
+                            <li><a class="dropdown-item" href="http://belgim.by/">БелГИМ</a></li>
                         </ul>
                     </li>
                 </ul>

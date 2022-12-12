@@ -27,4 +27,9 @@ public class VerInfo {
         return "verifier/verInfo";
     }
 
+    @GetMapping({"/verifier/info"})
+    public String info () {
+        return "verifier/info";
+    }
+
 }
