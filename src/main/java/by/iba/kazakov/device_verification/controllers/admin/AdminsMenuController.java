@@ -170,6 +170,19 @@ public class AdminsMenuController {
         return "redirect:/admin/allClients";
     }
 
+    @PostMapping({"/admin/{id}/editVerifier"})
+    public String editVerifier(Model model, @PathVariable (value = "id") long id) {
+        Verifier verifier = verifierService.findById(id);
+        model.addAttribute("verifier", verifier);
+        return "admin/editVerifier";
+    }
+
+    @PostMapping("admin/editVerifier")
+    public String editVerifier_(Verifier verifier){
+        verifierService.save(verifier);
+        return "redirect:/admin/showAllVerifiers";
+    }
+
 
 }
 
