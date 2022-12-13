@@ -19,6 +19,8 @@
         <th>ID</th>
         <th>Тип погрешности</th>
         <th>Единица измерения </th>
+        <th>Удалить </th>
+        <th>Изменить </th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +28,14 @@
         <td th:utext="${errorType.id}">...</td>
         <td th:utext="${errorType.errorTypeCol}">...</td>
         <td th:utext="${errorType.errorUnit}">...</td>
+        <td ><form th:action="'/admin/'+${errorType.id}+'/deleteClient'"  method="post">
+            <button class="btn btn-outline-danger" type="submit" >DEL</button>
+        </form>
+        </td>
+        <td ><form th:action="'/admin/'+${errorType.id}+'/editClient'"  method="post">
+            <button class="btn btn-outline-warning" type="submit" >EDIT</button>
+        </form>
+        </td>
     </tr>
     </tbody>
 </table>

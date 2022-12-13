@@ -22,6 +22,8 @@
         <th>Код и название организации (клиент)</th>
         <th>Назначенный поверитель</th>
         <th>Дата поступления в поверку</th>
+        <th>Удалить</th>
+        <th>Изменить</th>
 
     </tr>
     </thead>
@@ -35,7 +37,14 @@
         <td th:utext="${devicesInVerification.idClient.clientFileCode+'&nbsp;&nbsp;&nbsp;'+devicesInVerification.idClient.clientName}">...</td>
         <td th:utext="${devicesInVerification.idVerifier.verifierFirstName+'&nbsp;&nbsp;&nbsp;'+devicesInVerification.idVerifier.verifierLastName}">...</td>
         <td th:utext="${devicesInVerification.verificationStartDate}">...</td>
-
+        <td ><form th:action="'/admin/'+${devicesInVerification.id}+'/deleteClient'"  method="post">
+            <button class="btn btn-outline-danger" type="submit" >DEL</button>
+        </form>
+        </td>
+        <td ><form th:action="'/admin/'+${devicesInVerification.id}+'/editClient'"  method="post">
+            <button class="btn btn-outline-warning" type="submit" >EDIT</button>
+        </form>
+        </td>
     </tr>
 
     </tbody>

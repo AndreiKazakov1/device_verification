@@ -25,6 +25,8 @@
         <th>Нач. вых. диапазона</th>
         <th>Кон. вых. диапазона</th>
         <th>Ед. измер. вых. сигнала</th>
+        <th>Удалить</th>
+        <th>Изменить</th>
 
     </tr>
     </thead>
@@ -41,7 +43,14 @@
         <td th:utext="${measurementChannelType.startOutputRange}">...</td>
         <td th:utext="${measurementChannelType.endOutputRange}">...</td>
         <td th:utext="${measurementChannelType.outputMeasuringSignalUnit}">...</td>
-
+        <td ><form th:action="'/admin/'+${measurementChannelType.id}+'/deleteClient'"  method="post">
+            <button class="btn btn-outline-danger" type="submit" >DEL</button>
+        </form>
+        </td>
+        <td ><form th:action="'/admin/'+${measurementChannelType.id}+'/editClient'"  method="post">
+            <button class="btn btn-outline-warning" type="submit" >EDIT</button>
+        </form>
+        </td>
 
     </tr>
 
