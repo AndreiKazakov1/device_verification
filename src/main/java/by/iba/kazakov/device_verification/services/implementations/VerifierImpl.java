@@ -27,7 +27,13 @@ public class VerifierImpl implements VerifierService {
 
     @Override
     public Verifier findById(Long id) {
-        return new Verifier();
+        Set<Verifier> verifiers = new HashSet<>();
+        verifierRepository.findAll().forEach(verifiers::add);
+        for(Verifier verifier: verifiers){
+            Long verId = verifier.getId();
+            if (Objects.equals(verId, id)) return verifier;
+        }
+        return  null;
     }
 
 
@@ -59,6 +65,7 @@ public class VerifierImpl implements VerifierService {
 
     @Override
     public void delete(Verifier object) {
+        verifierRepository.delete(object);
 
     }
 

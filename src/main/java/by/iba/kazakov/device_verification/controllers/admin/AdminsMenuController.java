@@ -164,10 +164,21 @@ public class AdminsMenuController {
         return "admin/editClient";
     }
 
+
+
     @PostMapping("admin/editClient")
     public String editClient_(Client client){
         clientService.save(client);
         return "redirect:/admin/allClients";
+    }
+
+    @PostMapping(value = "/admin/{id}/deleteVerifier")
+    public String deleteVerifier(@PathVariable (value = "id") long id) {
+        Verifier verifier = verifierService.findById(id);
+        Long verId = verifier.getIdUser().getId();
+        User user = userService.findById(verId);
+        userService.delete(user);
+        return "redirect:/admin/showAllVerifiers";
     }
 
     @PostMapping({"/admin/{id}/editVerifier"})

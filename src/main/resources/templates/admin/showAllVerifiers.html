@@ -31,11 +31,11 @@
         <td th:utext="${verifier.verifierFirstName}">...</td>
         <td th:utext="${verifier.verifierLastName}">...</td>
         <td th:utext="${verifier.verifierServiceNumber}">...</td>
-        <td ><form th:action="'/admin/'+${verifier.id}+'/deleteClient'"  method="post">
+        <td ><form th:action="'/admin/'+${verifier.id}+'/deleteVerifier'"  method="post">
             <button class="btn btn-outline-danger" type="submit" >DEL</button>
         </form>
         </td>
-        <td ><form th:action="'/admin/'+${verifier.id}+'/editClient'"  method="post">
+        <td ><form th:action="'/admin/'+${verifier.id}+'/editVerifier'"  method="post">
             <button class="btn btn-outline-warning" type="submit" >EDIT</button>
         </form>
         </td>

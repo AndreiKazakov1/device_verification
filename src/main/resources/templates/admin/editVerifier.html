@@ -31,18 +31,18 @@
   </style>
 </head>
 <body class="bg-light">
-<h3>Изменение данных клиента</h3>
+<h3>Изменение данных поверителя</h3>
 <hr class="my-4">
 <div class="container">
   <main >
     <div class="col-md-7 col-lg-8">
-      <form th:action="@{/admin/editClient}" th:object="${client} "  method="post" class="needs-validation" novalidate>
+      <form th:action="@{/admin/editVerifier}" th:object="${verifier} "  method="post" class="needs-validation" novalidate>
         <!--  <h5>Основные данные</h5>-->
         <div class="row g-3">
 
           <div class="col-10">
-            <label for="clientName" class="form-label">Изменить название организации</label>
-            <input type="text" th:field="*{clientName}" class="form-control" id="clientName"  required >
+            <label for="verifierFirstName" class="form-label">Изменить имя</label>
+            <input type="text" th:field="*{verifierFirstName}" class="form-control" id="verifierFirstName"  required >
             <div class="invalid-feedback">
               Необходимо заполнить поле.
             </div>
@@ -50,8 +50,8 @@
 
           <div class="col-10">
 
-            <label for="clientAddress" class="form-label">Изменить адрес</label>
-            <input type="text" th:field="*{clientAddress}" class="form-control" id="clientAddress"  required >
+            <label for="verifierLastName" class="form-label">Изменить фамилию</label>
+            <input type="text" th:field="*{verifierLastName}" class="form-control" id="verifierLastName"  required >
             <div class="invalid-feedback">
               Необходимо заполнить поле.
             </div>
@@ -59,21 +59,14 @@
 
           <div class="col-10">
 
-            <label for="clientPhoneNumber" class="form-label">Изменить номер телефона</label>
-            <input type="text" th:field="*{clientPhoneNumber}" class="form-control" id="clientPhoneNumber"  required >
+            <label for="verifierServiceNumber" class="form-label">Изменить табельный номер</label>
+            <input type="text" th:field="*{verifierServiceNumber}" class="form-control" id="verifierServiceNumber"  required >
             <div class="invalid-feedback">
               Необходимо заполнить поле.
             </div>
           </div>
 
-          <div class="col-10">
 
-            <label for="clientFileCode" class="form-label">Изменить код клиента</label>
-            <input type="number" th:field="*{clientFileCode}" class="form-control" id="clientFileCode"  required >
-            <div class="invalid-feedback">
-              Необходимо заполнить поле.
-            </div>
-          </div>
 
           <div hidden class="col-10">
 
@@ -107,7 +100,7 @@
         <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff"
                 type="submit" >Сохранить</button>
         <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
-                onclick="document.location='/admin/allClients'" >Отменить</button>
+                onclick="document.location='/admin/showAllVerifiers'" >Отменить</button>
         <hr class="my-4">
       </form>
     </div>
