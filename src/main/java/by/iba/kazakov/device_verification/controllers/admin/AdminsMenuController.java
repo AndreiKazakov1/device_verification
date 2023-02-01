@@ -139,6 +139,27 @@ public class AdminsMenuController {
     }
 
 
+    @PostMapping(value = "/admin/{id}/deleteVerifier")
+    public String deleteVerifier(@PathVariable (value = "id") long id) {
+        Verifier verifier = verifierService.findById(id);
+        Long verId = verifier.getIdUser().getId();
+        User user = userService.findById(verId);
+        userService.delete(user);
+        return "redirect:/admin/showAllVerifiers";
+    }
+
+    @PostMapping({"/admin/{id}/editVerifier"})
+    public String editVerifier(Model model, @PathVariable (value = "id") long id) {
+        Verifier verifier = verifierService.findById(id);
+        model.addAttribute("verifier", verifier);
+        return "admin/editVerifier";
+    }
+
+    @PostMapping("admin/editVerifier")
+    public String editVerifier_(Verifier verifier){
+        verifierService.save(verifier);
+        return "redirect:/admin/showAllVerifiers";
+    }
     //************* Work with Clients ***************
 
     @RequestMapping({"/admin/allClients"})
@@ -165,36 +186,11 @@ public class AdminsMenuController {
     }
 
 
-
     @PostMapping("admin/editClient")
     public String editClient_(Client client){
         clientService.save(client);
         return "redirect:/admin/allClients";
     }
-
-    @PostMapping(value = "/admin/{id}/deleteVerifier")
-    public String deleteVerifier(@PathVariable (value = "id") long id) {
-        Verifier verifier = verifierService.findById(id);
-        Long verId = verifier.getIdUser().getId();
-        User user = userService.findById(verId);
-        userService.delete(user);
-        return "redirect:/admin/showAllVerifiers";
-    }
-
-    @PostMapping({"/admin/{id}/editVerifier"})
-    public String editVerifier(Model model, @PathVariable (value = "id") long id) {
-        Verifier verifier = verifierService.findById(id);
-        model.addAttribute("verifier", verifier);
-        return "admin/editVerifier";
-    }
-
-    @PostMapping("admin/editVerifier")
-    public String editVerifier_(Verifier verifier){
-        verifierService.save(verifier);
-        return "redirect:/admin/showAllVerifiers";
-    }
-
-
 }
 
 

@@ -32,7 +32,4 @@ public class ClientsDevicesController {
         model.addAttribute("allClientsDevices", allClientsDevices);
         return "client/allClientsDevices";
     }
-
-
-
 }

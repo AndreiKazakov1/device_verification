@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
@@ -65,4 +66,17 @@ public class ClientInfoPassController {
         return "client/changeClientsPasswordSubmit";
     }
 
+    @PostMapping({"/client/{id}/editClientsInfo"})
+    public String editClient(Model model, @PathVariable(value = "id") long id) {
+        Client client = clientService.findById(id);
+        model.addAttribute("client", client);
+        return "client/editClientsInfo";
+    }
+
+
+    @PostMapping("client/editClientsInfo")
+    public String editClient_(Client client){
+        clientService.save(client);
+        return "client/clientInfo";
+    }
 }
