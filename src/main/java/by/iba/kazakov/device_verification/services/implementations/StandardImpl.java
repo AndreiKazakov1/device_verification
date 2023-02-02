@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 @Service
 public class StandardImpl implements StandardService {
@@ -26,6 +27,22 @@ public class StandardImpl implements StandardService {
     }
 
     @Override
+    public Standard findById(Long id) {
+        Set<Standard> standards = new HashSet<>();
+        standardRepository.findAll().forEach(standards::add);
+        for (Standard standard:standards){
+            Long id_ = standard.getId();
+            if (Objects.equals(id, id_)) return standard;
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteByIdLong(Long id) {
+        standardRepository.deleteById(id);
+    }
+
+    @Override
     public Standard save(Standard object) {
         return standardRepository.save(object);
     }
@@ -39,4 +56,6 @@ public class StandardImpl implements StandardService {
     public void deleteById(Integer integer) {
 
     }
+
+
 }
