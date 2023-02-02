@@ -36,7 +36,7 @@
 <div class="container">
   <main >
     <div class="col-md-7 col-lg-8">
-      <form th:action="@{/client/editClient}" th:object="${client} "  method="post" class="needs-validation" novalidate>
+      <form th:action="@{/client/editClientsInfo}" th:object="${client} "  method="post" class="needs-validation" novalidate>
         <!--  <h5>Основные данные</h5>-->
         <div class="row g-3">
 
@@ -66,7 +66,7 @@
             </div>
           </div>
 
-          <div class="col-10">
+          <div hidden class="col-10">
 
             <label for="clientFileCode" class="form-label">Изменить код клиента</label>
             <input type="number" th:field="*{clientFileCode}" class="form-control" id="clientFileCode"  required >
@@ -107,7 +107,7 @@
         <button class="flex-sm-wrap btn btn-outline-secondary btn-group-sm background-color: #e6e7ff"
                 type="submit" >Сохранить</button>
         <button class="w-auto btn  btn-outline-secondary btn-group-sm background-color: #e6e7ff"
-                onclick="document.location='/admin/allClients'" >Отменить</button>
+                onclick="document.location='/client/clientInfo'" >Отменить</button>
         <hr class="my-4">
       </form>
     </div>

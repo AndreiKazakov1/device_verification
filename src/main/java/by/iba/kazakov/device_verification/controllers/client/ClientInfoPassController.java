@@ -66,17 +66,5 @@ public class ClientInfoPassController {
         return "client/changeClientsPasswordSubmit";
     }
 
-    @PostMapping({"/client/{id}/editClientsInfo"})
-    public String editClient(Model model, @PathVariable(value = "id") long id) {
-        Client client = clientService.findById(id);
-        model.addAttribute("client", client);
-        return "client/editClientsInfo";
-    }
 
-
-    @PostMapping("client/editClientsInfo")
-    public String editClient_(Client client){
-        clientService.save(client);
-        return "client/clientInfo";
-    }
 }
